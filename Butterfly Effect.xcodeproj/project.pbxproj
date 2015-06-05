@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D68E91391B21A06D0092F456 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D68E91381B21A06D0092F456 /* main.m */; };
+		D68E913C1B21A06D0092F456 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D68E913B1B21A06D0092F456 /* AppDelegate.m */; };
+		D68E913F1B21A06D0092F456 /* Butterfly_Effect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D68E913D1B21A06D0092F456 /* Butterfly_Effect.xcdatamodeld */; };
+		D68E91411B21A06D0092F456 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D68E91401B21A06D0092F456 /* Images.xcassets */; };
+		D68E91441B21A06D0092F456 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68E91421B21A06D0092F456 /* LaunchScreen.xib */; };
+		D68E91501B21A06D0092F456 /* Butterfly_EffectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D68E914F1B21A06D0092F456 /* Butterfly_EffectTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D68E914A1B21A06D0092F456 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D68E912B1B21A06D0092F456 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D68E91321B21A06D0092F456;
+			remoteInfo = "Butterfly Effect";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D68E91331B21A06D0092F456 /* Butterfly Effect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Butterfly Effect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D68E91371B21A06D0092F456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D68E91381B21A06D0092F456 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D68E913A1B21A06D0092F456 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D68E913B1B21A06D0092F456 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D68E913E1B21A06D0092F456 /* Butterfly_Effect.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Butterfly_Effect.xcdatamodel; sourceTree = "<group>"; };
+		D68E91401B21A06D0092F456 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D68E91431B21A06D0092F456 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D68E91491B21A06D0092F456 /* Butterfly EffectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Butterfly EffectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D68E914E1B21A06D0092F456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D68E914F1B21A06D0092F456 /* Butterfly_EffectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Butterfly_EffectTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D68E91301B21A06D0092F456 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D68E91461B21A06D0092F456 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D68E912A1B21A06D0092F456 = {
+			isa = PBXGroup;
+			children = (
+				D68E91351B21A06D0092F456 /* Butterfly Effect */,
+				D68E914C1B21A06D0092F456 /* Butterfly EffectTests */,
+				D68E91341B21A06D0092F456 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D68E91341B21A06D0092F456 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D68E91331B21A06D0092F456 /* Butterfly Effect.app */,
+				D68E91491B21A06D0092F456 /* Butterfly EffectTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D68E91351B21A06D0092F456 /* Butterfly Effect */ = {
+			isa = PBXGroup;
+			children = (
+				D68E913A1B21A06D0092F456 /* AppDelegate.h */,
+				D68E913B1B21A06D0092F456 /* AppDelegate.m */,
+				D68E91401B21A06D0092F456 /* Images.xcassets */,
+				D68E91421B21A06D0092F456 /* LaunchScreen.xib */,
+				D68E913D1B21A06D0092F456 /* Butterfly_Effect.xcdatamodeld */,
+				D68E91361B21A06D0092F456 /* Supporting Files */,
+			);
+			path = "Butterfly Effect";
+			sourceTree = "<group>";
+		};
+		D68E91361B21A06D0092F456 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D68E91371B21A06D0092F456 /* Info.plist */,
+				D68E91381B21A06D0092F456 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D68E914C1B21A06D0092F456 /* Butterfly EffectTests */ = {
+			isa = PBXGroup;
+			children = (
+				D68E914F1B21A06D0092F456 /* Butterfly_EffectTests.m */,
+				D68E914D1B21A06D0092F456 /* Supporting Files */,
+			);
+			path = "Butterfly EffectTests";
+			sourceTree = "<group>";
+		};
+		D68E914D1B21A06D0092F456 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D68E914E1B21A06D0092F456 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D68E91321B21A06D0092F456 /* Butterfly Effect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D68E91531B21A06D0092F456 /* Build configuration list for PBXNativeTarget "Butterfly Effect" */;
+			buildPhases = (
+				D68E912F1B21A06D0092F456 /* Sources */,
+				D68E91301B21A06D0092F456 /* Frameworks */,
+				D68E91311B21A06D0092F456 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Butterfly Effect";
+			productName = "Butterfly Effect";
+			productReference = D68E91331B21A06D0092F456 /* Butterfly Effect.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D68E91481B21A06D0092F456 /* Butterfly EffectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D68E91561B21A06D0092F456 /* Build configuration list for PBXNativeTarget "Butterfly EffectTests" */;
+			buildPhases = (
+				D68E91451B21A06D0092F456 /* Sources */,
+				D68E91461B21A06D0092F456 /* Frameworks */,
+				D68E91471B21A06D0092F456 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D68E914B1B21A06D0092F456 /* PBXTargetDependency */,
+			);
+			name = "Butterfly EffectTests";
+			productName = "Butterfly EffectTests";
+			productReference = D68E91491B21A06D0092F456 /* Butterfly EffectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D68E912B1B21A06D0092F456 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = digime;
+				TargetAttributes = {
+					D68E91321B21A06D0092F456 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					D68E91481B21A06D0092F456 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = D68E91321B21A06D0092F456;
+					};
+				};
+			};
+			buildConfigurationList = D68E912E1B21A06D0092F456 /* Build configuration list for PBXProject "Butterfly Effect" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D68E912A1B21A06D0092F456;
+			productRefGroup = D68E91341B21A06D0092F456 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D68E91321B21A06D0092F456 /* Butterfly Effect */,
+				D68E91481B21A06D0092F456 /* Butterfly EffectTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D68E91311B21A06D0092F456 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D68E91441B21A06D0092F456 /* LaunchScreen.xib in Resources */,
+				D68E91411B21A06D0092F456 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D68E91471B21A06D0092F456 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D68E912F1B21A06D0092F456 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D68E913C1B21A06D0092F456 /* AppDelegate.m in Sources */,
+				D68E913F1B21A06D0092F456 /* Butterfly_Effect.xcdatamodeld in Sources */,
+				D68E91391B21A06D0092F456 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D68E91451B21A06D0092F456 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D68E91501B21A06D0092F456 /* Butterfly_EffectTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D68E914B1B21A06D0092F456 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D68E91321B21A06D0092F456 /* Butterfly Effect */;
+			targetProxy = D68E914A1B21A06D0092F456 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D68E91421B21A06D0092F456 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D68E91431B21A06D0092F456 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D68E91511B21A06D0092F456 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D68E91521B21A06D0092F456 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D68E91541B21A06D0092F456 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Butterfly Effect/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D68E91551B21A06D0092F456 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Butterfly Effect/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D68E91571B21A06D0092F456 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Butterfly EffectTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Butterfly Effect.app/Butterfly Effect";
+			};
+			name = Debug;
+		};
+		D68E91581B21A06D0092F456 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Butterfly EffectTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Butterfly Effect.app/Butterfly Effect";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D68E912E1B21A06D0092F456 /* Build configuration list for PBXProject "Butterfly Effect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D68E91511B21A06D0092F456 /* Debug */,
+				D68E91521B21A06D0092F456 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D68E91531B21A06D0092F456 /* Build configuration list for PBXNativeTarget "Butterfly Effect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D68E91541B21A06D0092F456 /* Debug */,
+				D68E91551B21A06D0092F456 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D68E91561B21A06D0092F456 /* Build configuration list for PBXNativeTarget "Butterfly EffectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D68E91571B21A06D0092F456 /* Debug */,
+				D68E91581B21A06D0092F456 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D68E913D1B21A06D0092F456 /* Butterfly_Effect.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D68E913E1B21A06D0092F456 /* Butterfly_Effect.xcdatamodel */,
+			);
+			currentVersion = D68E913E1B21A06D0092F456 /* Butterfly_Effect.xcdatamodel */;
+			path = Butterfly_Effect.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D68E912B1B21A06D0092F456 /* Project object */;
+}
