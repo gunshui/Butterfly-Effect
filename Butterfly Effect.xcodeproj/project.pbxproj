@@ -104,6 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				D68E915E1B21A0AD0092F456 /* Controller */,
+				D6BE83BD1B25481E00E56117 /* Model */,
+				D6BE83BE1B25482A00E56117 /* Image */,
 				D68E913A1B21A06D0092F456 /* AppDelegate.h */,
 				D68E913B1B21A06D0092F456 /* AppDelegate.m */,
 				D68E915F1B21A48B0092F456 /* QQTabViewController.h */,
@@ -160,6 +162,20 @@
 				D6BE83BA1B25420E00E56117 /* QQMeViewController.xib */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		D6BE83BD1B25481E00E56117 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D6BE83BE1B25482A00E56117 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

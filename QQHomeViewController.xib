@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QQHomeViewController">
@@ -13,7 +13,33 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xik-lz-IV6">
+                    <rect key="frame" x="0.0" y="65" width="600" height="535"/>
+                    <color key="backgroundColor" red="1" green="0.12777399240000001" blue="0.15275040240000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94d-Wk-ppj">
+                    <rect key="frame" x="0.0" y="60" width="600" height="5"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="94d-Wk-ppj" secondAttribute="trailing" id="1xf-B9-mIr"/>
+                <constraint firstItem="Xik-lz-IV6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="60k-Qi-sog"/>
+                <constraint firstItem="Xik-lz-IV6" firstAttribute="top" secondItem="94d-Wk-ppj" secondAttribute="bottom" id="Acr-8T-hyL"/>
+                <constraint firstItem="Xik-lz-IV6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EMW-q4-Wez"/>
+                <constraint firstAttribute="bottom" secondItem="Xik-lz-IV6" secondAttribute="bottom" id="Mlc-v7-eT1"/>
+                <constraint firstItem="94d-Wk-ppj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Pty-rK-x3b"/>
+                <constraint firstAttribute="trailing" secondItem="Xik-lz-IV6" secondAttribute="trailing" id="WFp-3r-ux5"/>
+                <constraint firstItem="94d-Wk-ppj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="nUg-gt-GLo"/>
+            </constraints>
         </view>
     </objects>
 </document>
