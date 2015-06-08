@@ -13,6 +13,16 @@
 		D68E91411B21A06D0092F456 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D68E91401B21A06D0092F456 /* Images.xcassets */; };
 		D68E91441B21A06D0092F456 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68E91421B21A06D0092F456 /* LaunchScreen.xib */; };
 		D68E91501B21A06D0092F456 /* Butterfly_EffectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D68E914F1B21A06D0092F456 /* Butterfly_EffectTests.m */; };
+		D68E91621B21A48B0092F456 /* QQTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68E91601B21A48B0092F456 /* QQTabViewController.m */; };
+		D68E91631B21A48B0092F456 /* QQTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68E91611B21A48B0092F456 /* QQTabViewController.xib */; };
+		D6BE83AC1B2541C600E56117 /* QQHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BE83AA1B2541C600E56117 /* QQHomeViewController.m */; };
+		D6BE83AD1B2541C600E56117 /* QQHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6BE83AB1B2541C600E56117 /* QQHomeViewController.xib */; };
+		D6BE83B11B2541E200E56117 /* QQBrandClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BE83AF1B2541E200E56117 /* QQBrandClassViewController.m */; };
+		D6BE83B21B2541E200E56117 /* QQBrandClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6BE83B01B2541E200E56117 /* QQBrandClassViewController.xib */; };
+		D6BE83B61B2541FB00E56117 /* QQShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BE83B41B2541FB00E56117 /* QQShowViewController.m */; };
+		D6BE83B71B2541FB00E56117 /* QQShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6BE83B51B2541FB00E56117 /* QQShowViewController.xib */; };
+		D6BE83BB1B25420E00E56117 /* QQMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BE83B91B25420E00E56117 /* QQMeViewController.m */; };
+		D6BE83BC1B25420E00E56117 /* QQMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6BE83BA1B25420E00E56117 /* QQMeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +47,21 @@
 		D68E91491B21A06D0092F456 /* Butterfly EffectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Butterfly EffectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68E914E1B21A06D0092F456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D68E914F1B21A06D0092F456 /* Butterfly_EffectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Butterfly_EffectTests.m; sourceTree = "<group>"; };
+		D68E915F1B21A48B0092F456 /* QQTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQTabViewController.h; sourceTree = "<group>"; };
+		D68E91601B21A48B0092F456 /* QQTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQTabViewController.m; sourceTree = "<group>"; };
+		D68E91611B21A48B0092F456 /* QQTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QQTabViewController.xib; sourceTree = "<group>"; };
+		D6BE83A91B2541C600E56117 /* QQHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QQHomeViewController.h; path = ../QQHomeViewController.h; sourceTree = "<group>"; };
+		D6BE83AA1B2541C600E56117 /* QQHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QQHomeViewController.m; path = ../QQHomeViewController.m; sourceTree = "<group>"; };
+		D6BE83AB1B2541C600E56117 /* QQHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QQHomeViewController.xib; path = ../QQHomeViewController.xib; sourceTree = "<group>"; };
+		D6BE83AE1B2541E200E56117 /* QQBrandClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QQBrandClassViewController.h; path = ../QQBrandClassViewController.h; sourceTree = "<group>"; };
+		D6BE83AF1B2541E200E56117 /* QQBrandClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QQBrandClassViewController.m; path = ../QQBrandClassViewController.m; sourceTree = "<group>"; };
+		D6BE83B01B2541E200E56117 /* QQBrandClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QQBrandClassViewController.xib; path = ../QQBrandClassViewController.xib; sourceTree = "<group>"; };
+		D6BE83B31B2541FB00E56117 /* QQShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQShowViewController.h; sourceTree = "<group>"; };
+		D6BE83B41B2541FB00E56117 /* QQShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQShowViewController.m; sourceTree = "<group>"; };
+		D6BE83B51B2541FB00E56117 /* QQShowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QQShowViewController.xib; sourceTree = "<group>"; };
+		D6BE83B81B25420E00E56117 /* QQMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQMeViewController.h; sourceTree = "<group>"; };
+		D6BE83B91B25420E00E56117 /* QQMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQMeViewController.m; sourceTree = "<group>"; };
+		D6BE83BA1B25420E00E56117 /* QQMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QQMeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +103,12 @@
 		D68E91351B21A06D0092F456 /* Butterfly Effect */ = {
 			isa = PBXGroup;
 			children = (
+				D68E915E1B21A0AD0092F456 /* Controller */,
 				D68E913A1B21A06D0092F456 /* AppDelegate.h */,
 				D68E913B1B21A06D0092F456 /* AppDelegate.m */,
+				D68E915F1B21A48B0092F456 /* QQTabViewController.h */,
+				D68E91601B21A48B0092F456 /* QQTabViewController.m */,
+				D68E91611B21A48B0092F456 /* QQTabViewController.xib */,
 				D68E91401B21A06D0092F456 /* Images.xcassets */,
 				D68E91421B21A06D0092F456 /* LaunchScreen.xib */,
 				D68E913D1B21A06D0092F456 /* Butterfly_Effect.xcdatamodeld */,
@@ -112,6 +141,25 @@
 				D68E914E1B21A06D0092F456 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D68E915E1B21A0AD0092F456 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D6BE83A91B2541C600E56117 /* QQHomeViewController.h */,
+				D6BE83AA1B2541C600E56117 /* QQHomeViewController.m */,
+				D6BE83AB1B2541C600E56117 /* QQHomeViewController.xib */,
+				D6BE83AE1B2541E200E56117 /* QQBrandClassViewController.h */,
+				D6BE83AF1B2541E200E56117 /* QQBrandClassViewController.m */,
+				D6BE83B01B2541E200E56117 /* QQBrandClassViewController.xib */,
+				D6BE83B31B2541FB00E56117 /* QQShowViewController.h */,
+				D6BE83B41B2541FB00E56117 /* QQShowViewController.m */,
+				D6BE83B51B2541FB00E56117 /* QQShowViewController.xib */,
+				D6BE83B81B25420E00E56117 /* QQMeViewController.h */,
+				D6BE83B91B25420E00E56117 /* QQMeViewController.m */,
+				D6BE83BA1B25420E00E56117 /* QQMeViewController.xib */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +244,11 @@
 			files = (
 				D68E91441B21A06D0092F456 /* LaunchScreen.xib in Resources */,
 				D68E91411B21A06D0092F456 /* Images.xcassets in Resources */,
+				D68E91631B21A48B0092F456 /* QQTabViewController.xib in Resources */,
+				D6BE83BC1B25420E00E56117 /* QQMeViewController.xib in Resources */,
+				D6BE83AD1B2541C600E56117 /* QQHomeViewController.xib in Resources */,
+				D6BE83B21B2541E200E56117 /* QQBrandClassViewController.xib in Resources */,
+				D6BE83B71B2541FB00E56117 /* QQShowViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +266,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D68E91621B21A48B0092F456 /* QQTabViewController.m in Sources */,
 				D68E913C1B21A06D0092F456 /* AppDelegate.m in Sources */,
+				D6BE83BB1B25420E00E56117 /* QQMeViewController.m in Sources */,
+				D6BE83B61B2541FB00E56117 /* QQShowViewController.m in Sources */,
+				D6BE83AC1B2541C600E56117 /* QQHomeViewController.m in Sources */,
+				D6BE83B11B2541E200E56117 /* QQBrandClassViewController.m in Sources */,
 				D68E913F1B21A06D0092F456 /* Butterfly_Effect.xcdatamodeld in Sources */,
 				D68E91391B21A06D0092F456 /* main.m in Sources */,
 			);
@@ -402,6 +460,7 @@
 				D68E91551B21A06D0092F456 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D68E91561B21A06D0092F456 /* Build configuration list for PBXNativeTarget "Butterfly EffectTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +469,7 @@
 				D68E91581B21A06D0092F456 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
