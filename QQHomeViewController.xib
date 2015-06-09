@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QQHomeViewController">
             <connections>
+                <outlet property="tableViewHome" destination="oPy-2h-PJu" id="LPO-s2-PMB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,43 +15,21 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xik-lz-IV6">
-                    <rect key="frame" x="0.0" y="65" width="600" height="535"/>
-                    <color key="backgroundColor" red="1" green="0.12777399240000001" blue="0.15275040240000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94d-Wk-ppj">
-                    <rect key="frame" x="0.0" y="60" width="600" height="5"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Button">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFo-r3-Mx4">
-                    <rect key="frame" x="144" y="457" width="46" height="30"/>
-                    <state key="normal" title="Button">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="555" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umf-60-Lok">
-                    <rect key="frame" x="286" y="294" width="29" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="oPy-2h-PJu">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="z5D-IY-zJB"/>
+                        <outlet property="delegate" destination="-1" id="6ri-7Y-2jK"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="94d-Wk-ppj" secondAttribute="trailing" id="1xf-B9-mIr"/>
-                <constraint firstItem="Xik-lz-IV6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="60k-Qi-sog"/>
-                <constraint firstItem="Xik-lz-IV6" firstAttribute="top" secondItem="94d-Wk-ppj" secondAttribute="bottom" id="Acr-8T-hyL"/>
-                <constraint firstItem="Xik-lz-IV6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EMW-q4-Wez"/>
-                <constraint firstAttribute="bottom" secondItem="Xik-lz-IV6" secondAttribute="bottom" id="Mlc-v7-eT1"/>
-                <constraint firstItem="94d-Wk-ppj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Pty-rK-x3b"/>
-                <constraint firstAttribute="trailing" secondItem="Xik-lz-IV6" secondAttribute="trailing" id="WFp-3r-ux5"/>
-                <constraint firstItem="94d-Wk-ppj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="nUg-gt-GLo"/>
+                <constraint firstItem="oPy-2h-PJu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6dS-ai-rHQ"/>
+                <constraint firstAttribute="trailing" secondItem="oPy-2h-PJu" secondAttribute="trailing" id="adP-rc-2rW"/>
+                <constraint firstAttribute="bottom" secondItem="oPy-2h-PJu" secondAttribute="bottom" id="f1l-o4-8rY"/>
+                <constraint firstItem="oPy-2h-PJu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fCJ-7B-ADv"/>
             </constraints>
         </view>
     </objects>
