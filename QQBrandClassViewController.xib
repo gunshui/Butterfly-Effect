@@ -14,14 +14,54 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3s-0C-dTV">
-                    <rect key="frame" x="286" y="152" width="46" height="30"/>
-                    <state key="normal" title="Button">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="网站logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="dvG-VF-ziN">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="Nrp-ln-rV7"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Nrp-ln-rV7"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="Nrp-ln-rV7"/>
+                        </mask>
+                    </variation>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="dvG-VF-ziN" secondAttribute="trailing" id="1kD-tR-Kfu"/>
+                <constraint firstItem="dvG-VF-ziN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OyA-nq-n6P"/>
+                <constraint firstItem="dvG-VF-ziN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="nto-UB-u0i"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="dvG-VF-ziN"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="1kD-tR-Kfu"/>
+                    <exclude reference="OyA-nq-n6P"/>
+                    <exclude reference="nto-UB-u0i"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="dvG-VF-ziN"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="1kD-tR-Kfu"/>
+                    <include reference="OyA-nq-n6P"/>
+                    <include reference="nto-UB-u0i"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="298" y="146"/>
         </view>
     </objects>
+    <resources>
+        <image name="网站logo.png" width="500" height="228"/>
+    </resources>
 </document>
