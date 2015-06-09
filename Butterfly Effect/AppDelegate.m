@@ -41,10 +41,10 @@
     
     QQMeViewController*me=[[QQMeViewController alloc]init];
     me.title=@"个人中心";
-    UINavigationController*nav_me=[[UINavigationController alloc]initWithRootViewController:me];
+//    UINavigationController*nav_me=[[UINavigationController alloc]initWithRootViewController:me];
     
     QQTabViewController*tab=[[QQTabViewController alloc]init];
-    tab.viewControllers=[NSArray arrayWithObjects:nav_home,nav_brand,nav_show,nav_me, nil];
+    tab.viewControllers=[NSArray arrayWithObjects:nav_home,nav_brand,nav_show,me, nil];
     self.window.rootViewController=tab;
     
     [self.window makeKeyAndVisible];

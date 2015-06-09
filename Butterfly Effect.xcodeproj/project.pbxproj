@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8EA89BC01B26B164000CF67D /* MBTwitterScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA89BBC1B26B164000CF67D /* MBTwitterScroll.m */; };
+		8EA89BC11B26B164000CF67D /* UIScrollView+TwitterCover.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA89BBF1B26B164000CF67D /* UIScrollView+TwitterCover.m */; };
+		8EA89BC31B26B2B9000CF67D /* u=3823724296,3457142115&fm=21&gp=0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8EA89BC21B26B2B9000CF67D /* u=3823724296,3457142115&fm=21&gp=0.jpg */; };
+		8EA89BC71B26B5DB000CF67D /* YYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA89BC51B26B5DB000CF67D /* YYSettingViewController.m */; };
+		8EA89BC81B26B5DB000CF67D /* YYSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA89BC61B26B5DB000CF67D /* YYSettingViewController.xib */; };
 		8ED91D361B2572920043EC1C /* 网站logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ED91D351B2572920043EC1C /* 网站logo.png */; };
 		D68E91391B21A06D0092F456 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D68E91381B21A06D0092F456 /* main.m */; };
 		D68E913C1B21A06D0092F456 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D68E913B1B21A06D0092F456 /* AppDelegate.m */; };
@@ -37,6 +42,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8EA89BBB1B26B164000CF67D /* MBTwitterScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTwitterScroll.h; sourceTree = "<group>"; };
+		8EA89BBC1B26B164000CF67D /* MBTwitterScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTwitterScroll.m; sourceTree = "<group>"; };
+		8EA89BBE1B26B164000CF67D /* UIScrollView+TwitterCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TwitterCover.h"; sourceTree = "<group>"; };
+		8EA89BBF1B26B164000CF67D /* UIScrollView+TwitterCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TwitterCover.m"; sourceTree = "<group>"; };
+		8EA89BC21B26B2B9000CF67D /* u=3823724296,3457142115&fm=21&gp=0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "u=3823724296,3457142115&fm=21&gp=0.jpg"; sourceTree = "<group>"; };
+		8EA89BC41B26B5DB000CF67D /* YYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSettingViewController.h; sourceTree = "<group>"; };
+		8EA89BC51B26B5DB000CF67D /* YYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSettingViewController.m; sourceTree = "<group>"; };
+		8EA89BC61B26B5DB000CF67D /* YYSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYSettingViewController.xib; sourceTree = "<group>"; };
 		8ED91D351B2572920043EC1C /* 网站logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "网站logo.png"; sourceTree = "<group>"; };
 		8ED91D371B2575780043EC1C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		D68E91331B21A06D0092F456 /* Butterfly Effect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Butterfly Effect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +104,9 @@
 				D6BE83B81B25420E00E56117 /* QQMeViewController.h */,
 				D6BE83B91B25420E00E56117 /* QQMeViewController.m */,
 				D6BE83BA1B25420E00E56117 /* QQMeViewController.xib */,
+				8EA89BC41B26B5DB000CF67D /* YYSettingViewController.h */,
+				8EA89BC51B26B5DB000CF67D /* YYSettingViewController.m */,
+				8EA89BC61B26B5DB000CF67D /* YYSettingViewController.xib */,
 			);
 			name = "个人中心";
 			sourceTree = "<group>";
@@ -123,6 +139,26 @@
 				D6BE83AB1B2541C600E56117 /* QQHomeViewController.xib */,
 			);
 			name = "首页";
+			sourceTree = "<group>";
+		};
+		8EA89BBA1B26B164000CF67D /* MBTwitterScroll */ = {
+			isa = PBXGroup;
+			children = (
+				8EA89BBB1B26B164000CF67D /* MBTwitterScroll.h */,
+				8EA89BBC1B26B164000CF67D /* MBTwitterScroll.m */,
+				8EA89BBD1B26B164000CF67D /* TwitterCover */,
+			);
+			name = MBTwitterScroll;
+			path = MBTwitterScroll_;
+			sourceTree = "<group>";
+		};
+		8EA89BBD1B26B164000CF67D /* TwitterCover */ = {
+			isa = PBXGroup;
+			children = (
+				8EA89BBE1B26B164000CF67D /* UIScrollView+TwitterCover.h */,
+				8EA89BBF1B26B164000CF67D /* UIScrollView+TwitterCover.m */,
+			);
+			path = TwitterCover;
 			sourceTree = "<group>";
 		};
 		8ED91D381B2578EE0043EC1C /* View */ = {
@@ -211,6 +247,7 @@
 		D6BE83BD1B25481E00E56117 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8EA89BBA1B26B164000CF67D /* MBTwitterScroll */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -218,6 +255,7 @@
 		D6BE83BE1B25482A00E56117 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				8EA89BC21B26B2B9000CF67D /* u=3823724296,3457142115&fm=21&gp=0.jpg */,
 				8ED91D351B2572920043EC1C /* 网站logo.png */,
 			);
 			name = Image;
@@ -308,9 +346,11 @@
 				D68E91411B21A06D0092F456 /* Images.xcassets in Resources */,
 				D68E91631B21A48B0092F456 /* QQTabViewController.xib in Resources */,
 				D6BE83BC1B25420E00E56117 /* QQMeViewController.xib in Resources */,
+				8EA89BC81B26B5DB000CF67D /* YYSettingViewController.xib in Resources */,
 				D6BE83AD1B2541C600E56117 /* QQHomeViewController.xib in Resources */,
 				D6BE83B21B2541E200E56117 /* QQBrandClassViewController.xib in Resources */,
 				D6BE83B71B2541FB00E56117 /* QQShowViewController.xib in Resources */,
+				8EA89BC31B26B2B9000CF67D /* u=3823724296,3457142115&fm=21&gp=0.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,8 +374,11 @@
 				D6BE83B61B2541FB00E56117 /* QQShowViewController.m in Sources */,
 				D6BE83AC1B2541C600E56117 /* QQHomeViewController.m in Sources */,
 				D6BE83B11B2541E200E56117 /* QQBrandClassViewController.m in Sources */,
+				8EA89BC01B26B164000CF67D /* MBTwitterScroll.m in Sources */,
 				D68E913F1B21A06D0092F456 /* Butterfly_Effect.xcdatamodeld in Sources */,
 				D68E91391B21A06D0092F456 /* main.m in Sources */,
+				8EA89BC11B26B164000CF67D /* UIScrollView+TwitterCover.m in Sources */,
+				8EA89BC71B26B5DB000CF67D /* YYSettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +497,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Butterfly Effect/PrefixHeader.pch";
 				INFOPLIST_FILE = "Butterfly Effect/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -466,6 +510,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Butterfly Effect/PrefixHeader.pch";
 				INFOPLIST_FILE = "Butterfly Effect/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
