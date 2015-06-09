@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8ED91D361B2572920043EC1C /* 网站logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ED91D351B2572920043EC1C /* 网站logo.png */; };
 		D68E91391B21A06D0092F456 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D68E91381B21A06D0092F456 /* main.m */; };
 		D68E913C1B21A06D0092F456 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D68E913B1B21A06D0092F456 /* AppDelegate.m */; };
 		D68E913F1B21A06D0092F456 /* Butterfly_Effect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D68E913D1B21A06D0092F456 /* Butterfly_Effect.xcdatamodeld */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8ED91D351B2572920043EC1C /* 网站logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "网站logo.png"; sourceTree = "<group>"; };
+		8ED91D371B2575780043EC1C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		D68E91331B21A06D0092F456 /* Butterfly Effect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Butterfly Effect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68E91371B21A06D0092F456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D68E91381B21A06D0092F456 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -82,6 +85,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8EA89B7A1B267BB1000CF67D /* 个人中心 */ = {
+			isa = PBXGroup;
+			children = (
+				D6BE83B81B25420E00E56117 /* QQMeViewController.h */,
+				D6BE83B91B25420E00E56117 /* QQMeViewController.m */,
+				D6BE83BA1B25420E00E56117 /* QQMeViewController.xib */,
+			);
+			name = "个人中心";
+			sourceTree = "<group>";
+		};
+		8EA89B7B1B267BBF000CF67D /* 广场 */ = {
+			isa = PBXGroup;
+			children = (
+				D6BE83B31B2541FB00E56117 /* QQShowViewController.h */,
+				D6BE83B41B2541FB00E56117 /* QQShowViewController.m */,
+				D6BE83B51B2541FB00E56117 /* QQShowViewController.xib */,
+			);
+			name = "广场";
+			sourceTree = "<group>";
+		};
+		8EA89B7C1B267BCC000CF67D /* 品牌荟 */ = {
+			isa = PBXGroup;
+			children = (
+				D6BE83AE1B2541E200E56117 /* QQBrandClassViewController.h */,
+				D6BE83AF1B2541E200E56117 /* QQBrandClassViewController.m */,
+				D6BE83B01B2541E200E56117 /* QQBrandClassViewController.xib */,
+			);
+			name = "品牌荟";
+			sourceTree = "<group>";
+		};
+		8EA89B7D1B267BD6000CF67D /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				D6BE83A91B2541C600E56117 /* QQHomeViewController.h */,
+				D6BE83AA1B2541C600E56117 /* QQHomeViewController.m */,
+				D6BE83AB1B2541C600E56117 /* QQHomeViewController.xib */,
+			);
+			name = "首页";
+			sourceTree = "<group>";
+		};
+		8ED91D381B2578EE0043EC1C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		D68E912A1B21A06D0092F456 = {
 			isa = PBXGroup;
 			children = (
@@ -103,11 +153,13 @@
 		D68E91351B21A06D0092F456 /* Butterfly Effect */ = {
 			isa = PBXGroup;
 			children = (
+				8ED91D381B2578EE0043EC1C /* View */,
 				D68E915E1B21A0AD0092F456 /* Controller */,
 				D6BE83BD1B25481E00E56117 /* Model */,
 				D6BE83BE1B25482A00E56117 /* Image */,
 				D68E913A1B21A06D0092F456 /* AppDelegate.h */,
 				D68E913B1B21A06D0092F456 /* AppDelegate.m */,
+				8ED91D371B2575780043EC1C /* PrefixHeader.pch */,
 				D68E915F1B21A48B0092F456 /* QQTabViewController.h */,
 				D68E91601B21A48B0092F456 /* QQTabViewController.m */,
 				D68E91611B21A48B0092F456 /* QQTabViewController.xib */,
@@ -148,18 +200,10 @@
 		D68E915E1B21A0AD0092F456 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D6BE83A91B2541C600E56117 /* QQHomeViewController.h */,
-				D6BE83AA1B2541C600E56117 /* QQHomeViewController.m */,
-				D6BE83AB1B2541C600E56117 /* QQHomeViewController.xib */,
-				D6BE83AE1B2541E200E56117 /* QQBrandClassViewController.h */,
-				D6BE83AF1B2541E200E56117 /* QQBrandClassViewController.m */,
-				D6BE83B01B2541E200E56117 /* QQBrandClassViewController.xib */,
-				D6BE83B31B2541FB00E56117 /* QQShowViewController.h */,
-				D6BE83B41B2541FB00E56117 /* QQShowViewController.m */,
-				D6BE83B51B2541FB00E56117 /* QQShowViewController.xib */,
-				D6BE83B81B25420E00E56117 /* QQMeViewController.h */,
-				D6BE83B91B25420E00E56117 /* QQMeViewController.m */,
-				D6BE83BA1B25420E00E56117 /* QQMeViewController.xib */,
+				8EA89B7D1B267BD6000CF67D /* 首页 */,
+				8EA89B7C1B267BCC000CF67D /* 品牌荟 */,
+				8EA89B7B1B267BBF000CF67D /* 广场 */,
+				8EA89B7A1B267BB1000CF67D /* 个人中心 */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -174,6 +218,7 @@
 		D6BE83BE1B25482A00E56117 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				8ED91D351B2572920043EC1C /* 网站logo.png */,
 			);
 			name = Image;
 			sourceTree = "<group>";
@@ -258,6 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ED91D361B2572920043EC1C /* 网站logo.png in Resources */,
 				D68E91441B21A06D0092F456 /* LaunchScreen.xib in Resources */,
 				D68E91411B21A06D0092F456 /* Images.xcassets in Resources */,
 				D68E91631B21A48B0092F456 /* QQTabViewController.xib in Resources */,
@@ -407,6 +453,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Butterfly Effect/PrefixHeader.pch";
 				INFOPLIST_FILE = "Butterfly Effect/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -417,6 +464,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Butterfly Effect/PrefixHeader.pch";
 				INFOPLIST_FILE = "Butterfly Effect/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

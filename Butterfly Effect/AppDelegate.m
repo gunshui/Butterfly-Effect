@@ -32,7 +32,7 @@
     
     
     QQBrandClassViewController*brandClass=[[QQBrandClassViewController alloc]init];
-    brandClass.title=@"品牌会";
+    brandClass.title=@"品牌荟";
     UINavigationController*nav_brand=[[UINavigationController alloc]initWithRootViewController:brandClass];
     
     QQShowViewController*show=[[QQShowViewController alloc]init];
