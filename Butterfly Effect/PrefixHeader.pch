@@ -14,5 +14,10 @@
 
 #define SCREEN_W [UIScreen mainScreen].bounds.size.width
 #define SCREEN_H [UIScreen mainScreen].bounds.size.height
+#define KImage(Name)  [UIImage imageNamed:Name]
+#define KRect(x,y,w,h)  CGRectMake(x, y, w, h)
+
+
+
 
 #endif
