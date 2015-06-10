@@ -23,6 +23,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    
+    self.title=@"品牌荟";
+    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:nil size:19]};
+    
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(36, 36), NO, 0.0);
     UIImage *blank = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -30,8 +34,7 @@
     [self.navigationController.navigationBar setBackgroundImage:blank forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = blank;
     
-    self.title=@"品牌荟";
-    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:nil size:19]};
+    
     
     //色块数组
     [self creataArr];
