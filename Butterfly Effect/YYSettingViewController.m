@@ -7,7 +7,7 @@
 //
 
 #import "YYSettingViewController.h"
-
+#import <QuartzCore/QuartzCore.h>
 @interface YYSettingViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSArray*arrKind;
@@ -75,14 +75,24 @@
     btnExit.backgroundColor=[UIColor lightGrayColor];
     btnExit.layer.cornerRadius=5;
     [btnExit setTitle:@"退出登录" forState:0];
-    [btnExit addTarget:self action:@selector(btnExit) forControlEvents:UIControlEventTouchUpInside];
+    [btnExit addTarget:self action:@selector(btnExit:) forControlEvents:UIControlEventTouchUpInside];
     [imageViewBackground addSubview:btnExit];
     
     return imageViewBackground;
 }
 
--(void)btnExit{
+-(void)btnExit:(UIButton*)sender{
     NSLog(@"退出退出");
+    //控件抖动
+    CABasicAnimation*animation=[CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    animation.fromValue=[NSNumber numberWithFloat:-0.1];
+    animation.toValue=[NSNumber numberWithFloat:+0.1];
+    animation.duration=0.1;
+    animation.repeatCount=3;
+    animation.autoreverses=YES;
+    [sender.layer addAnimation:animation forKey:@"doudong"];
+     [UIView animateWithDuration:2.0 delay:2.0 options:UIViewAnimationOptionCurveEaseIn animations:nil completion:nil];
+
 }
 
 #pragma mark-返回

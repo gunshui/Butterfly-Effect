@@ -21,7 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(36, 36), NO, 0.0);
+    UIImage *blank = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     //分类数组
     [self createArray];
     
@@ -40,7 +42,7 @@
 -(void)createTopInfo{
     MBTwitterScroll *myTableView = [[MBTwitterScroll alloc]
                                     initTableViewWithBackgound:[UIImage imageNamed:@"u=3823724296,3457142115&fm=21&gp=0.jpg"]
-                                    avatarImage:[UIImage imageNamed:@"u=3823724296,3457142115&fm=21&gp=0.jpg"]
+                                    avatarImage:[UIImage imageNamed:@"11.jpg"]
                                     titleString:@"滚水网管理员宣"
                                     subtitleString:@"积分:1200"
                                     buttonTitle:@"设置"];  // Set nil for no button
