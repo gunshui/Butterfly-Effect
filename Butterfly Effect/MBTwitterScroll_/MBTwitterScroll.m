@@ -44,6 +44,7 @@ CGFloat const distance_W_LabelHeader = 35.0;
     // Header
     self.header = [[UIView alloc] initWithFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 107)];
     [self addSubview:self.header];
+    
     self.headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.origin.x, self.header.frame.size.height - 5, self.frame.size.width, 25)];
     self.headerLabel.textAlignment = NSTextAlignmentCenter;
     self.headerLabel.text = titleString;
@@ -58,7 +59,7 @@ CGFloat const distance_W_LabelHeader = 35.0;
         self.tableView.showsVerticalScrollIndicator = NO;
         
         // TableView Header
-        self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.header.frame.size.height + 100)];
+        self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.header.frame.size.height + 90)];
         [self addSubview:self.tableView];
         
     } else {

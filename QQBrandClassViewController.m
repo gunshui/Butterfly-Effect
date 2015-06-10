@@ -13,6 +13,8 @@
     NSMutableArray*arrColor;
     NSMutableArray*arrName;
 }
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollViewBrandClass;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionViewBrandClass;
 @end
 
 @implementation QQBrandClassViewController
@@ -21,12 +23,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-//    UIGraphicsBeginImageContextWithOptions(CGSizeMake(36, 36), NO, 0.0);
-//    UIImage *blank = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    
-//    [self.navigationController.navigationBar setBackgroundImage:blank forBarMetrics:UIBarMetricsDefault];
-//    self.navigationController.navigationBar.shadowImage = blank;
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(36, 36), NO, 0.0);
+    UIImage *blank = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [self.navigationController.navigationBar setBackgroundImage:blank forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = blank;
+    
+    self.title=@"品牌荟";
+    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:nil size:19]};
     
     //色块数组
     [self creataArr];
@@ -47,14 +52,13 @@
 
 -(void)createCollectionView{
     UICollectionViewFlowLayout*layout=[[UICollectionViewFlowLayout alloc]init];
-    UICollectionView*collection=[[UICollectionView alloc]initWithFrame:CGRectMake(0, 214, SCREEN_W, SCREEN_H-214-50) collectionViewLayout:layout];
-    collection.delegate=self;
-    collection.dataSource=self;
-    collection.backgroundColor=[UIColor clearColor];
-    [collection registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CELL"];
-    [self.view addSubview:collection];
+    [_collectionViewBrandClass setCollectionViewLayout:layout];
+    _collectionViewBrandClass.delegate=self;
+    _collectionViewBrandClass.dataSource=self;
+    _collectionViewBrandClass.backgroundColor=[UIColor clearColor];
+    [_collectionViewBrandClass registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CELL"];
     self.automaticallyAdjustsScrollViewInsets=NO;
-    collection.contentInset=UIEdgeInsetsMake(0, 0, 10, 0);
+    _collectionViewBrandClass.contentInset=UIEdgeInsetsMake(0, 0, 80, 0);
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{

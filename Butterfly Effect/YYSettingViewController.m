@@ -12,6 +12,8 @@
 {
     NSArray*arrKind;
 }
+
+@property (weak, nonatomic) IBOutlet UITableView *tableViewSetting;
 @end
 
 @implementation YYSettingViewController
@@ -40,10 +42,9 @@
 #pragma mark-TableView
 
 -(void)createTableView{
-    UITableView*tableViewSetting=[[UITableView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_W, SCREEN_H-64) style:UITableViewStyleGrouped];
-    tableViewSetting.delegate=self;
-    tableViewSetting.dataSource=self;
-    [self.view addSubview:tableViewSetting];
+    _tableViewSetting.delegate=self;
+    _tableViewSetting.dataSource=self;
+    [self.view addSubview:_tableViewSetting];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -63,25 +64,22 @@
     return cell;
 }
 
+
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 200;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIImageView*imageViewBackground=[[UIImageView alloc]init];
-    imageViewBackground.userInteractionEnabled=YES;
+    UIView*viewBackground=[[[NSBundle mainBundle]loadNibNamed:@"View" owner:nil options:nil]lastObject];
     
-    UIButton*btnExit=[[UIButton alloc]initWithFrame:CGRectMake(SCREEN_W*2/7, 80, SCREEN_W*3/7, 40)];
-    btnExit.backgroundColor=[UIColor lightGrayColor];
+    viewBackground.backgroundColor=[UIColor clearColor];
+    UIButton*btnExit=(UIButton*)[[viewBackground subviews] objectAtIndex:0];
     btnExit.layer.cornerRadius=5;
-    [btnExit setTitle:@"退出登录" forState:0];
-    [btnExit addTarget:self action:@selector(btnExit) forControlEvents:UIControlEventTouchUpInside];
-    [imageViewBackground addSubview:btnExit];
-    
-    return imageViewBackground;
+    [btnExit addTarget:self action:@selector(btnExitAction) forControlEvents:UIControlEventTouchUpInside];
+    return viewBackground;
 }
 
--(void)btnExit{
+-(void)btnExitAction{
     NSLog(@"退出退出");
 }
 
@@ -113,5 +111,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end
