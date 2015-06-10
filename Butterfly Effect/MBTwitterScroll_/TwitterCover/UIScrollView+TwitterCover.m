@@ -52,7 +52,7 @@ static char UIScrollViewTwitterCover;
 
 - (void)addTwitterCoverWithImage:(UIImage*)image withTopView:(UIView*)topView
 {
-    CHTwitterCoverView *view = [[CHTwitterCoverView alloc] initWithFrame:CGRectMake(0,0, 320, CHTwitterCoverViewHeight) andContentTopView:topView];
+    CHTwitterCoverView *view = [[CHTwitterCoverView alloc] initWithFrame:CGRectMake(0,0, SCREEN_W, CHTwitterCoverViewHeight) andContentTopView:topView];
     
     view.backgroundColor = [UIColor clearColor];
     view.image = image;
@@ -136,9 +136,9 @@ static char UIScrollViewTwitterCover;
     if (self.scrollView.contentOffset.y < 0) {
 
         CGFloat offset = -self.scrollView.contentOffset.y;
-        topView.frame = CGRectMake(0, -offset, 320, topView.bounds.size.height);
+        topView.frame = CGRectMake(0, -offset, SCREEN_W, topView.bounds.size.height);
 
-        self.frame = CGRectMake(-offset,-offset + topView.bounds.size.height, 320+ offset * 2, CHTwitterCoverViewHeight + offset);
+        self.frame = CGRectMake(-offset,-offset + topView.bounds.size.height, SCREEN_W+ offset * 2, CHTwitterCoverViewHeight + offset);
         NSInteger index = offset / 10;
         if (index < 0) {
             index = 0;
@@ -153,9 +153,9 @@ static char UIScrollViewTwitterCover;
         
     }
     else {
-        topView.frame = CGRectMake(0, 0, 320, topView.bounds.size.height);
+        topView.frame = CGRectMake(0, 0, SCREEN_W, topView.bounds.size.height);
 
-        self.frame = CGRectMake(0,topView.bounds.size.height, 320, CHTwitterCoverViewHeight);
+        self.frame = CGRectMake(0,topView.bounds.size.height, SCREEN_W, CHTwitterCoverViewHeight);
         UIImage *image = blurImages_[0];
 
         if (self.image != image) {

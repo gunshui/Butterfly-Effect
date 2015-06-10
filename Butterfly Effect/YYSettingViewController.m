@@ -7,7 +7,7 @@
 //
 
 #import "YYSettingViewController.h"
-
+#import <QuartzCore/QuartzCore.h>
 @interface YYSettingViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSArray*arrKind;
@@ -81,6 +81,16 @@
 
 -(void)btnExitAction{
     NSLog(@"退出退出");
+    //控件抖动
+    CABasicAnimation*animation=[CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    animation.fromValue=[NSNumber numberWithFloat:-0.1];
+    animation.toValue=[NSNumber numberWithFloat:+0.1];
+    animation.duration=0.1;
+    animation.repeatCount=3;
+    animation.autoreverses=YES;
+    [sender.layer addAnimation:animation forKey:@"doudong"];
+     [UIView animateWithDuration:2.0 delay:2.0 options:UIViewAnimationOptionCurveEaseIn animations:nil completion:nil];
+
 }
 
 #pragma mark-返回

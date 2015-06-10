@@ -8,7 +8,7 @@
 
 #import "QQBrandClassViewController.h"
 
-@interface QQBrandClassViewController ()<UICollectionViewDelegateFlowLayout,UICollectionViewDataSource,UICollectionViewDelegate>
+@interface QQBrandClassViewController ()<UICollectionViewDelegateFlowLayout,UICollectionViewDataSource,UICollectionViewDelegate,UIAccelerometerDelegate>
 {
     NSMutableArray*arrColor;
     NSMutableArray*arrName;
@@ -41,8 +41,43 @@
     
     //collectionView
     [self createCollectionView];
+    
+//    UIAccelerometer加速计是用来检测iphone手机在x.y.z轴三个轴上的加速度。要获得此类调用:
+//    UIAccelerometer *accelerometer = [UIAccelerometer sharedAccelerometer];
+//    同时，你需要设置它的delegate。
+    UIAccelerometer *accelerometer = [UIAccelerometer sharedAccelerometer];
+    accelerometer.delegate = self;
+    accelerometer.updateInterval = 1.0/60.0;
 }
-
+//委托方法：- (void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration中的UIAcceleration是表示加速度类。包含了来自加速计UIAccelerometer的真是数据。它有3个属性的值x、y、z。iphone的加速计支持最高以每秒100次的频率进行轮询。此时是60次。
+//1) 应用程序可以通过加速计来检测摇动，如：用户可以通过摇动iphone擦除绘图。
+//也可以用户连续摇动几次iphone，执行一些特殊的代码：
+- (void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
+{
+    static NSInteger shakeCount = 0;
+    static NSDate *shakeStart;
+    NSDate *now = [[NSDate alloc] init];
+    NSDate *checkDate = [[NSDate alloc] initWithTimeInterval:1.5f sinceDate:shakeStart];
+    if ([now compare:checkDate] == NSOrderedDescending || shakeStart == nil)
+    {
+        shakeCount = 0;
+        
+        shakeStart = [[NSDate alloc] init];
+    }
+    
+    
+    if (fabsf(acceleration.x) > 2.0 || fabsf(acceleration.y) > 2.0 || fabsf(acceleration.z) > 2.0)
+    {
+        shakeCount++;
+        if (shakeCount > 4)
+        {
+            // -- DO Something
+            shakeCount = 0;
+          
+            shakeStart = [[NSDate alloc] init];
+        }
+    }
+}
 #pragma mark-色块数组
 
 -(void)creataArr{
