@@ -16,8 +16,8 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="oPy-2h-PJu">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="oPy-2h-PJu">
+                    <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                     <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="z5D-IY-zJB"/>
@@ -27,7 +27,9 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="oPy-2h-PJu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6dS-ai-rHQ"/>
+                <constraint firstItem="oPy-2h-PJu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="6dS-ai-rHQ">
+                    <variation key="heightClass=compact-widthClass=compact" constant="51"/>
+                </constraint>
                 <constraint firstAttribute="trailing" secondItem="oPy-2h-PJu" secondAttribute="trailing" id="adP-rc-2rW"/>
                 <constraint firstAttribute="bottom" secondItem="oPy-2h-PJu" secondAttribute="bottom" id="f1l-o4-8rY"/>
                 <constraint firstItem="oPy-2h-PJu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fCJ-7B-ADv"/>
