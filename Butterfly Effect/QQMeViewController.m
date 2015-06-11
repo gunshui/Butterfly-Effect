@@ -14,6 +14,7 @@
 {
     NSArray*arrKind;
 }
+
 @end
 
 @implementation QQMeViewController

@@ -21,7 +21,6 @@
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SiR-eA-Nb1">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <color key="backgroundColor" red="1" green="0.16591880149999999" blue="0.092100747519999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="130" id="kM4-FA-4kD"/>
                         <constraint firstAttribute="height" constant="230" id="wyS-Sz-gE9"/>

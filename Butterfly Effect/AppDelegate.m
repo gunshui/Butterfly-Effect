@@ -26,9 +26,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     QQHomeViewController*home=[[QQHomeViewController alloc]init];
-   home.title=@"首页";
+    home.title=@"首页";
     UINavigationController*nav_home=[[UINavigationController alloc]initWithRootViewController:home];
-   //    home.navigationItem.titleView=homeTitle;
     
     
     QQBrandClassViewController*brandClass=[[QQBrandClassViewController alloc]init];
@@ -41,7 +40,6 @@
     
     QQMeViewController*me=[[QQMeViewController alloc]init];
     me.title=@"个人中心";
-//    UINavigationController*nav_me=[[UINavigationController alloc]initWithRootViewController:me];
     
     QQTabViewController*tab=[[QQTabViewController alloc]init];
     tab.viewControllers=[NSArray arrayWithObjects:nav_home,nav_brand,nav_show,me, nil];
