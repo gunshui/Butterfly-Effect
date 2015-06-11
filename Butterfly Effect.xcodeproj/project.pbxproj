@@ -43,6 +43,15 @@
 		D69970331B2821AF005B1BBF /* livid.png in Resources */ = {isa = PBXBuildFile; fileRef = D699701E1B2821AF005B1BBF /* livid.png */; };
 		D69970341B2821AF005B1BBF /* midiplus.png in Resources */ = {isa = PBXBuildFile; fileRef = D699701F1B2821AF005B1BBF /* midiplus.png */; };
 		D69970351B2821AF005B1BBF /* samson.png in Resources */ = {isa = PBXBuildFile; fileRef = D69970201B2821AF005B1BBF /* samson.png */; };
+		D699703A1B28274C005B1BBF /* 1508=方正兰亭超细黑简体.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D69970371B28274C005B1BBF /* 1508=方正兰亭超细黑简体.TTF */; };
+		D699703B1B28274C005B1BBF /* 方正兰亭纤黑_GBK.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D69970381B28274C005B1BBF /* 方正兰亭纤黑_GBK.TTF */; };
+		D699703C1B28274C005B1BBF /* FZLTHJW.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D69970391B28274C005B1BBF /* FZLTHJW.TTF */; };
+		D69970401B282B00005B1BBF /* QQHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D699703E1B282B00005B1BBF /* QQHomeTableViewCell.m */; };
+		D69970411B282B00005B1BBF /* QQHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D699703F1B282B00005B1BBF /* QQHomeTableViewCell.xib */; };
+		D69970431B282E6E005B1BBF /* 首页1.png in Resources */ = {isa = PBXBuildFile; fileRef = D69970421B282E6E005B1BBF /* 首页1.png */; };
+		D69970461B2833E6005B1BBF /* 首页2.png in Resources */ = {isa = PBXBuildFile; fileRef = D69970441B2833E6005B1BBF /* 首页2.png */; };
+		D69970471B2833E6005B1BBF /* 首页3.png in Resources */ = {isa = PBXBuildFile; fileRef = D69970451B2833E6005B1BBF /* 首页3.png */; };
+		D69970491B28349C005B1BBF /* 首页品牌类.png in Resources */ = {isa = PBXBuildFile; fileRef = D69970481B28349C005B1BBF /* 首页品牌类.png */; };
 		D6BE83AC1B2541C600E56117 /* QQHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BE83AA1B2541C600E56117 /* QQHomeViewController.m */; };
 		D6BE83AD1B2541C600E56117 /* QQHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6BE83AB1B2541C600E56117 /* QQHomeViewController.xib */; };
 		D6BE83B11B2541E200E56117 /* QQBrandClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BE83AF1B2541E200E56117 /* QQBrandClassViewController.m */; };
@@ -111,6 +120,16 @@
 		D699701E1B2821AF005B1BBF /* livid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = livid.png; sourceTree = "<group>"; };
 		D699701F1B2821AF005B1BBF /* midiplus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = midiplus.png; sourceTree = "<group>"; };
 		D69970201B2821AF005B1BBF /* samson.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = samson.png; sourceTree = "<group>"; };
+		D69970371B28274C005B1BBF /* 1508=方正兰亭超细黑简体.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "1508=方正兰亭超细黑简体.TTF"; sourceTree = "<group>"; };
+		D69970381B28274C005B1BBF /* 方正兰亭纤黑_GBK.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "方正兰亭纤黑_GBK.TTF"; sourceTree = "<group>"; };
+		D69970391B28274C005B1BBF /* FZLTHJW.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = FZLTHJW.TTF; sourceTree = "<group>"; };
+		D699703D1B282B00005B1BBF /* QQHomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQHomeTableViewCell.h; sourceTree = "<group>"; };
+		D699703E1B282B00005B1BBF /* QQHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQHomeTableViewCell.m; sourceTree = "<group>"; };
+		D699703F1B282B00005B1BBF /* QQHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QQHomeTableViewCell.xib; sourceTree = "<group>"; };
+		D69970421B282E6E005B1BBF /* 首页1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页1.png"; sourceTree = "<group>"; };
+		D69970441B2833E6005B1BBF /* 首页2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页2.png"; sourceTree = "<group>"; };
+		D69970451B2833E6005B1BBF /* 首页3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页3.png"; sourceTree = "<group>"; };
+		D69970481B28349C005B1BBF /* 首页品牌类.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页品牌类.png"; sourceTree = "<group>"; };
 		D6BE83A91B2541C600E56117 /* QQHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QQHomeViewController.h; path = ../QQHomeViewController.h; sourceTree = "<group>"; };
 		D6BE83AA1B2541C600E56117 /* QQHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QQHomeViewController.m; path = ../QQHomeViewController.m; sourceTree = "<group>"; };
 		D6BE83AB1B2541C600E56117 /* QQHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QQHomeViewController.xib; path = ../QQHomeViewController.xib; sourceTree = "<group>"; };
@@ -184,6 +203,9 @@
 				D6BE83A91B2541C600E56117 /* QQHomeViewController.h */,
 				D6BE83AA1B2541C600E56117 /* QQHomeViewController.m */,
 				D6BE83AB1B2541C600E56117 /* QQHomeViewController.xib */,
+				D699703D1B282B00005B1BBF /* QQHomeTableViewCell.h */,
+				D699703E1B282B00005B1BBF /* QQHomeTableViewCell.m */,
+				D699703F1B282B00005B1BBF /* QQHomeTableViewCell.xib */,
 			);
 			name = "首页";
 			sourceTree = "<group>";
@@ -236,6 +258,7 @@
 		D68E91351B21A06D0092F456 /* Butterfly Effect */ = {
 			isa = PBXGroup;
 			children = (
+				D69970361B28272D005B1BBF /* 字体 */,
 				8ED91D381B2578EE0043EC1C /* View */,
 				D68E915E1B21A0AD0092F456 /* Controller */,
 				D6BE83BD1B25481E00E56117 /* Model */,
@@ -335,6 +358,16 @@
 			path = "品牌";
 			sourceTree = "<group>";
 		};
+		D69970361B28272D005B1BBF /* 字体 */ = {
+			isa = PBXGroup;
+			children = (
+				D69970371B28274C005B1BBF /* 1508=方正兰亭超细黑简体.TTF */,
+				D69970381B28274C005B1BBF /* 方正兰亭纤黑_GBK.TTF */,
+				D69970391B28274C005B1BBF /* FZLTHJW.TTF */,
+			);
+			name = "字体";
+			sourceTree = "<group>";
+		};
 		D6BE83BD1B25481E00E56117 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,6 +381,10 @@
 			children = (
 				D69970091B2821AF005B1BBF /* 切图 */,
 				D6CC4BEC1B26EE430057F975 /* 11.jpg */,
+				D69970421B282E6E005B1BBF /* 首页1.png */,
+				D69970441B2833E6005B1BBF /* 首页2.png */,
+				D69970481B28349C005B1BBF /* 首页品牌类.png */,
+				D69970451B2833E6005B1BBF /* 首页3.png */,
 				8EA89BC21B26B2B9000CF67D /* u=3823724296,3457142115&fm=21&gp=0.jpg */,
 				8ED91D351B2572920043EC1C /* 网站logo.png */,
 			);
@@ -434,8 +471,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D69970471B2833E6005B1BBF /* 首页3.png in Resources */,
+				D69970461B2833E6005B1BBF /* 首页2.png in Resources */,
 				D69970221B2821AF005B1BBF /* 搜索.png in Resources */,
 				8ED91D361B2572920043EC1C /* 网站logo.png in Resources */,
+				D69970431B282E6E005B1BBF /* 首页1.png in Resources */,
 				D69970331B2821AF005B1BBF /* livid.png in Resources */,
 				D69970231B2821AF005B1BBF /* 首页2 品牌会.png in Resources */,
 				D68E91441B21A06D0092F456 /* LaunchScreen.xib in Resources */,
@@ -455,6 +495,7 @@
 				D6BE83BC1B25420E00E56117 /* QQMeViewController.xib in Resources */,
 				D6CC4BED1B26EE430057F975 /* 11.jpg in Resources */,
 				D69970321B2821AF005B1BBF /* line6.png in Resources */,
+				D699703A1B28274C005B1BBF /* 1508=方正兰亭超细黑简体.TTF in Resources */,
 				D699702D1B2821AF005B1BBF /* 首页2.png in Resources */,
 				8EA89BC81B26B5DB000CF67D /* YYSettingViewController.xib in Resources */,
 				D699702F1B2821AF005B1BBF /* arturia.png in Resources */,
@@ -463,9 +504,13 @@
 				D69970281B2821AF005B1BBF /* 首页2-广场.png in Resources */,
 				D699702C1B2821AF005B1BBF /* 首页2-评论数.png in Resources */,
 				D6BE83B21B2541E200E56117 /* QQBrandClassViewController.xib in Resources */,
+				D699703B1B28274C005B1BBF /* 方正兰亭纤黑_GBK.TTF in Resources */,
 				D6BE83B71B2541FB00E56117 /* QQShowViewController.xib in Resources */,
+				D69970491B28349C005B1BBF /* 首页品牌类.png in Resources */,
+				D699703C1B28274C005B1BBF /* FZLTHJW.TTF in Resources */,
 				D69970341B2821AF005B1BBF /* midiplus.png in Resources */,
 				D69970251B2821AF005B1BBF /* 首页2-个人中心（red）.png in Resources */,
+				D69970411B282B00005B1BBF /* QQHomeTableViewCell.xib in Resources */,
 				8EA89BC31B26B2B9000CF67D /* u=3823724296,3457142115&fm=21&gp=0.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +531,7 @@
 			files = (
 				D68E91621B21A48B0092F456 /* QQTabViewController.m in Sources */,
 				D68E913C1B21A06D0092F456 /* AppDelegate.m in Sources */,
+				D69970401B282B00005B1BBF /* QQHomeTableViewCell.m in Sources */,
 				D6BE83BB1B25420E00E56117 /* QQMeViewController.m in Sources */,
 				D6BE83B61B2541FB00E56117 /* QQShowViewController.m in Sources */,
 				D6BE83AC1B2541C600E56117 /* QQHomeViewController.m in Sources */,

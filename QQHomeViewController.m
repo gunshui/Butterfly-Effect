@@ -7,6 +7,7 @@
 //
 
 #import "QQHomeViewController.h"
+#import "QQHomeTableViewCell.h"
 
 @interface QQHomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableViewHome;
@@ -19,7 +20,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     tableViewHome.contentInset=UIEdgeInsetsMake(0, 0, 10, 0);
+    [self createNavigation];
 }
+-(void)createNavigation{
+   
+
+   self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:FONTNAME3 size:19]};
+    self.navigationController.navigationBar.barTintColor=[UIColor blackColor];
+  
+    
+    //设置导航栏文本的颜色
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
@@ -28,14 +41,14 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString*identifier=@"home";
-    UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:identifier];
+    QQHomeTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell==nil) {
-        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell=[[[NSBundle mainBundle] loadNibNamed:@"QQHomeTableViewCell" owner:nil options:nil] lastObject];
     }
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
+    return 210;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 0.001;
