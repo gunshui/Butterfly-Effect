@@ -56,7 +56,6 @@
 		D69970461B2833E6005B1BBF /* 首页2.png in Resources */ = {isa = PBXBuildFile; fileRef = D69970441B2833E6005B1BBF /* 首页2.png */; };
 		D69970471B2833E6005B1BBF /* 首页3.png in Resources */ = {isa = PBXBuildFile; fileRef = D69970451B2833E6005B1BBF /* 首页3.png */; };
 		D69970491B28349C005B1BBF /* 首页品牌类.png in Resources */ = {isa = PBXBuildFile; fileRef = D69970481B28349C005B1BBF /* 首页品牌类.png */; };
-		D6A25C2E1B29369C003599BB /* XHYScrollingNavBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A25C2D1B29369C003599BB /* XHYScrollingNavBarViewController.m */; };
 		D6A25C321B293E7F003599BB /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A25C311B293E7F003599BB /* ODRefreshControl.m */; };
 		D6BE83AC1B2541C600E56117 /* QQHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BE83AA1B2541C600E56117 /* QQHomeViewController.m */; };
 		D6BE83AD1B2541C600E56117 /* QQHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6BE83AB1B2541C600E56117 /* QQHomeViewController.xib */; };
@@ -141,8 +140,6 @@
 		D69970441B2833E6005B1BBF /* 首页2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页2.png"; sourceTree = "<group>"; };
 		D69970451B2833E6005B1BBF /* 首页3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页3.png"; sourceTree = "<group>"; };
 		D69970481B28349C005B1BBF /* 首页品牌类.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页品牌类.png"; sourceTree = "<group>"; };
-		D6A25C2C1B29369C003599BB /* XHYScrollingNavBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHYScrollingNavBarViewController.h; sourceTree = "<group>"; };
-		D6A25C2D1B29369C003599BB /* XHYScrollingNavBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHYScrollingNavBarViewController.m; sourceTree = "<group>"; };
 		D6A25C301B293E7F003599BB /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
 		D6A25C311B293E7F003599BB /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
 		D6BE83A91B2541C600E56117 /* QQHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QQHomeViewController.h; path = ../QQHomeViewController.h; sourceTree = "<group>"; };
@@ -389,8 +386,6 @@
 		D6A25C2B1B29369C003599BB /* XHYScrolling */ = {
 			isa = PBXGroup;
 			children = (
-				D6A25C2C1B29369C003599BB /* XHYScrollingNavBarViewController.h */,
-				D6A25C2D1B29369C003599BB /* XHYScrollingNavBarViewController.m */,
 			);
 			path = XHYScrolling;
 			sourceTree = "<group>";
