@@ -16,6 +16,9 @@
 #define SCREEN_H [UIScreen mainScreen].bounds.size.height
 #define KImage(Name)  [UIImage imageNamed:Name]
 #define KRect(x,y,w,h)  CGRectMake(x, y, w, h)
+#define FONTNAME @"FZLanTingHei-EL-GBK"
+#define FONTNAME2 @"FZLanTingHeiS-UL-GB"
+#define FONTNAME3  @"FZLanTingHeiS-R-GB"
 
 
 
