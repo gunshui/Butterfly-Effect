@@ -20,10 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"QQMeViewController");
     // Do any additional setup after loading the view from its nib.
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(36, 36), NO, 0.0);
-    UIImage *blank = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+    
     //分类数组
     [self createArray];
     
@@ -61,7 +60,6 @@
 }
 
 - (void) recievedMBTwitterScrollButtonClicked {
-//    NSLog(@"Button Clicked");
     YYSettingViewController*setting=[[YYSettingViewController alloc]init];
     [self presentViewController:setting animated:NO completion:nil];
 }

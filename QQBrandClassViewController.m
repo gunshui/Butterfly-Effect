@@ -7,23 +7,106 @@
 //
 
 #import "QQBrandClassViewController.h"
+#import "YYBrandClassCollectionViewCell.h"
 
-@interface QQBrandClassViewController ()<UICollectionViewDelegateFlowLayout,UICollectionViewDataSource,UICollectionViewDelegate,UIAccelerometerDelegate>
+@interface QQBrandClassViewController ()<UICollectionViewDelegateFlowLayout,UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate>
 {
-    NSMutableArray*arrColor;
     NSMutableArray*arrName;
+    NSMutableArray*arrImage;
+    NSMutableArray*arrPic;
 }
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scroll_height;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollViewBrandClass;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewBrandClass;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControlBrandClass;
+
 @end
 
 @implementation QQBrandClassViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"QQBrandClassViewController");
     // Do any additional setup after loading the view from its nib.
     
+    //导航栏
+    [self createNavigation];
     
+    //色块数组
+    [self creataArr];
+    
+    //海报scrollView
+    [self createScrollView];
+    
+    //collectionView
+    [self createCollectionView];
+    
+    //注册xib文件
+    [self.collectionViewBrandClass registerNib:[UINib nibWithNibName:@"YYBrandClassCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"CELL"];
+}
+
+#pragma mark-海报ScrollView
+
+-(void)createScrollView{
+    _scrollViewBrandClass.delegate=self;
+    _scrollViewBrandClass.showsHorizontalScrollIndicator=NO;
+    _scrollViewBrandClass.showsVerticalScrollIndicator=NO;
+    _scrollViewBrandClass.pagingEnabled=YES;
+    _scrollViewBrandClass.contentSize=CGSizeMake(SCREEN_W*4, 0);
+    
+    _pageControlBrandClass.numberOfPages=2;
+    _pageControlBrandClass.currentPage=0;
+    _pageControlBrandClass.pageIndicatorTintColor=[UIColor whiteColor];
+    _pageControlBrandClass.currentPageIndicatorTintColor=[UIColor lightGrayColor];
+    [_pageControlBrandClass addTarget:self action:@selector(pageAction:) forControlEvents:UIControlEventTouchUpInside];
+    _pageControlBrandClass.backgroundColor=[UIColor clearColor];
+    
+    for (int i=0; i<4; i++) {
+        UIButton*btn=[[UIButton alloc]initWithFrame:CGRectMake(SCREEN_W*i, 0, SCREEN_W, self.scroll_height.constant)];
+        btn.tag=i+2000;
+        [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+        [_scrollViewBrandClass addSubview:btn];
+        if (i==0) {
+            [btn setImage:[UIImage imageNamed:[arrPic objectAtIndex:1]] forState:0];
+        }else if (i==3) {
+            [btn setImage:[UIImage imageNamed:[arrPic objectAtIndex:0]] forState:0];
+        }else{
+            [btn setImage:[UIImage imageNamed:[arrPic objectAtIndex:i-1]] forState:0];
+        }
+    }
+    _scrollViewBrandClass.contentOffset=CGPointMake(SCREEN_W, 0);
+}
+
+-(void)btnAction:(UIButton*)sender{
+    NSLog(@"%ld",sender.tag-2000);
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    _pageControlBrandClass.currentPage=_scrollViewBrandClass.contentOffset.x/SCREEN_W-1;
+    if ((_scrollViewBrandClass.contentOffset.x/SCREEN_W)>2) {
+        _pageControlBrandClass.currentPage=0;
+        
+    }else if ((_scrollViewBrandClass.contentOffset.x/SCREEN_W)<=0) {
+        _pageControlBrandClass.currentPage=1;
+    }
+    
+    if (_scrollViewBrandClass.contentOffset.x<=0) {
+        _scrollViewBrandClass.contentOffset=CGPointMake(SCREEN_W*2, 0);
+        
+    }
+    if (_scrollViewBrandClass.contentOffset.x>SCREEN_W*2) {
+        _scrollViewBrandClass.contentOffset=CGPointMake(SCREEN_W, 0);
+    }
+}
+
+-(void)pageAction:(id)sender{
+    _scrollViewBrandClass.contentOffset=CGPointMake(SCREEN_W*_pageControlBrandClass.currentPage, 0);
+}
+
+#pragma mark-导航栏
+
+-(void)createNavigation{
     self.title=@"品牌荟";
     self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:nil size:19]};
     
@@ -33,57 +116,17 @@
     
     [self.navigationController.navigationBar setBackgroundImage:blank forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = blank;
-    
-    
-    
-    //色块数组
-    [self creataArr];
-    
-    //collectionView
-    [self createCollectionView];
-    
-//    UIAccelerometer加速计是用来检测iphone手机在x.y.z轴三个轴上的加速度。要获得此类调用:
-//    UIAccelerometer *accelerometer = [UIAccelerometer sharedAccelerometer];
-//    同时，你需要设置它的delegate。
-    UIAccelerometer *accelerometer = [UIAccelerometer sharedAccelerometer];
-    accelerometer.delegate = self;
-    accelerometer.updateInterval = 1.0/60.0;
 }
-//委托方法：- (void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration中的UIAcceleration是表示加速度类。包含了来自加速计UIAccelerometer的真是数据。它有3个属性的值x、y、z。iphone的加速计支持最高以每秒100次的频率进行轮询。此时是60次。
-//1) 应用程序可以通过加速计来检测摇动，如：用户可以通过摇动iphone擦除绘图。
-//也可以用户连续摇动几次iphone，执行一些特殊的代码：
-- (void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
-{
-    static NSInteger shakeCount = 0;
-    static NSDate *shakeStart;
-    NSDate *now = [[NSDate alloc] init];
-    NSDate *checkDate = [[NSDate alloc] initWithTimeInterval:1.5f sinceDate:shakeStart];
-    if ([now compare:checkDate] == NSOrderedDescending || shakeStart == nil)
-    {
-        shakeCount = 0;
-        
-        shakeStart = [[NSDate alloc] init];
-    }
-    
-    
-    if (fabsf(acceleration.x) > 2.0 || fabsf(acceleration.y) > 2.0 || fabsf(acceleration.z) > 2.0)
-    {
-        shakeCount++;
-        if (shakeCount > 4)
-        {
-            // -- DO Something
-            shakeCount = 0;
-          
-            shakeStart = [[NSDate alloc] init];
-        }
-    }
-}
+
 #pragma mark-色块数组
 
 -(void)creataArr{
-    arrColor=[NSMutableArray arrayWithObjects:[UIColor colorWithRed:231.0/255.0 green:59.0/255.0 blue:53.0/255.0 alpha:1],[UIColor colorWithRed:23.0/255.0 green:182.0/255.0 blue:154.0/255.0 alpha:1],[UIColor colorWithRed:117.0/255.0 green:53.0/255.0 blue:192.0/255.0 alpha:1],[UIColor colorWithRed:242.0/255.0 green:156.0/255.0 blue:7.0/255.0 alpha:1],[UIColor colorWithRed:218.0/255.0 green:0 blue:108.0/255.0 alpha:1],[UIColor colorWithRed:105.0/255.0 green:195.0/255.0 blue:73.0/255.0 alpha:1],[UIColor colorWithRed:86.0/255.0 green:188.0/255.0 blue:226.0/255.0 alpha:1],[UIColor colorWithRed:76.0/255.0 green:103.0/255.0 blue:175.0/255.0 alpha:1],[UIColor colorWithRed:52.0/255.0 green:52.0/255.0 blue:52.0/255.0 alpha:1],[UIColor colorWithRed:231.0/255.0 green:59.0/255.0 blue:53.0/255.0 alpha:1],[UIColor colorWithRed:23.0/255.0 green:182.0/255.0 blue:154.0/255.0 alpha:1],[UIColor colorWithRed:117.0/255.0 green:53.0/255.0 blue:192.0/255.0 alpha:1],[UIColor colorWithRed:242.0/255.0 green:156.0/255.0 blue:7.0/255.0 alpha:1],[UIColor colorWithRed:218.0/255.0 green:0 blue:108.0/255.0 alpha:1],[UIColor colorWithRed:105.0/255.0 green:195.0/255.0 blue:73.0/255.0 alpha:1],[UIColor colorWithRed:86.0/255.0 green:188.0/255.0 blue:226.0/255.0 alpha:1],[UIColor colorWithRed:76.0/255.0 green:103.0/255.0 blue:175.0/255.0 alpha:1],[UIColor colorWithRed:52.0/255.0 green:52.0/255.0 blue:52.0/255.0 alpha:1], nil];
+    //图片数组
+    arrImage=[NSMutableArray arrayWithObjects:@"line6",@"midiplus",@"samson",@"arturia",@"333",@"audient",@"livid",@"hartke", nil];
+    //品牌名数组
+    arrName=[NSMutableArray arrayWithObjects:@"LINE6",@"MIDIPLUS",@"SAMSON",@"HARTKE",@"333",@"AUDIENT",@"LIVID",@"ARTURIA", nil];
     
-    arrName=[NSMutableArray arrayWithObjects:@"Line6",@"Livid",@"ARTURIA",@"SAMSON",@"audient",@"MiDiPLus",@"333",@"Hartke", nil];
+    arrPic=[NSMutableArray arrayWithObjects:@"屏幕快照 2015-04-22 上午11.18.03",@"屏幕快照 2015-04-22 上午11.18.20", nil];
 }
 
 #pragma mark-CollectionView
@@ -96,7 +139,7 @@
     _collectionViewBrandClass.backgroundColor=[UIColor clearColor];
     [_collectionViewBrandClass registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CELL"];
     self.automaticallyAdjustsScrollViewInsets=NO;
-    _collectionViewBrandClass.contentInset=UIEdgeInsetsMake(0, 0, 80, 0);
+    _collectionViewBrandClass.contentInset=UIEdgeInsetsMake(0, 0, 50, 0);
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -105,31 +148,20 @@
 
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     static NSString*ident=@"CELL";
-    UICollectionViewCell*cell=[collectionView dequeueReusableCellWithReuseIdentifier:ident forIndexPath:indexPath];
+    YYBrandClassCollectionViewCell*cell=[collectionView dequeueReusableCellWithReuseIdentifier:ident forIndexPath:indexPath];
     
-    //品牌logo的imageview
-    UIImageView*imageViewBK=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, (SCREEN_W-30)/3-20, (SCREEN_W-30)/3-20)];
-    imageViewBK.backgroundColor=[arrColor objectAtIndex:indexPath.row];
-    imageViewBK.layer.cornerRadius=((SCREEN_W-30)/3-20)/2;
-    imageViewBK.layer.masksToBounds=YES;
-    imageViewBK.center=CGPointMake(cell.frame.size.width/2, cell.frame.size.height/2);
-    [cell.contentView addSubview:imageViewBK];
-    imageViewBK.tag=1000;
-    
-    //品牌名字的label
-    UILabel*label=[[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMinX(imageViewBK.frame), CGRectGetMaxY(imageViewBK.frame), imageViewBK.frame.size.width, 30)];
-    label.textAlignment=NSTextAlignmentCenter;
-    label.textColor=[UIColor whiteColor];
-    label.backgroundColor=[UIColor blackColor];
-    label.text=[arrName objectAtIndex:indexPath.row];
-    [cell.contentView addSubview:label];
+    if (cell==nil) {
+        cell=[[[NSBundle mainBundle] loadNibNamed:@"YYBrandClassCollectionViewCell" owner:nil options:nil] lastObject];
+    }
+    cell.imageViewBrandClassCollecctionViewCell.image=[UIImage imageNamed:[arrImage objectAtIndex:indexPath.row]];
+    cell.labelBrandClassCollectionViewCell.text=[arrName objectAtIndex:indexPath.row];
     
     return cell;
 }
 
 //定义每个UICollectionViewCell 的大小
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake((SCREEN_W-30)/3, (SCREEN_W-30)/3+10);
+    return CGSizeMake((SCREEN_W-30)/3, (SCREEN_W-30)/3);
 }
 
 ////定义每个UICollectionView 的 margin,只执行一次
@@ -152,7 +184,7 @@
 
 //列与列之间的距离
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    return 0.001;
+    return 5;
 }
 
 //选中方法
