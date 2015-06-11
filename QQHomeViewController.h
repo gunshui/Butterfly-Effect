@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface QQHomeViewController : UIViewController
+#import "XHYScrollingNavBarViewController.h"
+@interface QQHomeViewController : XHYScrollingNavBarViewController
 
 @end

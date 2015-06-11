@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface QQHomeTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *myBackground;
 
 @end

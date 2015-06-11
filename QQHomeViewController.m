@@ -9,6 +9,7 @@
 #import "QQHomeViewController.h"
 #import "QQHomeTableViewCell.h"
 
+
 @interface QQHomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableViewHome;
 
@@ -19,18 +20,49 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    tableViewHome.contentInset=UIEdgeInsetsMake(0, 0, 10, 0);
+     self.automaticallyAdjustsScrollViewInsets=NO;
     [self createNavigation];
+    [self createTableView];
+
+}
+-(void)createTableView{
+    tableViewHome.contentInset=UIEdgeInsetsMake(0, 0, 58, 0);
+    tableViewHome.separatorStyle=UITableViewCellSeparatorStyleNone;
+    //橡皮糖刷新
+    ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:tableViewHome];
+    [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
+    [self followRollingScrollView:tableViewHome];
+
+}
+- (void)dropViewDidBeginRefreshing:(ODRefreshControl *)refreshControl
+{
+    double delayInSeconds = 1.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        [refreshControl endRefreshing];
+        
+      
+    });
 }
 -(void)createNavigation{
    
 
    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:FONTNAME3 size:19]};
     self.navigationController.navigationBar.barTintColor=[UIColor blackColor];
-  
-    
     //设置导航栏文本的颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    //分类
+    UIButton*btnLeft=[[UIButton alloc]initWithFrame:KRect(0, 0, 30, 30)];
+    [btnLeft setImage:KImage(@"分类") forState:0];
+    UIBarButtonItem*barLeft=[[UIBarButtonItem alloc]initWithCustomView:btnLeft];
+    self.navigationItem.leftBarButtonItem=barLeft;
+    //搜索
+    UIButton*btnRight=[[UIButton alloc]initWithFrame:KRect(0, 0, 25, 25)];
+    [btnRight setImage:KImage(@"搜索") forState:0];
+    UIBarButtonItem*barRight=[[UIBarButtonItem alloc]initWithCustomView:btnRight];
+    self.navigationItem.rightBarButtonItem=barRight;
+    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -45,6 +77,11 @@
     if (cell==nil) {
         cell=[[[NSBundle mainBundle] loadNibNamed:@"QQHomeTableViewCell" owner:nil options:nil] lastObject];
     }
+    cell.backgroundColor=[UIColor blackColor];
+    [UIView animateWithDuration:0.5 animations:^{
+        cell.myBackground.alpha=0;
+        cell.myBackground.alpha=1;
+    }];
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

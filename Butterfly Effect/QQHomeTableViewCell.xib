@@ -525,6 +525,9 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="myBackground" destination="y3P-oF-ejO" id="RO0-i6-knT"/>
+            </connections>
             <point key="canvasLocation" x="342" y="526"/>
         </tableViewCell>
     </objects>
