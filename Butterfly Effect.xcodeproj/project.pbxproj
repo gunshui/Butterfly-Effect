@@ -18,6 +18,7 @@
 		8EA89BC81B26B5DB000CF67D /* YYSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA89BC61B26B5DB000CF67D /* YYSettingViewController.xib */; };
 		8EB9981C1B27E65C00EE96B0 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB9981B1B27E65C00EE96B0 /* View.xib */; };
 		8ED91D361B2572920043EC1C /* 网站logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ED91D351B2572920043EC1C /* 网站logo.png */; };
+		D68D7AE91B2A73D4007A619C /* XHYScrollingNavBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68D7AE81B2A73D4007A619C /* XHYScrollingNavBarViewController.m */; };
 		D68E91391B21A06D0092F456 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D68E91381B21A06D0092F456 /* main.m */; };
 		D68E913C1B21A06D0092F456 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D68E913B1B21A06D0092F456 /* AppDelegate.m */; };
 		D68E913F1B21A06D0092F456 /* Butterfly_Effect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D68E913D1B21A06D0092F456 /* Butterfly_Effect.xcdatamodeld */; };
@@ -95,6 +96,8 @@
 		8EB9981B1B27E65C00EE96B0 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		8ED91D351B2572920043EC1C /* 网站logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "网站logo.png"; sourceTree = "<group>"; };
 		8ED91D371B2575780043EC1C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D68D7AE71B2A73D4007A619C /* XHYScrollingNavBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHYScrollingNavBarViewController.h; sourceTree = "<group>"; };
+		D68D7AE81B2A73D4007A619C /* XHYScrollingNavBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHYScrollingNavBarViewController.m; sourceTree = "<group>"; };
 		D68E91331B21A06D0092F456 /* Butterfly Effect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Butterfly Effect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68E91371B21A06D0092F456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D68E91381B21A06D0092F456 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -252,6 +255,15 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		D68D7AE61B2A73D4007A619C /* XHY */ = {
+			isa = PBXGroup;
+			children = (
+				D68D7AE71B2A73D4007A619C /* XHYScrollingNavBarViewController.h */,
+				D68D7AE81B2A73D4007A619C /* XHYScrollingNavBarViewController.m */,
+			);
+			path = XHY;
+			sourceTree = "<group>";
+		};
 		D68E912A1B21A06D0092F456 = {
 			isa = PBXGroup;
 			children = (
@@ -383,13 +395,6 @@
 			name = "字体";
 			sourceTree = "<group>";
 		};
-		D6A25C2B1B29369C003599BB /* XHYScrolling */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = XHYScrolling;
-			sourceTree = "<group>";
-		};
 		D6A25C2F1B293E7F003599BB /* ODRefreshControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,8 +407,8 @@
 		D6BE83BD1B25481E00E56117 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D68D7AE61B2A73D4007A619C /* XHY */,
 				D6A25C2F1B293E7F003599BB /* ODRefreshControl */,
-				D6A25C2B1B29369C003599BB /* XHYScrolling */,
 				8EA89BBA1B26B164000CF67D /* MBTwitterScroll */,
 			);
 			name = Model;
@@ -573,6 +578,7 @@
 				8E1563391B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.m in Sources */,
 				D6BE83BB1B25420E00E56117 /* QQMeViewController.m in Sources */,
 				D6BE83B61B2541FB00E56117 /* QQShowViewController.m in Sources */,
+				D68D7AE91B2A73D4007A619C /* XHYScrollingNavBarViewController.m in Sources */,
 				D6BE83AC1B2541C600E56117 /* QQHomeViewController.m in Sources */,
 				D6BE83B11B2541E200E56117 /* QQBrandClassViewController.m in Sources */,
 				8EA89BC01B26B164000CF67D /* MBTwitterScroll.m in Sources */,
