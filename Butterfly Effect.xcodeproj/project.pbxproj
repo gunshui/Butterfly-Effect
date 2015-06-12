@@ -19,6 +19,10 @@
 		8EB9981C1B27E65C00EE96B0 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB9981B1B27E65C00EE96B0 /* View.xib */; };
 		8ED91D361B2572920043EC1C /* 网站logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ED91D351B2572920043EC1C /* 网站logo.png */; };
 		D68D7AE91B2A73D4007A619C /* XHYScrollingNavBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68D7AE81B2A73D4007A619C /* XHYScrollingNavBarViewController.m */; };
+		D68D7B1F1B2A7A18007A619C /* QQBrandClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68D7B1D1B2A7A18007A619C /* QQBrandClassViewController.m */; };
+		D68D7B201B2A7A18007A619C /* QQBrandClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68D7B1E1B2A7A18007A619C /* QQBrandClassViewController.xib */; };
+		D68D7B241B2A7A20007A619C /* QQHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68D7B221B2A7A20007A619C /* QQHomeViewController.m */; };
+		D68D7B251B2A7A20007A619C /* QQHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68D7B231B2A7A20007A619C /* QQHomeViewController.xib */; };
 		D68E91391B21A06D0092F456 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D68E91381B21A06D0092F456 /* main.m */; };
 		D68E913C1B21A06D0092F456 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D68E913B1B21A06D0092F456 /* AppDelegate.m */; };
 		D68E913F1B21A06D0092F456 /* Butterfly_Effect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D68E913D1B21A06D0092F456 /* Butterfly_Effect.xcdatamodeld */; };
@@ -58,10 +62,6 @@
 		D69970471B2833E6005B1BBF /* 首页3.png in Resources */ = {isa = PBXBuildFile; fileRef = D69970451B2833E6005B1BBF /* 首页3.png */; };
 		D69970491B28349C005B1BBF /* 首页品牌类.png in Resources */ = {isa = PBXBuildFile; fileRef = D69970481B28349C005B1BBF /* 首页品牌类.png */; };
 		D6A25C321B293E7F003599BB /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A25C311B293E7F003599BB /* ODRefreshControl.m */; };
-		D6BE83AC1B2541C600E56117 /* QQHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BE83AA1B2541C600E56117 /* QQHomeViewController.m */; };
-		D6BE83AD1B2541C600E56117 /* QQHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6BE83AB1B2541C600E56117 /* QQHomeViewController.xib */; };
-		D6BE83B11B2541E200E56117 /* QQBrandClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BE83AF1B2541E200E56117 /* QQBrandClassViewController.m */; };
-		D6BE83B21B2541E200E56117 /* QQBrandClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6BE83B01B2541E200E56117 /* QQBrandClassViewController.xib */; };
 		D6BE83B61B2541FB00E56117 /* QQShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BE83B41B2541FB00E56117 /* QQShowViewController.m */; };
 		D6BE83B71B2541FB00E56117 /* QQShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6BE83B51B2541FB00E56117 /* QQShowViewController.xib */; };
 		D6BE83BB1B25420E00E56117 /* QQMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BE83B91B25420E00E56117 /* QQMeViewController.m */; };
@@ -98,6 +98,12 @@
 		8ED91D371B2575780043EC1C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		D68D7AE71B2A73D4007A619C /* XHYScrollingNavBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHYScrollingNavBarViewController.h; sourceTree = "<group>"; };
 		D68D7AE81B2A73D4007A619C /* XHYScrollingNavBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHYScrollingNavBarViewController.m; sourceTree = "<group>"; };
+		D68D7B1C1B2A7A18007A619C /* QQBrandClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQBrandClassViewController.h; sourceTree = "<group>"; };
+		D68D7B1D1B2A7A18007A619C /* QQBrandClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQBrandClassViewController.m; sourceTree = "<group>"; };
+		D68D7B1E1B2A7A18007A619C /* QQBrandClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QQBrandClassViewController.xib; sourceTree = "<group>"; };
+		D68D7B211B2A7A20007A619C /* QQHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQHomeViewController.h; sourceTree = "<group>"; };
+		D68D7B221B2A7A20007A619C /* QQHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQHomeViewController.m; sourceTree = "<group>"; };
+		D68D7B231B2A7A20007A619C /* QQHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QQHomeViewController.xib; sourceTree = "<group>"; };
 		D68E91331B21A06D0092F456 /* Butterfly Effect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Butterfly Effect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68E91371B21A06D0092F456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D68E91381B21A06D0092F456 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -145,12 +151,6 @@
 		D69970481B28349C005B1BBF /* 首页品牌类.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页品牌类.png"; sourceTree = "<group>"; };
 		D6A25C301B293E7F003599BB /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
 		D6A25C311B293E7F003599BB /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
-		D6BE83A91B2541C600E56117 /* QQHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QQHomeViewController.h; path = ../QQHomeViewController.h; sourceTree = "<group>"; };
-		D6BE83AA1B2541C600E56117 /* QQHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QQHomeViewController.m; path = ../QQHomeViewController.m; sourceTree = "<group>"; };
-		D6BE83AB1B2541C600E56117 /* QQHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QQHomeViewController.xib; path = ../QQHomeViewController.xib; sourceTree = "<group>"; };
-		D6BE83AE1B2541E200E56117 /* QQBrandClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QQBrandClassViewController.h; path = ../QQBrandClassViewController.h; sourceTree = "<group>"; };
-		D6BE83AF1B2541E200E56117 /* QQBrandClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QQBrandClassViewController.m; path = ../QQBrandClassViewController.m; sourceTree = "<group>"; };
-		D6BE83B01B2541E200E56117 /* QQBrandClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QQBrandClassViewController.xib; path = ../QQBrandClassViewController.xib; sourceTree = "<group>"; };
 		D6BE83B31B2541FB00E56117 /* QQShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQShowViewController.h; sourceTree = "<group>"; };
 		D6BE83B41B2541FB00E56117 /* QQShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQShowViewController.m; sourceTree = "<group>"; };
 		D6BE83B51B2541FB00E56117 /* QQShowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QQShowViewController.xib; sourceTree = "<group>"; };
@@ -205,9 +205,9 @@
 		8EA89B7C1B267BCC000CF67D /* 品牌荟 */ = {
 			isa = PBXGroup;
 			children = (
-				D6BE83AE1B2541E200E56117 /* QQBrandClassViewController.h */,
-				D6BE83AF1B2541E200E56117 /* QQBrandClassViewController.m */,
-				D6BE83B01B2541E200E56117 /* QQBrandClassViewController.xib */,
+				D68D7B1C1B2A7A18007A619C /* QQBrandClassViewController.h */,
+				D68D7B1D1B2A7A18007A619C /* QQBrandClassViewController.m */,
+				D68D7B1E1B2A7A18007A619C /* QQBrandClassViewController.xib */,
 				8E1563361B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.h */,
 				8E1563371B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.m */,
 				8E1563381B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.xib */,
@@ -218,9 +218,9 @@
 		8EA89B7D1B267BD6000CF67D /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
-				D6BE83A91B2541C600E56117 /* QQHomeViewController.h */,
-				D6BE83AA1B2541C600E56117 /* QQHomeViewController.m */,
-				D6BE83AB1B2541C600E56117 /* QQHomeViewController.xib */,
+				D68D7B211B2A7A20007A619C /* QQHomeViewController.h */,
+				D68D7B221B2A7A20007A619C /* QQHomeViewController.m */,
+				D68D7B231B2A7A20007A619C /* QQHomeViewController.xib */,
 				D699703D1B282B00005B1BBF /* QQHomeTableViewCell.h */,
 				D699703E1B282B00005B1BBF /* QQHomeTableViewCell.m */,
 				D699703F1B282B00005B1BBF /* QQHomeTableViewCell.xib */,
@@ -521,6 +521,7 @@
 				D68E91441B21A06D0092F456 /* LaunchScreen.xib in Resources */,
 				D69970301B2821AF005B1BBF /* audient.png in Resources */,
 				D699702E1B2821AF005B1BBF /* 333.png in Resources */,
+				D68D7B201B2A7A18007A619C /* QQBrandClassViewController.xib in Resources */,
 				D69970271B2821AF005B1BBF /* 首页2-喜欢数.png in Resources */,
 				D699702B1B2821AF005B1BBF /* 首页2-收藏数.png in Resources */,
 				D69970291B2821AF005B1BBF /* 首页2-广场（red）.png in Resources */,
@@ -541,12 +542,11 @@
 				D699703A1B28274C005B1BBF /* 1508=方正兰亭超细黑简体.TTF in Resources */,
 				D699702D1B2821AF005B1BBF /* 首页图标.png in Resources */,
 				8EA89BC81B26B5DB000CF67D /* YYSettingViewController.xib in Resources */,
+				D68D7B251B2A7A20007A619C /* QQHomeViewController.xib in Resources */,
 				D699702F1B2821AF005B1BBF /* arturia.png in Resources */,
 				D69970311B2821AF005B1BBF /* hartke.png in Resources */,
-				D6BE83AD1B2541C600E56117 /* QQHomeViewController.xib in Resources */,
 				D69970281B2821AF005B1BBF /* 首页2-广场.png in Resources */,
 				D699702C1B2821AF005B1BBF /* 首页2-评论数.png in Resources */,
-				D6BE83B21B2541E200E56117 /* QQBrandClassViewController.xib in Resources */,
 				D699703B1B28274C005B1BBF /* 方正兰亭纤黑_GBK.TTF in Resources */,
 				D6BE83B71B2541FB00E56117 /* QQShowViewController.xib in Resources */,
 				D69970491B28349C005B1BBF /* 首页品牌类.png in Resources */,
@@ -579,8 +579,8 @@
 				D6BE83BB1B25420E00E56117 /* QQMeViewController.m in Sources */,
 				D6BE83B61B2541FB00E56117 /* QQShowViewController.m in Sources */,
 				D68D7AE91B2A73D4007A619C /* XHYScrollingNavBarViewController.m in Sources */,
-				D6BE83AC1B2541C600E56117 /* QQHomeViewController.m in Sources */,
-				D6BE83B11B2541E200E56117 /* QQBrandClassViewController.m in Sources */,
+				D68D7B241B2A7A20007A619C /* QQHomeViewController.m in Sources */,
+				D68D7B1F1B2A7A18007A619C /* QQBrandClassViewController.m in Sources */,
 				8EA89BC01B26B164000CF67D /* MBTwitterScroll.m in Sources */,
 				D68E913F1B21A06D0092F456 /* Butterfly_Effect.xcdatamodeld in Sources */,
 				D6A25C321B293E7F003599BB /* ODRefreshControl.m in Sources */,
