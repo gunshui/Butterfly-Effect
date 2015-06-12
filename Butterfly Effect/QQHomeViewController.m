@@ -18,6 +18,7 @@
 @implementation QQHomeViewController
 @synthesize tableViewHome;
 - (void)viewDidLoad {
+    NSLog(@"qinqin");
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
      self.automaticallyAdjustsScrollViewInsets=NO;
