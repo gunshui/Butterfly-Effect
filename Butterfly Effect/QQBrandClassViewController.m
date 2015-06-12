@@ -28,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"QQBrandClassViewController");
+    NSLog(@"123");
     // Do any additional setup after loading the view from its nib.
     
     //导航栏
