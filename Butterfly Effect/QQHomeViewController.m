@@ -8,7 +8,7 @@
 
 #import "QQHomeViewController.h"
 #import "QQHomeTableViewCell.h"
-
+#import "QQHome_DetailController.h"
 
 @interface QQHomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableViewHome;
@@ -18,8 +18,7 @@
 @implementation QQHomeViewController
 @synthesize tableViewHome;
 - (void)viewDidLoad {
-    NSLog(@"qinqin");
-    [super viewDidLoad];
+     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
      self.automaticallyAdjustsScrollViewInsets=NO;
     [self createNavigation];
@@ -33,7 +32,20 @@
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:tableViewHome];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
     [self followRollingScrollView:tableViewHome];
+    [tableViewHome addFooterWithTarget:self action:@selector(footAction)];
+    
 
+}
+-(void)footAction{
+    double delayInSeconds = 1.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        [tableViewHome footerEndRefreshing];
+        
+        
+    });
+ 
 }
 - (void)dropViewDidBeginRefreshing:(ODRefreshControl *)refreshControl
 {
@@ -94,6 +106,26 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 0.001;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    QQHome_DetailController*home_Detail=[[QQHome_DetailController alloc]init];
+    [self.navigationController pushViewController:home_Detail animated:YES];
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"Hidden_Tabbar" object:nil userInfo:nil];
+    
+    
+    
+}
+//屏幕一旦旋转，马上执行的代理
+-(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+//    NSLog(@"change---------");
+    
+    [self changeActon];
+    
+    
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

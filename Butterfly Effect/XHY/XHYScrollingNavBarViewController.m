@@ -132,13 +132,12 @@
     self.overLay.alpha=0;
 }
 -(void)changeActon{
-     NSLog(@"changeAction");
+//     NSLog(@"changeAction");
     [self.overLay setHidden:YES];
 //    [self.overLay removeFromSuperview];
     CGRect frame =NavBarFrame;
-    frame.origin.y = -24;
+    frame.origin.y = 20;
     NavBarFrame=frame;
-    NSLog(@"navBarFrame==%@",NSStringFromCGRect(NavBarFrame));
     self.isHidden=NO;
     
     }

@@ -186,6 +186,21 @@
     
     
 }
+-(void)hidden:(NSNotification*)notif{
+    [UIView animateWithDuration:0.5 animations:^{
+        imageViewTabBar.frame=KRect(0, SCREEN_H, SCREEN_W, TABBAR_H);
+
+    }];
+   
+    
+}
+-(void)show:(NSNotification *)notif{
+    [UIView animateWithDuration:1.0 animations:^{
+      
+    imageViewTabBar.frame=KRect(0, SCREEN_H-TABBAR_H, SCREEN_W, TABBAR_H);
+    }];
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
