@@ -18,7 +18,6 @@
 @implementation QQHomeViewController
 @synthesize tableViewHome;
 - (void)viewDidLoad {
-    NSLog(@"qinqin");
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
      self.automaticallyAdjustsScrollViewInsets=NO;
@@ -49,7 +48,7 @@
 -(void)createNavigation{
    
 
-   self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:FONTNAME3 size:19]};
+    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:FONTNAME3 size:19]};
     self.navigationController.navigationBar.barTintColor=[UIColor blackColor];
     //设置导航栏文本的颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];

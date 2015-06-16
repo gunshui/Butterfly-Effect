@@ -28,7 +28,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"QQBrandClassViewController");
-    NSLog(@"2131313");
     // Do any additional setup after loading the view from its nib.
     
     //导航栏
@@ -108,15 +107,30 @@
 #pragma mark-导航栏
 
 -(void)createNavigation{
-    self.title=@"品牌荟";
-    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:nil size:19]};
+//    self.title=@"品牌荟";
+//    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:nil size:19]};
+//    
+//    UIGraphicsBeginImageContextWithOptions(CGSizeMake(36, 36), NO, 0.0);
+//    UIImage *blank = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+//    [self.navigationController.navigationBar setBackgroundImage:blank forBarMetrics:UIBarMetricsDefault];
+//    self.navigationController.navigationBar.shadowImage = blank;
     
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(36, 36), NO, 0.0);
-    UIImage *blank = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    [self.navigationController.navigationBar setBackgroundImage:blank forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = blank;
+    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:FONTNAME3 size:19]};
+    self.navigationController.navigationBar.barTintColor=[UIColor blackColor];
+    //设置导航栏文本的颜色
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    //分类
+    UIButton*btnLeft=[[UIButton alloc]initWithFrame:KRect(0, 0, 30, 30)];
+    [btnLeft setImage:KImage(@"分类") forState:0];
+    UIBarButtonItem*barLeft=[[UIBarButtonItem alloc]initWithCustomView:btnLeft];
+    self.navigationItem.leftBarButtonItem=barLeft;
+    //搜索
+    UIButton*btnRight=[[UIButton alloc]initWithFrame:KRect(0, 0, 25, 25)];
+    [btnRight setImage:KImage(@"搜索") forState:0];
+    UIBarButtonItem*barRight=[[UIBarButtonItem alloc]initWithCustomView:btnRight];
+    self.navigationItem.rightBarButtonItem=barRight;
 }
 
 #pragma mark-色块数组
