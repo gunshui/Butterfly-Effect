@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface QQTabViewController : UITabBarController
-
+-(void)hidden:(NSNotification*)notif;
+-(void)show:(NSNotification*)notif;
 @end

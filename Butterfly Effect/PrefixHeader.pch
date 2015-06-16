@@ -21,6 +21,9 @@
 #define FONTNAME3  @"FZLanTingHeiS-R-GB"
 #import "ODRefreshControl.h"
 
-
-
+#define GUNSHUI @"http://app.imus.cn"
+#define GUNSHUI2 @"http://www.imus.cn"
+#define GUNSHUI3 @"http://www.gunshuibbs.com"
+#import "JSONKit.h"
+#import "MJRefresh.h"
 #endif

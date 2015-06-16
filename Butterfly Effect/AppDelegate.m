@@ -38,7 +38,7 @@
     UINavigationController*nav_brand=[[UINavigationController alloc]initWithRootViewController:brandClass];
     
     QQShowViewController*show=[[QQShowViewController alloc]init];
-    show.title=@"广场";
+    show.title=@"秀场";
     UINavigationController*nav_show=[[UINavigationController alloc]initWithRootViewController:show];
     
     QQMeViewController*me=[[QQMeViewController alloc]init];
@@ -46,6 +46,10 @@
     
     QQTabViewController*tab=[[QQTabViewController alloc]init];
     tab.viewControllers=[NSArray arrayWithObjects:nav_home,nav_brand,nav_show,me, nil];
+    [[NSNotificationCenter defaultCenter]addObserver:tab selector:@selector(hidden:) name:@"Hidden_Tabbar" object:nil];
+    
+    
+    
     self.window.rootViewController=tab;
     
     [self.window makeKeyAndVisible];
