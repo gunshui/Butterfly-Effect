@@ -43,9 +43,10 @@
     
     QQMeViewController*me=[[QQMeViewController alloc]init];
     me.title=@"个人中心";
+    UINavigationController*nav_me=[[UINavigationController alloc]initWithRootViewController:me];
     
     QQTabViewController*tab=[[QQTabViewController alloc]init];
-    tab.viewControllers=[NSArray arrayWithObjects:nav_home,nav_brand,nav_show,me, nil];
+    tab.viewControllers=[NSArray arrayWithObjects:nav_home,nav_brand,nav_show,nav_me, nil];
     [[NSNotificationCenter defaultCenter]addObserver:tab selector:@selector(hidden:) name:@"Hidden_Tabbar" object:nil];
     
     

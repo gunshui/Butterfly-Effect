@@ -7,14 +7,25 @@
 //
 
 #import "QQMeViewController.h"
-#import "MBTwitterScroll.h"
-#import "YYSettingViewController.h"
 
-@interface QQMeViewController ()<UITableViewDelegate, UITableViewDataSource, MBTwitterScrollDelegate>
+@interface QQMeViewController ()<UITextFieldDelegate>
 {
-    NSArray*arrKind;
+    UIButton*btnRight;
 }
-
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewTop;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewAlphe;
+@property (weak, nonatomic) IBOutlet UIButton *btnUserPic;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewPic;
+@property (weak, nonatomic) IBOutlet UILabel *labelUserName;
+@property (weak, nonatomic) IBOutlet UILabel *labelIntegral;
+@property (weak, nonatomic) IBOutlet UILabel *labelLevel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewLogin;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewLogo;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldUserName;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldPassword;
+@property (weak, nonatomic) IBOutlet UIButton *btnLogin;
+@property (weak, nonatomic) IBOutlet UIButton *btnForgetPassword;
+@property (weak, nonatomic) IBOutlet UIButton *btnRegistered;
 @end
 
 @implementation QQMeViewController
@@ -24,68 +35,95 @@
     NSLog(@"QQMeViewController");
     // Do any additional setup after loading the view from its nib.
     
-    //分类数组
-    [self createArray];
+    NSLog(@"%f",SCREEN_W);
     
-    //效果方法
-    [self createTopInfo];
-}
-
-#pragma mark-分类数组
-
--(void)createArray{
-    arrKind=[NSArray arrayWithObjects:@"我的收藏",@"我的关注",@"我的提问", nil];
-}
-
-#pragma mark-效果方法
-
--(void)createTopInfo{
-    MBTwitterScroll *myTableView = [[MBTwitterScroll alloc]
-                                    initTableViewWithBackgound:[UIImage imageNamed:@"u=3823724296,3457142115&fm=21&gp=0.jpg"]
-                                    avatarImage:[UIImage imageNamed:@"11.jpg"]
-                                    titleString:@"滚水网管理员宣"
-                                    subtitleString:@"积分:1200"
-                                    buttonTitle:@"设置"];  // Set nil for no button
+    //导航栏
+    [self createNavigation];
+    //个人信息数据
+    [self userInfo];
+    //登录注册页面
+    [self loginAndRegistered];
     
-    myTableView.tableView.delegate = self;
-    myTableView.tableView.dataSource = self;
-    myTableView.delegate = self;
-    [self.view addSubview:myTableView];
-}
-
-//MBTwitterScrollDelegate
--(void) recievedMBTwitterScrollEvent {
-    NSLog(@"你好________推送页面");
-    YYSettingViewController*setting=[[YYSettingViewController alloc]init];
-    [self presentViewController:setting animated:NO completion:nil];
-}
-
-- (void) recievedMBTwitterScrollButtonClicked {
-    YYSettingViewController*setting=[[YYSettingViewController alloc]init];
-    [self presentViewController:setting animated:NO completion:nil];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [arrKind count];
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 10;
-}
-
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *identifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+}
+
+#pragma mark-登录注册页面
+
+-(void)loginAndRegistered{
+    NSString*str=nil;
+    [[NSUserDefaults standardUserDefaults] setObject:str forKey:@"id"];
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"id"]==nil) {
+        _imageViewLogin.hidden=NO;
+        btnRight.hidden=YES;
+        _btnLogin.backgroundColor=[UIColor colorWithRed:93.0/255.0 green:174.0/255.0 blue:33.0/255.0 alpha:1];
+        _btnLogin.layer.cornerRadius=3;
+        _textFieldUserName.delegate=self;
+        _textFieldPassword.delegate=self;
+        _textFieldUserName.returnKeyType=UIReturnKeyDone;
+        NSLog(@"显示");
+    }else{
+        _imageViewLogin.hidden=YES;
+        _imageViewLogo.hidden=YES;
+        _textFieldUserName.hidden=YES;
+        _textFieldPassword.hidden=YES;
+        _btnLogin.hidden=YES;
+        _btnForgetPassword.hidden=YES;
+        _btnRegistered.hidden=YES;
+        NSLog(@"隐藏");
     }
+}
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    NSLog(@"beginEditing");
     
-    cell.textLabel.text =[arrKind objectAtIndex:indexPath.row];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.view.frame=CGRectMake(0, -100, SCREEN_W, SCREEN_H);
+    }];
     
-    cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    return cell;
+    return YES;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    NSLog(@"return");
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.view.frame=CGRectMake(0, 0, SCREEN_W, SCREEN_H);
+        [_textFieldUserName resignFirstResponder];
+        [_textFieldPassword resignFirstResponder];
+    }];
+    
+    return YES;
+}
+
+#pragma mark-个人信息数据
+
+-(void)userInfo{
+    _imageViewAlphe.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+    [_imageViewPic setImage:KImage(@"首页2")];
+    _imageViewPic.userInteractionEnabled=YES;
+    _imageViewPic.layer.cornerRadius=5;
+    _imageViewPic.layer.masksToBounds=YES;
+    [_btnUserPic addTarget:self action:@selector(btnUserPicAction) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)btnUserPicAction{
+    NSLog(@"换头像");
+}
+
+#pragma mark-导航栏
+
+-(void)createNavigation{
+    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:FONTNAME3 size:19]};
+    self.navigationController.navigationBar.barTintColor=[UIColor blackColor];
+    //设置导航栏文本的颜色
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    //设置
+    btnRight=[[UIButton alloc]initWithFrame:KRect(0, 0, 40, 40)];
+    [btnRight setImage:KImage(@"setting") forState:0];
+    UIBarButtonItem*barRight=[[UIBarButtonItem alloc]initWithCustomView:btnRight];
+    self.navigationItem.rightBarButtonItem=barRight;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -35,7 +35,7 @@
                         </mask>
                     </variation>
                 </scrollView>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XFn-ni-AmR">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XFn-ni-AmR">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PnE-9n-ycb">
                         <size key="itemSize" width="50" height="50"/>

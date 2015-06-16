@@ -11,12 +11,11 @@
 		8E15633A1B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E1563381B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.xib */; };
 		8E15633D1B295F7000ABDCF1 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E15633B1B295F7000ABDCF1 /* 1.png */; };
 		8E15633E1B295F7000ABDCF1 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E15633C1B295F7000ABDCF1 /* 2.png */; };
+		8E9F2B021B2FC29500938211 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9F2B011B2FC29500938211 /* logo.png */; };
+		8E9F2B041B2FFE8A00938211 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9F2B031B2FFE8A00938211 /* setting.png */; };
 		8EA89BC01B26B164000CF67D /* MBTwitterScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA89BBC1B26B164000CF67D /* MBTwitterScroll.m */; };
 		8EA89BC11B26B164000CF67D /* UIScrollView+TwitterCover.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA89BBF1B26B164000CF67D /* UIScrollView+TwitterCover.m */; };
 		8EA89BC31B26B2B9000CF67D /* u=3823724296,3457142115&fm=21&gp=0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8EA89BC21B26B2B9000CF67D /* u=3823724296,3457142115&fm=21&gp=0.jpg */; };
-		8EA89BC71B26B5DB000CF67D /* YYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA89BC51B26B5DB000CF67D /* YYSettingViewController.m */; };
-		8EA89BC81B26B5DB000CF67D /* YYSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA89BC61B26B5DB000CF67D /* YYSettingViewController.xib */; };
-		8EB9981C1B27E65C00EE96B0 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB9981B1B27E65C00EE96B0 /* View.xib */; };
 		8ED91D361B2572920043EC1C /* 网站logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ED91D351B2572920043EC1C /* 网站logo.png */; };
 		D6440B2A1B2ECF29000E5CCD /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6440B1A1B2ECF29000E5CCD /* MJRefresh.bundle */; };
 		D6440B2B1B2ECF29000E5CCD /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6440B1D1B2ECF29000E5CCD /* MJRefreshBaseView.m */; };
@@ -119,15 +118,13 @@
 		8E1563381B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYBrandClassCollectionViewCell.xib; sourceTree = "<group>"; };
 		8E15633B1B295F7000ABDCF1 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		8E15633C1B295F7000ABDCF1 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		8E9F2B011B2FC29500938211 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		8E9F2B031B2FFE8A00938211 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
 		8EA89BBB1B26B164000CF67D /* MBTwitterScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTwitterScroll.h; sourceTree = "<group>"; };
 		8EA89BBC1B26B164000CF67D /* MBTwitterScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTwitterScroll.m; sourceTree = "<group>"; };
 		8EA89BBE1B26B164000CF67D /* UIScrollView+TwitterCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TwitterCover.h"; sourceTree = "<group>"; };
 		8EA89BBF1B26B164000CF67D /* UIScrollView+TwitterCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TwitterCover.m"; sourceTree = "<group>"; };
 		8EA89BC21B26B2B9000CF67D /* u=3823724296,3457142115&fm=21&gp=0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "u=3823724296,3457142115&fm=21&gp=0.jpg"; sourceTree = "<group>"; };
-		8EA89BC41B26B5DB000CF67D /* YYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSettingViewController.h; sourceTree = "<group>"; };
-		8EA89BC51B26B5DB000CF67D /* YYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSettingViewController.m; sourceTree = "<group>"; };
-		8EA89BC61B26B5DB000CF67D /* YYSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYSettingViewController.xib; sourceTree = "<group>"; };
-		8EB9981B1B27E65C00EE96B0 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		8ED91D351B2572920043EC1C /* 网站logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "网站logo.png"; sourceTree = "<group>"; };
 		8ED91D371B2575780043EC1C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		D6440B1A1B2ECF29000E5CCD /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
@@ -278,10 +275,6 @@
 				D6BE83B81B25420E00E56117 /* QQMeViewController.h */,
 				D6BE83B91B25420E00E56117 /* QQMeViewController.m */,
 				D6BE83BA1B25420E00E56117 /* QQMeViewController.xib */,
-				8EA89BC41B26B5DB000CF67D /* YYSettingViewController.h */,
-				8EA89BC51B26B5DB000CF67D /* YYSettingViewController.m */,
-				8EA89BC61B26B5DB000CF67D /* YYSettingViewController.xib */,
-				8EB9981B1B27E65C00EE96B0 /* View.xib */,
 			);
 			name = "个人中心";
 			sourceTree = "<group>";
@@ -542,6 +535,8 @@
 		D699700A1B2821AF005B1BBF /* 各种小图标 */ = {
 			isa = PBXGroup;
 			children = (
+				8E9F2B031B2FFE8A00938211 /* setting.png */,
+				8E9F2B011B2FC29500938211 /* logo.png */,
 				D699700B1B2821AF005B1BBF /* 分类.png */,
 				D699700C1B2821AF005B1BBF /* 搜索.png */,
 				D69970141B2821AF005B1BBF /* 首页2-恢复的(red).png */,
@@ -719,6 +714,7 @@
 				D699702E1B2821AF005B1BBF /* 333.png in Resources */,
 				D68D7B201B2A7A18007A619C /* QQBrandClassViewController.xib in Resources */,
 				D69970271B2821AF005B1BBF /* 首页2-喜欢数.png in Resources */,
+				8E9F2B041B2FFE8A00938211 /* setting.png in Resources */,
 				D699702B1B2821AF005B1BBF /* 首页2-收藏数.png in Resources */,
 				D69970291B2821AF005B1BBF /* 首页2-广场（red）.png in Resources */,
 				D69970211B2821AF005B1BBF /* 分类.png in Resources */,
@@ -730,16 +726,15 @@
 				D68E91411B21A06D0092F456 /* Images.xcassets in Resources */,
 				8E15633D1B295F7000ABDCF1 /* 1.png in Resources */,
 				D68E91631B21A48B0092F456 /* QQTabViewController.xib in Resources */,
-				8EB9981C1B27E65C00EE96B0 /* View.xib in Resources */,
 				D67D1B7B1B2EB161007C1644 /* 喜欢数.png in Resources */,
 				8E15633E1B295F7000ABDCF1 /* 2.png in Resources */,
 				D6BE83BC1B25420E00E56117 /* QQMeViewController.xib in Resources */,
+				8E9F2B021B2FC29500938211 /* logo.png in Resources */,
 				8E15633A1B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.xib in Resources */,
 				D6CC4BED1B26EE430057F975 /* 11.jpg in Resources */,
 				D69970321B2821AF005B1BBF /* line6.png in Resources */,
 				D699703A1B28274C005B1BBF /* 1508=方正兰亭超细黑简体.TTF in Resources */,
 				D699702D1B2821AF005B1BBF /* 首页图标.png in Resources */,
-				8EA89BC81B26B5DB000CF67D /* YYSettingViewController.xib in Resources */,
 				D68D7B251B2A7A20007A619C /* QQHomeViewController.xib in Resources */,
 				D699702F1B2821AF005B1BBF /* arturia.png in Resources */,
 				D69970311B2821AF005B1BBF /* hartke.png in Resources */,
@@ -814,7 +809,6 @@
 				D6440B561B2ECF7F000E5CCD /* SDWebImagePrefetcher.m in Sources */,
 				8EA89BC11B26B164000CF67D /* UIScrollView+TwitterCover.m in Sources */,
 				D6440B581B2ECF7F000E5CCD /* UIImage+GIF.m in Sources */,
-				8EA89BC71B26B5DB000CF67D /* YYSettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
