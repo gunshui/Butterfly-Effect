@@ -9,6 +9,7 @@
 #import "QQHomeViewController.h"
 #import "QQHomeTableViewCell.h"
 #import "QQHome_DetailController.h"
+#import "YYSearchViewController.h"
 
 @interface QQHomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableViewHome;
@@ -73,11 +74,15 @@
     //搜索
     UIButton*btnRight=[[UIButton alloc]initWithFrame:KRect(0, 0, 25, 25)];
     [btnRight setImage:KImage(@"搜索") forState:0];
+    [btnRight addTarget:self action:@selector(btnRightAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem*barRight=[[UIBarButtonItem alloc]initWithCustomView:btnRight];
     self.navigationItem.rightBarButtonItem=barRight;
     
 }
-
+-(void)btnRightAction{
+    YYSearchViewController*searchView=[[YYSearchViewController alloc]init];
+    [self.navigationController pushViewController:searchView animated:YES];
+}
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
