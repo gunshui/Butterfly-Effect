@@ -110,6 +110,8 @@
 		D6CC4BED1B26EE430057F975 /* 11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D6CC4BEC1B26EE430057F975 /* 11.jpg */; };
 		D6E148541B33B389006E6955 /* YYSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E148521B33B388006E6955 /* YYSearchViewController.m */; };
 		D6E148551B33B389006E6955 /* YYSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E148531B33B389006E6955 /* YYSearchViewController.xib */; };
+		D6E148591B33BCD2006E6955 /* 播放记录.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E148571B33BCD2006E6955 /* 播放记录.png */; };
+		D6E1485A1B33BCD2006E6955 /* 返回按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E148581B33BCD2006E6955 /* 返回按钮.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -271,6 +273,8 @@
 		D6E148511B33B388006E6955 /* YYSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSearchViewController.h; sourceTree = "<group>"; };
 		D6E148521B33B388006E6955 /* YYSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSearchViewController.m; sourceTree = "<group>"; };
 		D6E148531B33B389006E6955 /* YYSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYSearchViewController.xib; sourceTree = "<group>"; };
+		D6E148571B33BCD2006E6955 /* 播放记录.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "播放记录.png"; sourceTree = "<group>"; };
+		D6E148581B33BCD2006E6955 /* 返回按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回按钮.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -634,6 +638,7 @@
 		D6BE83BE1B25482A00E56117 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				D6E148561B33BCD2006E6955 /* 搜索页面 */,
 				D67D1B731B2EB161007C1644 /* 秀场 */,
 				D69970091B2821AF005B1BBF /* 切图 */,
 				D6CC4BEC1B26EE430057F975 /* 11.jpg */,
@@ -660,6 +665,15 @@
 				D6E148531B33B389006E6955 /* YYSearchViewController.xib */,
 			);
 			name = "搜索";
+			sourceTree = "<group>";
+		};
+		D6E148561B33BCD2006E6955 /* 搜索页面 */ = {
+			isa = PBXGroup;
+			children = (
+				D6E148571B33BCD2006E6955 /* 播放记录.png */,
+				D6E148581B33BCD2006E6955 /* 返回按钮.png */,
+			);
+			path = "搜索页面";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -777,6 +791,8 @@
 				8E15633E1B295F7000ABDCF1 /* 2.png in Resources */,
 				D6A65BB61B31212F00378DF3 /* about-img.png in Resources */,
 				D6A65BCA1B31691C00378DF3 /* 个人中心，封面.png in Resources */,
+				D6E148591B33BCD2006E6955 /* 播放记录.png in Resources */,
+				D6E1485A1B33BCD2006E6955 /* 返回按钮.png in Resources */,
 				8E15633A1B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.xib in Resources */,
 				D6CC4BED1B26EE430057F975 /* 11.jpg in Resources */,
 				D69970321B2821AF005B1BBF /* line6.png in Resources */,
