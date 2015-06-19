@@ -108,6 +108,8 @@
 		D6BE83B61B2541FB00E56117 /* QQShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BE83B41B2541FB00E56117 /* QQShowViewController.m */; };
 		D6BE83B71B2541FB00E56117 /* QQShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6BE83B51B2541FB00E56117 /* QQShowViewController.xib */; };
 		D6CC4BED1B26EE430057F975 /* 11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D6CC4BEC1B26EE430057F975 /* 11.jpg */; };
+		D6E148541B33B389006E6955 /* YYSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E148521B33B388006E6955 /* YYSearchViewController.m */; };
+		D6E148551B33B389006E6955 /* YYSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6E148531B33B389006E6955 /* YYSearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,6 +268,9 @@
 		D6BE83B41B2541FB00E56117 /* QQShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQShowViewController.m; sourceTree = "<group>"; };
 		D6BE83B51B2541FB00E56117 /* QQShowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QQShowViewController.xib; sourceTree = "<group>"; };
 		D6CC4BEC1B26EE430057F975 /* 11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 11.jpg; sourceTree = "<group>"; };
+		D6E148511B33B388006E6955 /* YYSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSearchViewController.h; sourceTree = "<group>"; };
+		D6E148521B33B388006E6955 /* YYSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSearchViewController.m; sourceTree = "<group>"; };
+		D6E148531B33B389006E6955 /* YYSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYSearchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -650,6 +655,9 @@
 		D6E1484B1B33B0EB006E6955 /* 搜索 */ = {
 			isa = PBXGroup;
 			children = (
+				D6E148511B33B388006E6955 /* YYSearchViewController.h */,
+				D6E148521B33B388006E6955 /* YYSearchViewController.m */,
+				D6E148531B33B389006E6955 /* YYSearchViewController.xib */,
 			);
 			name = "搜索";
 			sourceTree = "<group>";
@@ -758,6 +766,7 @@
 				D68D7B2A1B2A8A00007A619C /* QQHome_DetailController.xib in Resources */,
 				D699702A1B2821AF005B1BBF /* 首页2-恢复的(red).png in Resources */,
 				D69970261B2821AF005B1BBF /* 首页2-品牌.png in Resources */,
+				D6E148551B33B389006E6955 /* YYSearchViewController.xib in Resources */,
 				D69970241B2821AF005B1BBF /* 首页2-个人中心.png in Resources */,
 				D6A65BBD1B31254C00378DF3 /* logo.png in Resources */,
 				D69970351B2821AF005B1BBF /* samson.png in Resources */,
@@ -830,6 +839,7 @@
 				D6440B2B1B2ECF29000E5CCD /* MJRefreshBaseView.m in Sources */,
 				D6A65BC51B3166B500378DF3 /* QQMyselfTableViewCell.m in Sources */,
 				D6440B501B2ECF7F000E5CCD /* SDImageCache.m in Sources */,
+				D6E148541B33B389006E6955 /* YYSearchViewController.m in Sources */,
 				D6440B2F1B2ECF29000E5CCD /* UIScrollView+MJExtension.m in Sources */,
 				D6440B591B2ECF7F000E5CCD /* UIImage+MultiFormat.m in Sources */,
 				D6440B541B2ECF7F000E5CCD /* SDWebImageDownloaderOperation.m in Sources */,
