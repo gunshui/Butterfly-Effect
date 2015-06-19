@@ -141,7 +141,7 @@
     //品牌名数组
     arrName=[NSMutableArray arrayWithObjects:@"LINE6",@"MIDIPLUS",@"SAMSON",@"HARTKE",@"333",@"AUDIENT",@"LIVID",@"ARTURIA", nil];
     
-    arrPic=[NSMutableArray arrayWithObjects:@"1",@"2", nil];
+    arrPic=[NSMutableArray arrayWithObjects:@"品牌广告",@"2", nil];
 }
 
 #pragma mark-CollectionView

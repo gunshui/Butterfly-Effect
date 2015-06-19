@@ -11,7 +11,8 @@
 #import "QQHomeViewController.h"
 #import "QQBrandClassViewController.h"
 #import "QQShowViewController.h"
-#import "QQMeViewController.h"
+//#import "QQMeViewController.h"
+#import "QQMySelfViewController.h"
 
 @interface AppDelegate ()
 
@@ -41,7 +42,7 @@
     show.title=@"秀场";
     UINavigationController*nav_show=[[UINavigationController alloc]initWithRootViewController:show];
     
-    QQMeViewController*me=[[QQMeViewController alloc]init];
+    QQMySelfViewController*me=[[QQMySelfViewController alloc]init];
     me.title=@"个人中心";
     UINavigationController*nav_me=[[UINavigationController alloc]initWithRootViewController:me];
     
