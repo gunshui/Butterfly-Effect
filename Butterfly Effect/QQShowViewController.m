@@ -7,7 +7,7 @@
 //
 
 #import "QQShowViewController.h"
-
+#import "YYShowDetailsViewController.h"
 @interface QQShowViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableViewShow;
 
@@ -89,6 +89,12 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 266;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    YYShowDetailsViewController*showDetails=[[YYShowDetailsViewController alloc]init];
+    [self.navigationController pushViewController:showDetails animated:YES];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"Hidden_Tabbar" object:nil userInfo:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

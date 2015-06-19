@@ -8,6 +8,7 @@
 
 #import "QQBrandClassViewController.h"
 #import "YYBrandClassCollectionViewCell.h"
+#import "YYBrandDetailsViewController.h"
 
 @interface QQBrandClassViewController ()<UICollectionViewDelegateFlowLayout,UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate>
 {
@@ -206,6 +207,14 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"%ld",(long)indexPath.row);
     NSLog(@"%@",[arrName objectAtIndex:indexPath.row]);
+    
+    YYBrandDetailsViewController*brandDetails=[[YYBrandDetailsViewController alloc]init];
+    brandDetails.strTitle=[arrName objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:brandDetails animated:YES];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"Hidden_Tabbar" object:nil userInfo:nil];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
