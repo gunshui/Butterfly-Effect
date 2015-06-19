@@ -7,6 +7,8 @@
 //
 
 #import "QQMySelfViewController.h"
+#import "QQMyselfTableViewCell.h"
+#import "QQRegisterViewController.h"
 
 @interface QQMySelfViewController ()<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -35,7 +37,8 @@
     btnRegister.layer.cornerRadius=5;
     btnRegister.layer.masksToBounds=YES;
     self.automaticallyAdjustsScrollViewInsets=NO;
-    
+    tableViewMe.hidden=YES;
+    tableViewMe.contentInset=UIEdgeInsetsMake(0, 0, 55, 0);
 //    UIView*viewHeader=[[[NSBundle mainBundle]loadNibNamed:@"HeaderTableView" owner:nil options:nil] lastObject];
 //    tableViewMe.tableHeaderView=viewHeader;
 //    tableViewMe.sectionHeaderHeight=50;
@@ -106,6 +109,10 @@
         [textFieldName resignFirstResponder];
         self.view.frame=KRect(0, 0, SCREEN_W, SCREEN_H);
     }];
+    
+    QQRegisterViewController*registerView=[[QQRegisterViewController alloc]init];
+    [self.navigationController pushViewController:registerView animated:YES];
+    
 
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -118,9 +125,9 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString*identifier=@"me";
-    UITableViewCell*cell=[tableViewMe dequeueReusableCellWithIdentifier:identifier];
+    QQMyselfTableViewCell*cell=[tableViewMe dequeueReusableCellWithIdentifier:identifier];
     if (cell==nil) {
-        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell=[[[NSBundle mainBundle] loadNibNamed:@"QQMyselfTableViewCell" owner:nil options:nil] lastObject];
         
     }
     return cell;
@@ -134,5 +141,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 213;
 }
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 90;
+}
 @end

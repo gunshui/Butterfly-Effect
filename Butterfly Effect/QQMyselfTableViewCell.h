@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface QQMyselfTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *lableTitle;
+@property (weak, nonatomic) IBOutlet UILabel *lableSee;
+
 
 @end
