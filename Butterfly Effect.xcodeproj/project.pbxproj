@@ -92,6 +92,8 @@
 		D69970461B2833E6005B1BBF /* 首页2.png in Resources */ = {isa = PBXBuildFile; fileRef = D69970441B2833E6005B1BBF /* 首页2.png */; };
 		D69970471B2833E6005B1BBF /* 首页3.png in Resources */ = {isa = PBXBuildFile; fileRef = D69970451B2833E6005B1BBF /* 首页3.png */; };
 		D69970491B28349C005B1BBF /* 首页品牌类.png in Resources */ = {isa = PBXBuildFile; fileRef = D69970481B28349C005B1BBF /* 首页品牌类.png */; };
+		D69D67681B390BEE0037DBDD /* YYSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D69D67661B390BEE0037DBDD /* YYSearchViewController.m */; };
+		D69D67691B390BEE0037DBDD /* YYSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D69D67671B390BEE0037DBDD /* YYSearchViewController.xib */; };
 		D6A25C321B293E7F003599BB /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A25C311B293E7F003599BB /* ODRefreshControl.m */; };
 		D6A65BB41B310F5100378DF3 /* 品牌广告.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A65BB31B310F5100378DF3 /* 品牌广告.png */; };
 		D6A65BB61B31212F00378DF3 /* about-img.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A65BB51B31212F00378DF3 /* about-img.png */; };
@@ -280,6 +282,9 @@
 		D69970441B2833E6005B1BBF /* 首页2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页2.png"; sourceTree = "<group>"; };
 		D69970451B2833E6005B1BBF /* 首页3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页3.png"; sourceTree = "<group>"; };
 		D69970481B28349C005B1BBF /* 首页品牌类.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页品牌类.png"; sourceTree = "<group>"; };
+		D69D67651B390BEE0037DBDD /* YYSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSearchViewController.h; sourceTree = "<group>"; };
+		D69D67661B390BEE0037DBDD /* YYSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSearchViewController.m; sourceTree = "<group>"; };
+		D69D67671B390BEE0037DBDD /* YYSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYSearchViewController.xib; sourceTree = "<group>"; };
 		D6A25C301B293E7F003599BB /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
 		D6A25C311B293E7F003599BB /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
 		D6A65BB31B310F5100378DF3 /* 品牌广告.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "品牌广告.png"; sourceTree = "<group>"; };
@@ -428,6 +433,9 @@
 				D68D7B261B2A8A00007A619C /* QQHome_DetailController.h */,
 				D68D7B271B2A8A00007A619C /* QQHome_DetailController.m */,
 				D68D7B281B2A8A00007A619C /* QQHome_DetailController.xib */,
+				D69D67651B390BEE0037DBDD /* YYSearchViewController.h */,
+				D69D67661B390BEE0037DBDD /* YYSearchViewController.m */,
+				D69D67671B390BEE0037DBDD /* YYSearchViewController.xib */,
 				D6E148901B3410D7006E6955 /* QQSearchViewController.h */,
 				D6E148911B3410D7006E6955 /* QQSearchViewController.m */,
 				D6E148921B3410D7006E6955 /* QQSearchViewController.xib */,
@@ -874,6 +882,7 @@
 			files = (
 				D69970471B2833E6005B1BBF /* 首页3.png in Resources */,
 				D67D1B831B2EB86F007C1644 /* 秀场图片.png in Resources */,
+				D69D67691B390BEE0037DBDD /* YYSearchViewController.xib in Resources */,
 				D69970461B2833E6005B1BBF /* 首页2.png in Resources */,
 				D69970221B2821AF005B1BBF /* 搜索.png in Resources */,
 				D67D1B7E1B2EB161007C1644 /* 收看数.png in Resources */,
@@ -984,6 +993,7 @@
 				D6440B551B2ECF7F000E5CCD /* SDWebImageManager.m in Sources */,
 				D68E913C1B21A06D0092F456 /* AppDelegate.m in Sources */,
 				D6E1489D1B34173E006E6955 /* YYBrandDetailsViewController.m in Sources */,
+				D69D67681B390BEE0037DBDD /* YYSearchViewController.m in Sources */,
 				D69970401B282B00005B1BBF /* QQHomeTableViewCell.m in Sources */,
 				D6440B2C1B2ECF29000E5CCD /* MJRefreshConst.m in Sources */,
 				D6440B5E1B2ECFBB000E5CCD /* GetData.m in Sources */,

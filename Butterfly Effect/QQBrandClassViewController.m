@@ -31,7 +31,7 @@
     NSLog(@"QQBrandClassViewController");
     // Do any additional setup after loading the view from its nib.
     
-    NSLog(@"da");
+   
     
     //导航栏
     [self createNavigation];

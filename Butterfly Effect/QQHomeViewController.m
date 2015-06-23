@@ -11,6 +11,7 @@
 #import "QQHome_DetailController.h"
 //#import "YYSearchViewController.h"
 #import "QQSearchViewController.h"
+#import "YYSearchViewController.h"
 
 @interface QQHomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableViewHome;
@@ -81,8 +82,12 @@
     
 }
 -(void)btnRightAction{
-    QQSearchViewController*searchView=[[QQSearchViewController alloc]init];
-    [self.navigationController pushViewController:searchView animated:YES];
+    YYSearchViewController*searchView=[[YYSearchViewController alloc]init];
+//    [self.navigationController pushViewController:searchView animated:YES];
+    UINavigationController*nav_search=[[UINavigationController alloc]initWithRootViewController:searchView];
+    [self presentViewController:nav_search animated:YES completion:^{
+        
+    }];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
