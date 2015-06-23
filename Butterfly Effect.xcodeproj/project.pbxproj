@@ -11,6 +11,9 @@
 		8E15633A1B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E1563381B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.xib */; };
 		8E15633E1B295F7000ABDCF1 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E15633C1B295F7000ABDCF1 /* 2.png */; };
 		8E9F2B041B2FFE8A00938211 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9F2B031B2FFE8A00938211 /* setting.png */; };
+		8EA819991B38F1D900753A76 /* YYShowDetailsTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA819981B38F1D900753A76 /* YYShowDetailsTableViewHeader.xib */; };
+		8EA8199D1B39092300753A76 /* YYShowDetailsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA8199B1B39092300753A76 /* YYShowDetailsCollectionViewCell.m */; };
+		8EA8199E1B39092300753A76 /* YYShowDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA8199C1B39092300753A76 /* YYShowDetailsCollectionViewCell.xib */; };
 		8EA89BC01B26B164000CF67D /* MBTwitterScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA89BBC1B26B164000CF67D /* MBTwitterScroll.m */; };
 		8EA89BC11B26B164000CF67D /* UIScrollView+TwitterCover.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA89BBF1B26B164000CF67D /* UIScrollView+TwitterCover.m */; };
 		8EA89BC31B26B2B9000CF67D /* u=3823724296,3457142115&fm=21&gp=0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8EA89BC21B26B2B9000CF67D /* u=3823724296,3457142115&fm=21&gp=0.jpg */; };
@@ -40,7 +43,7 @@
 		D6440B621B2ECFCF000E5CCD /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D6440B611B2ECFCF000E5CCD /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D67D1B711B2EAF28007C1644 /* QQShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D67D1B6F1B2EAF28007C1644 /* QQShowTableViewCell.m */; };
 		D67D1B721B2EAF28007C1644 /* QQShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D67D1B701B2EAF28007C1644 /* QQShowTableViewCell.xib */; };
-		D67D1B7A1B2EB161007C1644 /*  评论数.png in Resources */ = {isa = PBXBuildFile; fileRef = D67D1B741B2EB161007C1644 /*  评论数.png */; };
+		D67D1B7A1B2EB161007C1644 /* 评论数.png in Resources */ = {isa = PBXBuildFile; fileRef = D67D1B741B2EB161007C1644 /* 评论数.png */; };
 		D67D1B7B1B2EB161007C1644 /* 喜欢数.png in Resources */ = {isa = PBXBuildFile; fileRef = D67D1B751B2EB161007C1644 /* 喜欢数.png */; };
 		D67D1B7C1B2EB161007C1644 /* 圆圈.png in Resources */ = {isa = PBXBuildFile; fileRef = D67D1B761B2EB161007C1644 /* 圆圈.png */; };
 		D67D1B7D1B2EB161007C1644 /* 实心圆圈.png in Resources */ = {isa = PBXBuildFile; fileRef = D67D1B771B2EB161007C1644 /* 实心圆圈.png */; };
@@ -160,6 +163,10 @@
 		8E1563381B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYBrandClassCollectionViewCell.xib; sourceTree = "<group>"; };
 		8E15633C1B295F7000ABDCF1 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		8E9F2B031B2FFE8A00938211 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
+		8EA819981B38F1D900753A76 /* YYShowDetailsTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYShowDetailsTableViewHeader.xib; sourceTree = "<group>"; };
+		8EA8199A1B39092300753A76 /* YYShowDetailsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYShowDetailsCollectionViewCell.h; sourceTree = "<group>"; };
+		8EA8199B1B39092300753A76 /* YYShowDetailsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYShowDetailsCollectionViewCell.m; sourceTree = "<group>"; };
+		8EA8199C1B39092300753A76 /* YYShowDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYShowDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
 		8EA89BBB1B26B164000CF67D /* MBTwitterScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTwitterScroll.h; sourceTree = "<group>"; };
 		8EA89BBC1B26B164000CF67D /* MBTwitterScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTwitterScroll.m; sourceTree = "<group>"; };
 		8EA89BBE1B26B164000CF67D /* UIScrollView+TwitterCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TwitterCover.h"; sourceTree = "<group>"; };
@@ -217,7 +224,7 @@
 		D67D1B6E1B2EAF28007C1644 /* QQShowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQShowTableViewCell.h; sourceTree = "<group>"; };
 		D67D1B6F1B2EAF28007C1644 /* QQShowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQShowTableViewCell.m; sourceTree = "<group>"; };
 		D67D1B701B2EAF28007C1644 /* QQShowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QQShowTableViewCell.xib; sourceTree = "<group>"; };
-		D67D1B741B2EB161007C1644 /*  评论数.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = " 评论数.png"; sourceTree = "<group>"; };
+		D67D1B741B2EB161007C1644 /* 评论数.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "评论数.png"; sourceTree = "<group>"; };
 		D67D1B751B2EB161007C1644 /* 喜欢数.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "喜欢数.png"; sourceTree = "<group>"; };
 		D67D1B761B2EB161007C1644 /* 圆圈.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "圆圈.png"; sourceTree = "<group>"; };
 		D67D1B771B2EB161007C1644 /* 实心圆圈.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "实心圆圈.png"; sourceTree = "<group>"; };
@@ -377,7 +384,7 @@
 			name = "个人中心";
 			sourceTree = "<group>";
 		};
-		8EA89B7B1B267BBF000CF67D /* 广场 */ = {
+		8EA89B7B1B267BBF000CF67D /* 秀场 */ = {
 			isa = PBXGroup;
 			children = (
 				D6BE83B31B2541FB00E56117 /* QQShowViewController.h */,
@@ -386,14 +393,18 @@
 				D67D1B6E1B2EAF28007C1644 /* QQShowTableViewCell.h */,
 				D67D1B6F1B2EAF28007C1644 /* QQShowTableViewCell.m */,
 				D67D1B701B2EAF28007C1644 /* QQShowTableViewCell.xib */,
-				D6E148A91B341841006E6955 /* YYShowDetailsTableViewCell.xib */,
+				D6E148AD1B341841006E6955 /* YYShowDetailsViewController.h */,
+				D6E148AC1B341841006E6955 /* YYShowDetailsViewController.m */,
+				D6E148AE1B341841006E6955 /* YYShowDetailsViewController.xib */,
+				8EA8199A1B39092300753A76 /* YYShowDetailsCollectionViewCell.h */,
+				8EA8199B1B39092300753A76 /* YYShowDetailsCollectionViewCell.m */,
+				8EA8199C1B39092300753A76 /* YYShowDetailsCollectionViewCell.xib */,
 				D6E148AA1B341841006E6955 /* YYShowDetailsTableViewCell.h */,
 				D6E148AB1B341841006E6955 /* YYShowDetailsTableViewCell.m */,
-				D6E148AC1B341841006E6955 /* YYShowDetailsViewController.m */,
-				D6E148AD1B341841006E6955 /* YYShowDetailsViewController.h */,
-				D6E148AE1B341841006E6955 /* YYShowDetailsViewController.xib */,
+				D6E148A91B341841006E6955 /* YYShowDetailsTableViewCell.xib */,
+				8EA819981B38F1D900753A76 /* YYShowDetailsTableViewHeader.xib */,
 			);
-			name = "广场";
+			name = "秀场";
 			sourceTree = "<group>";
 		};
 		8EA89B7C1B267BCC000CF67D /* 品牌荟 */ = {
@@ -406,9 +417,9 @@
 				8E1563371B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.m */,
 				8E1563381B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.xib */,
 				D6E148951B34173E006E6955 /* YYBrandContentViewController.xib */,
+				D6E148981B34173E006E6955 /* YYBrandContentViewController.h */,
 				D6E148961B34173E006E6955 /* YYBrandDetailsViewController.m */,
 				D6E148971B34173E006E6955 /* YYBrandDetailsViewController.xib */,
-				D6E148981B34173E006E6955 /* YYBrandContentViewController.h */,
 				D6E148991B34173E006E6955 /* YYBrandContentViewController.m */,
 				D6E1489A1B34173E006E6955 /* YYBrandDetailsViewController.h */,
 				D6E1489B1B34173E006E6955 /* BrandDetailHeaderTableView.xib */,
@@ -541,7 +552,7 @@
 			isa = PBXGroup;
 			children = (
 				D67D1B821B2EB86F007C1644 /* 秀场图片.png */,
-				D67D1B741B2EB161007C1644 /*  评论数.png */,
+				D67D1B741B2EB161007C1644 /* 评论数.png */,
 				D67D1B751B2EB161007C1644 /* 喜欢数.png */,
 				D67D1B761B2EB161007C1644 /* 圆圈.png */,
 				D67D1B771B2EB161007C1644 /* 实心圆圈.png */,
@@ -632,7 +643,7 @@
 				D6E1484B1B33B0EB006E6955 /* 搜索 */,
 				8EA89B7D1B267BD6000CF67D /* 首页 */,
 				8EA89B7C1B267BCC000CF67D /* 品牌荟 */,
-				8EA89B7B1B267BBF000CF67D /* 广场 */,
+				8EA89B7B1B267BBF000CF67D /* 秀场 */,
 				8EA89B7A1B267BB1000CF67D /* 个人中心 */,
 			);
 			name = Controller;
@@ -927,6 +938,7 @@
 				D699702D1B2821AF005B1BBF /* 首页图标.png in Resources */,
 				D6E148941B3410D7006E6955 /* QQSearchViewController.xib in Resources */,
 				D68D7B251B2A7A20007A619C /* QQHomeViewController.xib in Resources */,
+				8EA8199E1B39092300753A76 /* YYShowDetailsCollectionViewCell.xib in Resources */,
 				D6A65BB41B310F5100378DF3 /* 品牌广告.png in Resources */,
 				D6E1489E1B34173E006E6955 /* YYBrandDetailsViewController.xib in Resources */,
 				D6E1488A1B340BE5006E6955 /* 品牌图标8.png in Resources */,
@@ -959,7 +971,8 @@
 				8EA89BC31B26B2B9000CF67D /* u=3823724296,3457142115&fm=21&gp=0.jpg in Resources */,
 				D6E148631B33DD39006E6955 /* QQRegisterViewController.xib in Resources */,
 				D6E148A01B34173E006E6955 /* BrandDetailHeaderTableView.xib in Resources */,
-				D67D1B7A1B2EB161007C1644 /*  评论数.png in Resources */,
+				D67D1B7A1B2EB161007C1644 /* 评论数.png in Resources */,
+				8EA819991B38F1D900753A76 /* YYShowDetailsTableViewHeader.xib in Resources */,
 				D67D1B7F1B2EB161007C1644 /* 收藏数.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1022,6 +1035,7 @@
 				D6440B561B2ECF7F000E5CCD /* SDWebImagePrefetcher.m in Sources */,
 				8EA89BC11B26B164000CF67D /* UIScrollView+TwitterCover.m in Sources */,
 				D6E148931B3410D7006E6955 /* QQSearchViewController.m in Sources */,
+				8EA8199D1B39092300753A76 /* YYShowDetailsCollectionViewCell.m in Sources */,
 				D6440B581B2ECF7F000E5CCD /* UIImage+GIF.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
