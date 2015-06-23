@@ -128,7 +128,8 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
    
-
+    [super viewWillAppear:animated];
+    
     self.overLay.alpha=0;
 }
 -(void)changeActon{
@@ -143,6 +144,7 @@
     }
 -(void)viewDidAppear:(BOOL)animated{
     //    self.overLay.alpha=0;
+    [super viewDidAppear:animated];
     [self.navigationController.navigationBar bringSubviewToFront:self.overLay];
 //    [self.navigationController.navigationBar sendSubviewToBack:self.overLay];
 

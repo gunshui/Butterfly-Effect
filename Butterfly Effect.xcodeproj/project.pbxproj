@@ -95,8 +95,18 @@
 		D69970461B2833E6005B1BBF /* 首页2.png in Resources */ = {isa = PBXBuildFile; fileRef = D69970441B2833E6005B1BBF /* 首页2.png */; };
 		D69970471B2833E6005B1BBF /* 首页3.png in Resources */ = {isa = PBXBuildFile; fileRef = D69970451B2833E6005B1BBF /* 首页3.png */; };
 		D69970491B28349C005B1BBF /* 首页品牌类.png in Resources */ = {isa = PBXBuildFile; fileRef = D69970481B28349C005B1BBF /* 首页品牌类.png */; };
-		D69D67681B390BEE0037DBDD /* YYSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D69D67661B390BEE0037DBDD /* YYSearchViewController.m */; };
-		D69D67691B390BEE0037DBDD /* YYSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D69D67671B390BEE0037DBDD /* YYSearchViewController.xib */; };
+		D69D676F1B3944BB0037DBDD /* 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D69D676B1B3944BB0037DBDD /* 2x.png */; };
+		D69D67701B3944BB0037DBDD /* Retina 4.7.png in Resources */ = {isa = PBXBuildFile; fileRef = D69D676C1B3944BB0037DBDD /* Retina 4.7.png */; };
+		D69D67711B3944BB0037DBDD /* Retina 4.png in Resources */ = {isa = PBXBuildFile; fileRef = D69D676D1B3944BB0037DBDD /* Retina 4.png */; };
+		D69D67721B3944BB0037DBDD /* Retina 5.5.png in Resources */ = {isa = PBXBuildFile; fileRef = D69D676E1B3944BB0037DBDD /* Retina 5.5.png */; };
+		D69D677A1B3945080037DBDD /* App ios5,6  2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D69D67741B3945080037DBDD /* App ios5,6  2x.png */; };
+		D69D677B1B3945080037DBDD /* App ios5,6  3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D69D67751B3945080037DBDD /* App ios5,6  3x.png */; };
+		D69D677C1B3945080037DBDD /* App ios7,8  2x-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D69D67761B3945080037DBDD /* App ios7,8  2x-1.png */; };
+		D69D677D1B3945080037DBDD /* App ios7,8  2x-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D69D67771B3945080037DBDD /* App ios7,8  2x-2.png */; };
+		D69D677E1B3945080037DBDD /* App ios7,8  3x-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D69D67781B3945080037DBDD /* App ios7,8  3x-2.png */; };
+		D69D677F1B3945080037DBDD /* SpotLight  ios7,8  2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D69D67791B3945080037DBDD /* SpotLight  ios7,8  2x.png */; };
+		D69D67841B394B7C0037DBDD /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D69D67811B394B7C0037DBDD /* ProgressHUD.bundle */; };
+		D69D67851B394B7C0037DBDD /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D69D67831B394B7C0037DBDD /* ProgressHUD.m */; };
 		D6A25C321B293E7F003599BB /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A25C311B293E7F003599BB /* ODRefreshControl.m */; };
 		D6A65BB41B310F5100378DF3 /* 品牌广告.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A65BB31B310F5100378DF3 /* 品牌广告.png */; };
 		D6A65BB61B31212F00378DF3 /* about-img.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A65BB51B31212F00378DF3 /* about-img.png */; };
@@ -289,9 +299,19 @@
 		D69970441B2833E6005B1BBF /* 首页2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页2.png"; sourceTree = "<group>"; };
 		D69970451B2833E6005B1BBF /* 首页3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页3.png"; sourceTree = "<group>"; };
 		D69970481B28349C005B1BBF /* 首页品牌类.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页品牌类.png"; sourceTree = "<group>"; };
-		D69D67651B390BEE0037DBDD /* YYSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSearchViewController.h; sourceTree = "<group>"; };
-		D69D67661B390BEE0037DBDD /* YYSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSearchViewController.m; sourceTree = "<group>"; };
-		D69D67671B390BEE0037DBDD /* YYSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYSearchViewController.xib; sourceTree = "<group>"; };
+		D69D676B1B3944BB0037DBDD /* 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2x.png; sourceTree = "<group>"; };
+		D69D676C1B3944BB0037DBDD /* Retina 4.7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Retina 4.7.png"; sourceTree = "<group>"; };
+		D69D676D1B3944BB0037DBDD /* Retina 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Retina 4.png"; sourceTree = "<group>"; };
+		D69D676E1B3944BB0037DBDD /* Retina 5.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Retina 5.5.png"; sourceTree = "<group>"; };
+		D69D67741B3945080037DBDD /* App ios5,6  2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App ios5,6  2x.png"; sourceTree = "<group>"; };
+		D69D67751B3945080037DBDD /* App ios5,6  3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App ios5,6  3x.png"; sourceTree = "<group>"; };
+		D69D67761B3945080037DBDD /* App ios7,8  2x-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App ios7,8  2x-1.png"; sourceTree = "<group>"; };
+		D69D67771B3945080037DBDD /* App ios7,8  2x-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App ios7,8  2x-2.png"; sourceTree = "<group>"; };
+		D69D67781B3945080037DBDD /* App ios7,8  3x-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App ios7,8  3x-2.png"; sourceTree = "<group>"; };
+		D69D67791B3945080037DBDD /* SpotLight  ios7,8  2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SpotLight  ios7,8  2x.png"; sourceTree = "<group>"; };
+		D69D67811B394B7C0037DBDD /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		D69D67821B394B7C0037DBDD /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		D69D67831B394B7C0037DBDD /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		D6A25C301B293E7F003599BB /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
 		D6A25C311B293E7F003599BB /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
 		D6A65BB31B310F5100378DF3 /* 品牌广告.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "品牌广告.png"; sourceTree = "<group>"; };
@@ -444,12 +464,6 @@
 				D68D7B261B2A8A00007A619C /* QQHome_DetailController.h */,
 				D68D7B271B2A8A00007A619C /* QQHome_DetailController.m */,
 				D68D7B281B2A8A00007A619C /* QQHome_DetailController.xib */,
-				D69D67651B390BEE0037DBDD /* YYSearchViewController.h */,
-				D69D67661B390BEE0037DBDD /* YYSearchViewController.m */,
-				D69D67671B390BEE0037DBDD /* YYSearchViewController.xib */,
-				D6E148901B3410D7006E6955 /* QQSearchViewController.h */,
-				D6E148911B3410D7006E6955 /* QQSearchViewController.m */,
-				D6E148921B3410D7006E6955 /* QQSearchViewController.xib */,
 			);
 			name = "首页";
 			sourceTree = "<group>";
@@ -721,6 +735,40 @@
 			name = "字体";
 			sourceTree = "<group>";
 		};
+		D69D676A1B3944A30037DBDD /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				D69D676B1B3944BB0037DBDD /* 2x.png */,
+				D69D676C1B3944BB0037DBDD /* Retina 4.7.png */,
+				D69D676D1B3944BB0037DBDD /* Retina 4.png */,
+				D69D676E1B3944BB0037DBDD /* Retina 5.5.png */,
+			);
+			name = Launch;
+			sourceTree = "<group>";
+		};
+		D69D67731B3944E30037DBDD /* app */ = {
+			isa = PBXGroup;
+			children = (
+				D69D67741B3945080037DBDD /* App ios5,6  2x.png */,
+				D69D67751B3945080037DBDD /* App ios5,6  3x.png */,
+				D69D67761B3945080037DBDD /* App ios7,8  2x-1.png */,
+				D69D67771B3945080037DBDD /* App ios7,8  2x-2.png */,
+				D69D67781B3945080037DBDD /* App ios7,8  3x-2.png */,
+				D69D67791B3945080037DBDD /* SpotLight  ios7,8  2x.png */,
+			);
+			name = app;
+			sourceTree = "<group>";
+		};
+		D69D67801B394B7C0037DBDD /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				D69D67811B394B7C0037DBDD /* ProgressHUD.bundle */,
+				D69D67821B394B7C0037DBDD /* ProgressHUD.h */,
+				D69D67831B394B7C0037DBDD /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
 		D6A25C2F1B293E7F003599BB /* ODRefreshControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -733,6 +781,7 @@
 		D6BE83BD1B25481E00E56117 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D69D67801B394B7C0037DBDD /* ProgressHUD */,
 				D6440B5F1B2ECFCF000E5CCD /* 解析json数据 */,
 				D6440B5B1B2ECFBB000E5CCD /* GetData */,
 				D6440B321B2ECF7F000E5CCD /* SDWebImage */,
@@ -747,6 +796,8 @@
 		D6BE83BE1B25482A00E56117 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				D69D67731B3944E30037DBDD /* app */,
+				D69D676A1B3944A30037DBDD /* Launch */,
 				D6E1487A1B340BE5006E6955 /* 八大品牌 */,
 				D6E1486F1B33F45E006E6955 /* 注册 */,
 				D6E148561B33BCD2006E6955 /* 搜索页面 */,
@@ -771,6 +822,9 @@
 		D6E1484B1B33B0EB006E6955 /* 搜索 */ = {
 			isa = PBXGroup;
 			children = (
+				D6E148901B3410D7006E6955 /* QQSearchViewController.h */,
+				D6E148911B3410D7006E6955 /* QQSearchViewController.m */,
+				D6E148921B3410D7006E6955 /* QQSearchViewController.xib */,
 			);
 			name = "搜索";
 			sourceTree = "<group>";
@@ -891,9 +945,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D69D677F1B3945080037DBDD /* SpotLight  ios7,8  2x.png in Resources */,
 				D69970471B2833E6005B1BBF /* 首页3.png in Resources */,
 				D67D1B831B2EB86F007C1644 /* 秀场图片.png in Resources */,
-				D69D67691B390BEE0037DBDD /* YYSearchViewController.xib in Resources */,
 				D69970461B2833E6005B1BBF /* 首页2.png in Resources */,
 				D69970221B2821AF005B1BBF /* 搜索.png in Resources */,
 				D67D1B7E1B2EB161007C1644 /* 收看数.png in Resources */,
@@ -906,24 +960,29 @@
 				D69970301B2821AF005B1BBF /* audient.png in Resources */,
 				D699702E1B2821AF005B1BBF /* 333.png in Resources */,
 				D68D7B201B2A7A18007A619C /* QQBrandClassViewController.xib in Resources */,
+				D69D677B1B3945080037DBDD /* App ios5,6  3x.png in Resources */,
 				D6E148771B33F45E006E6955 /* 用户名.png in Resources */,
+				D69D677A1B3945080037DBDD /* App ios5,6  2x.png in Resources */,
 				D6E148831B340BE5006E6955 /* 品牌图标1.png in Resources */,
 				D69970271B2821AF005B1BBF /* 首页2-喜欢数.png in Resources */,
 				D6E1485E1B33C493006E6955 /* 个人中心(1)cell图片.png in Resources */,
 				8E9F2B041B2FFE8A00938211 /* setting.png in Resources */,
 				D6E148881B340BE5006E6955 /* 品牌图标6.png in Resources */,
+				D69D676F1B3944BB0037DBDD /* 2x.png in Resources */,
 				D699702B1B2821AF005B1BBF /* 首页2-收藏数.png in Resources */,
 				D6E148751B33F45E006E6955 /* 协议框（没选中）.png in Resources */,
 				D6A65BD01B317C6100378DF3 /* HeaderTableView.xib in Resources */,
 				D6E148781B33F45E006E6955 /* 邮箱.png in Resources */,
 				D69970291B2821AF005B1BBF /* 首页2-广场（red）.png in Resources */,
 				D6E148A71B3417C3006E6955 /* 文章显示(星).png in Resources */,
+				D69D67721B3944BB0037DBDD /* Retina 5.5.png in Resources */,
 				D6E148861B340BE5006E6955 /* 品牌图标4.png in Resources */,
 				D6A65BCB1B31691C00378DF3 /* 个人中心，头像.png in Resources */,
 				D69970211B2821AF005B1BBF /* 分类.png in Resources */,
 				D6E1489C1B34173E006E6955 /* YYBrandContentViewController.xib in Resources */,
 				D68D7B2A1B2A8A00007A619C /* QQHome_DetailController.xib in Resources */,
 				D699702A1B2821AF005B1BBF /* 首页2-恢复的(red).png in Resources */,
+				D69D677E1B3945080037DBDD /* App ios7,8  3x-2.png in Resources */,
 				D69970261B2821AF005B1BBF /* 首页2-品牌.png in Resources */,
 				D69970241B2821AF005B1BBF /* 首页2-个人中心.png in Resources */,
 				D6A65BBD1B31254C00378DF3 /* logo.png in Resources */,
@@ -942,6 +1001,7 @@
 				D6E148851B340BE5006E6955 /* 品牌图标3.png in Resources */,
 				8E15633A1B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.xib in Resources */,
 				D6CC4BED1B26EE430057F975 /* 11.jpg in Resources */,
+				D69D677D1B3945080037DBDD /* App ios7,8  2x-2.png in Resources */,
 				D69970321B2821AF005B1BBF /* line6.png in Resources */,
 				D699703A1B28274C005B1BBF /* 1508=方正兰亭超细黑简体.TTF in Resources */,
 				D699702D1B2821AF005B1BBF /* 首页图标.png in Resources */,
@@ -956,11 +1016,14 @@
 				D69970311B2821AF005B1BBF /* hartke.png in Resources */,
 				D6E148A81B3417C3006E6955 /* 文章显示(心).png in Resources */,
 				D69970281B2821AF005B1BBF /* 首页2-广场.png in Resources */,
+				D69D67711B3944BB0037DBDD /* Retina 4.png in Resources */,
 				D699702C1B2821AF005B1BBF /* 首页2-评论数.png in Resources */,
 				D699703B1B28274C005B1BBF /* 方正兰亭纤黑_GBK.TTF in Resources */,
 				D6BE83B71B2541FB00E56117 /* QQShowViewController.xib in Resources */,
 				D6E148761B33F45E006E6955 /* 协议框（选中）.png in Resources */,
+				D69D677C1B3945080037DBDD /* App ios7,8  2x-1.png in Resources */,
 				D6E148841B340BE5006E6955 /* 品牌图标2.png in Resources */,
+				D69D67701B3944BB0037DBDD /* Retina 4.7.png in Resources */,
 				D69970491B28349C005B1BBF /* 首页品牌类.png in Resources */,
 				D6E148A61B3417C3006E6955 /* 文章显示(分享).png in Resources */,
 				D6A65BBB1B3121A300378DF3 /* QQMySelfViewController.xib in Resources */,
@@ -980,6 +1043,7 @@
 				8EA89BC31B26B2B9000CF67D /* u=3823724296,3457142115&fm=21&gp=0.jpg in Resources */,
 				D6E148631B33DD39006E6955 /* QQRegisterViewController.xib in Resources */,
 				D6E148A01B34173E006E6955 /* BrandDetailHeaderTableView.xib in Resources */,
+				D69D67841B394B7C0037DBDD /* ProgressHUD.bundle in Resources */,
 				D67D1B7A1B2EB161007C1644 /* 评论数.png in Resources */,
 				8EA819991B38F1D900753A76 /* YYShowDetailsTableViewHeader.xib in Resources */,
 				D67D1B7F1B2EB161007C1644 /* 收藏数.png in Resources */,
@@ -1006,7 +1070,6 @@
 				D6440B551B2ECF7F000E5CCD /* SDWebImageManager.m in Sources */,
 				D68E913C1B21A06D0092F456 /* AppDelegate.m in Sources */,
 				D6E1489D1B34173E006E6955 /* YYBrandDetailsViewController.m in Sources */,
-				D69D67681B390BEE0037DBDD /* YYSearchViewController.m in Sources */,
 				D69970401B282B00005B1BBF /* QQHomeTableViewCell.m in Sources */,
 				D6440B2C1B2ECF29000E5CCD /* MJRefreshConst.m in Sources */,
 				D6440B5E1B2ECFBB000E5CCD /* GetData.m in Sources */,
@@ -1023,6 +1086,7 @@
 				D6E1489F1B34173E006E6955 /* YYBrandContentViewController.m in Sources */,
 				D6440B501B2ECF7F000E5CCD /* SDImageCache.m in Sources */,
 				D6440B2F1B2ECF29000E5CCD /* UIScrollView+MJExtension.m in Sources */,
+				D69D67851B394B7C0037DBDD /* ProgressHUD.m in Sources */,
 				D6440B591B2ECF7F000E5CCD /* UIImage+MultiFormat.m in Sources */,
 				D6E148B01B341841006E6955 /* YYShowDetailsTableViewCell.m in Sources */,
 				D6440B541B2ECF7F000E5CCD /* SDWebImageDownloaderOperation.m in Sources */,

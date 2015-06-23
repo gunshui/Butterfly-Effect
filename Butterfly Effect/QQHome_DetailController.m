@@ -17,8 +17,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self creataNavigation];
 }
+-(void)creataNavigation{
+    [self.navigationController.navigationBar setBarTintColor:[UIColor blackColor]];
+    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName: [UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:@"FZLanTingHei-EL-GBK" size:22]};
+   
+    //返回
+    UIButton*btnLeft=[[UIButton alloc]initWithFrame:KRect(0, 0, 20, 20)];
+    [btnLeft setImage:KImage(@"返回按钮") forState:0];
+    [btnLeft addTarget:self action:@selector(btnLeftAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem*barLeft=[[UIBarButtonItem alloc]initWithCustomView:btnLeft];
+    self.navigationItem.leftBarButtonItem=barLeft;
 
+    
+}
+-(void)btnLeftAction{
+    [self.navigationController popViewControllerAnimated:YES];
+     [[NSNotificationCenter defaultCenter]postNotificationName:@"Show_Tabbar" object:nil userInfo:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
