@@ -21,7 +21,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self creataNavigation];
     [self creataTableView];
+}
+-(void)creataNavigation{
+    [self.navigationController.navigationBar setBarTintColor:[UIColor blackColor]];
+    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName: [UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:@"FZLanTingHei-EL-GBK" size:22]};
+    self.title=@"搜索";
 }
 
 - (void)didReceiveMemoryWarning {
