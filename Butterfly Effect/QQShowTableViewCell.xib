@@ -164,7 +164,7 @@
                             </mask>
                         </variation>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image=" 评论数.png" translatesAutoresizingMaskIntoConstraints="NO" id="S21-fE-EAR">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="评论数.png" translatesAutoresizingMaskIntoConstraints="NO" id="S21-fE-EAR">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="kq5-k6-hvm"/>
@@ -458,17 +458,25 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="imaeViewBK" destination="tE9-WY-ogw" id="kR1-nZ-H9m"/>
+                <outlet property="imageViewPic" destination="TFA-t5-Bur" id="UTM-RO-maG"/>
+                <outlet property="labelCollectionNums" destination="SFh-WI-WmF" id="3Fv-uB-tqT"/>
+                <outlet property="labelCommentNums" destination="sqL-EZ-puO" id="Vjx-0q-dLm"/>
+                <outlet property="labelDescribe" destination="dEy-Ai-tkk" id="j4A-X9-snY"/>
+                <outlet property="labelLikeNums" destination="jCi-b7-K0Z" id="Ruu-oa-39v"/>
+                <outlet property="labelPlayNums" destination="7vk-cq-JSq" id="fid-6M-xPB"/>
+                <outlet property="labelTime" destination="QfI-cY-RHk" id="IXo-eb-Nuk"/>
+                <outlet property="labelTitle" destination="yNj-Vc-b69" id="cKm-EU-iTY"/>
                 <outlet property="line" destination="6cl-yY-Nu6" id="UWh-0O-ucm"/>
             </connections>
             <point key="canvasLocation" x="342" y="431"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name=" 评论数.png" width="45" height="44"/>
         <image name="喜欢数.png" width="46" height="46"/>
         <image name="实心圆圈.png" width="33" height="32"/>
         <image name="收看数.png" width="53" height="53"/>
         <image name="收藏数.png" width="41" height="41"/>
         <image name="秀场图片.png" width="1131" height="770"/>
+        <image name="评论数.png" width="45" height="44"/>
     </resources>
 </document>

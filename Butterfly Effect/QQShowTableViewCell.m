@@ -10,7 +10,7 @@
 
 @implementation QQShowTableViewCell
 @synthesize line,imaeViewBK;
-
+@synthesize labelTitle,labelTime,labelDescribe,imageViewPic,labelPlayNums,labelCollectionNums,labelLikeNums,labelCommentNums;
 
 - (void)awakeFromNib {
     // Initialization code

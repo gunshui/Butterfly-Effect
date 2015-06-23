@@ -10,5 +10,13 @@
 
 @interface YYShowDetailsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIWebView *webViewShowDetails;
+@property (weak, nonatomic) IBOutlet UIButton *btnCollection;
+@property (weak, nonatomic) IBOutlet UIButton *btnLike;
+@property (weak, nonatomic) IBOutlet UIButton *btnShare;
+@property (weak, nonatomic) IBOutlet UIButton *btnComments;
+
+@property(nonatomic,retain)NSString*strID;
+@property(nonatomic,retain)NSString*typeID;
+@property(nonatomic,retain)NSString*isTop;
 
 @end

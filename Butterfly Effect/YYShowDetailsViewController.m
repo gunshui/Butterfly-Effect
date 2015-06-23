@@ -7,10 +7,15 @@
 //
 
 #import "YYShowDetailsViewController.h"
+#import "YYShowDetailsTableViewCell.h"
 #import "YYShowDetailsCollectionViewCell.h"
 
 @interface YYShowDetailsViewController ()<UIWebViewDelegate,UITableViewDataSource,UITableViewDelegate,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource,UICollectionViewDelegate>
-
+{
+    NSDictionary*dict;
+    NSDictionary*dictYouLike;
+    int maxSize;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableViewDetails;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewDetails;
 - (IBAction)btnDetails:(id)sender;
@@ -24,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    maxSize=10;
     
     //导航栏
     [self createNavigation];
@@ -45,6 +52,58 @@
     
     _tableViewDetails.hidden=NO;
     _collectionViewDetails.hidden=YES;
+    
+    //请求数据
+    [self createRequest];
+    
+    //请求猜你喜欢数据
+    [self createRequestYouLike];
+    
+    //Tabbar
+    [self createTabBar];
+}
+
+#pragma mark-请求猜你喜欢数据
+
+-(void)createRequestYouLike{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSString*body=[NSString stringWithFormat:@"action=v1&maxsize=%d&typeid=%@&isTop=",maxSize,self.typeID];
+        GetData*getData=[GetData getdataWithUrl:@"/document/list_cai.php" Body:body];
+        dictYouLike=getData.dict;
+//        NSLog(@"====%@",dictYouLike);
+//        NSLog(@"====%ld",[[dictYouLike objectForKey:@"msg"] count]);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if ([[dictYouLike objectForKey:@"status"]isEqualToString:@"ok"]) {
+                [_collectionViewDetails reloadData];
+            }
+        });
+    });
+}
+
+#pragma mark-请求数据
+
+-(void)createRequest{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSString*body=[NSString stringWithFormat:@"action=v1&id=%@",self.strID];
+        GetData*getData=[GetData getdataWithUrl:@"/document/info.php" Body:body];
+        dict=getData.dict;
+//        NSLog(@"====%@",dict);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_tableViewDetails reloadData];
+        });
+    });
+}
+
+#pragma mark-TabBar
+
+-(void)createTabBar{
+    _btnCollection.imageEdgeInsets=UIEdgeInsetsMake(5, (SCREEN_W/4-30)/2, 5, (SCREEN_W/4-30)/2);
+    
+    _btnLike.imageEdgeInsets=UIEdgeInsetsMake(5, (SCREEN_W/4-30)/2, 5, (SCREEN_W/4-30)/2);
+    
+    _btnShare.imageEdgeInsets=UIEdgeInsetsMake(5, (SCREEN_W/4-30)/2, 5, (SCREEN_W/4-30)/2);
+    
+    _btnComments.imageEdgeInsets=UIEdgeInsetsMake(5, (SCREEN_W/4-30)/2, 5, (SCREEN_W/4-30)/2);
 }
 
 #pragma mark-HeaderTableView
@@ -77,10 +136,14 @@
     _collectionViewDetails.backgroundColor=[UIColor clearColor];
     [_collectionViewDetails registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CELLs"];
     _collectionViewDetails.showsVerticalScrollIndicator=NO;
+    _collectionViewDetails.contentInset=UIEdgeInsetsMake(0, 0, 40, 0);
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 6;
+    if (dictYouLike!=nil) {
+        return [[dictYouLike objectForKey:@"msg"] count];
+    }
+    return 0;
 }
 
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -90,6 +153,8 @@
     if (cell==nil) {
         cell=[[[NSBundle mainBundle] loadNibNamed:@"YYBrandClassCollectionViewCell" owner:nil options:nil] lastObject];
     }
+    
+    [cell.imageViewPic setImageWithURL:[NSURL URLWithString:[[[dictYouLike objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"litpic"]] placeholderImage:nil];
     
     return cell;
 }
@@ -125,6 +190,10 @@
 //选中方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"%ld",(long)indexPath.row);
+    YYShowDetailsViewController*show=[[YYShowDetailsViewController alloc]init];
+    show.strID=[[[dictYouLike objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"id"];
+    show.typeID=[[[dictYouLike objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"typeid"];
+    [self.navigationController pushViewController:show animated:YES];
 }
 
 #pragma mark-TableView
@@ -152,22 +221,23 @@
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (tableView==_tableViewDetails) {
-        static NSString*ident=@"CELL";
-        UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:ident];
-        if (cell==nil) {
-            cell=[[[NSBundle mainBundle] loadNibNamed:@"YYShowDetailsTableViewCell" owner:nil options:nil] lastObject];
-        }
-        
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        return cell;
-    }
     static NSString*ident=@"CELL";
-    UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:ident];
+    YYShowDetailsTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:ident];
     if (cell==nil) {
-//        cell=[[[NSBundle mainBundle] loadNibNamed:@"YYShowDetailsTableViewCell" owner:nil options:nil] lastObject];
-        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ident];
+        cell=[[[NSBundle mainBundle] loadNibNamed:@"YYShowDetailsTableViewCell" owner:nil options:nil] lastObject];
     }
+    
+    cell.labelTitle.text=[[dict objectForKey:@"msg"] objectForKey:@"title"];//标题
+    cell.labelTitle.numberOfLines=0;
+    cell.labelTitle.font=[UIFont fontWithName:nil size:13];
+    
+    cell.labelWriter.text=[[dict objectForKey:@"msg"] objectForKey:@"writer"];//作者
+    cell.labelTime.text=[[dict objectForKey:@"msg"] objectForKey:@"pubdate"];//发表时间
+    cell.labelPlayNums.text=[[dict objectForKey:@"msg"] objectForKey:@"click"];//播放数
+    cell.labelCollectionNums.text=[[dict objectForKey:@"msg"] objectForKey:@"goodpost"];//收藏数
+    cell.labelYoulikeNums.text=[[dict objectForKey:@"msg"] objectForKey:@"like"];//喜欢数
+    cell.labelCommentNums.text=[[dict objectForKey:@"msg"] objectForKey:@"commentNum"];//评论数
+    cell.textViewDescribe.text=[[dict objectForKey:@"msg"] objectForKey:@"description"];//视频描述
     
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
@@ -178,7 +248,7 @@
 -(void)createWebView{
     _webViewShowDetails.scrollView.scrollEnabled=NO;
     _webViewShowDetails.delegate=self;
-    NSURL*url=[NSURL URLWithString:[NSString stringWithFormat:@"http://m.imus.cn/cont_video_app.php?id=410"]];
+    NSURL*url=[NSURL URLWithString:[NSString stringWithFormat:@"http://m.imus.cn/cont_app.php?id=%@",self.strID]];
     NSURLRequest*request=[NSURLRequest requestWithURL:url];
     [_webViewShowDetails loadRequest:request];
 }
@@ -186,7 +256,7 @@
 #pragma mark-导航栏
 
 -(void)createNavigation{
-    self.title=@"秀场内容页";
+    self.title=@"秀场";
     self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:FONTNAME3 size:19]};
     
     //设置导航栏文本的颜色

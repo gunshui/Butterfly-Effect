@@ -100,9 +100,6 @@
                     <exclude reference="4XY-GN-smG"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="Dw6-cl-r7U"/>
-                    <exclude reference="Yji-gZ-gZl"/>
-                    <exclude reference="iYT-Va-hf5"/>
                     <exclude reference="3sZ-8c-9OJ"/>
                     <exclude reference="p4z-lc-KS3"/>
                     <exclude reference="pnb-Kj-rNC"/>
@@ -113,6 +110,9 @@
                     <exclude reference="dp2-ai-Udw"/>
                     <exclude reference="dyd-IK-kMq"/>
                     <exclude reference="msC-ge-zox"/>
+                    <exclude reference="Dw6-cl-r7U"/>
+                    <exclude reference="Yji-gZ-gZl"/>
+                    <exclude reference="iYT-Va-hf5"/>
                     <exclude reference="4Dx-eC-dJd"/>
                     <exclude reference="ga9-ys-cI2"/>
                     <exclude reference="iy2-pc-JNd"/>
@@ -135,9 +135,6 @@
                     <include reference="4XY-GN-smG"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="Dw6-cl-r7U"/>
-                    <include reference="Yji-gZ-gZl"/>
-                    <include reference="iYT-Va-hf5"/>
                     <include reference="3sZ-8c-9OJ"/>
                     <include reference="p4z-lc-KS3"/>
                     <include reference="pnb-Kj-rNC"/>
@@ -148,6 +145,9 @@
                     <include reference="dp2-ai-Udw"/>
                     <exclude reference="dyd-IK-kMq"/>
                     <include reference="msC-ge-zox"/>
+                    <include reference="Dw6-cl-r7U"/>
+                    <include reference="Yji-gZ-gZl"/>
+                    <include reference="iYT-Va-hf5"/>
                     <include reference="4Dx-eC-dJd"/>
                     <include reference="ga9-ys-cI2"/>
                     <include reference="iy2-pc-JNd"/>
@@ -161,7 +161,7 @@
                     <include reference="RW3-Rh-zVw"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="133" y="83.5"/>
+            <point key="canvasLocation" x="133" y="83"/>
         </view>
     </objects>
 </document>
