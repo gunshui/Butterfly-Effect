@@ -82,7 +82,7 @@
     
 }
 -(void)btnRightAction{
-    YYSearchViewController*searchView=[[YYSearchViewController alloc]init];
+    QQSearchViewController*searchView=[[QQSearchViewController alloc]init];
 //    [self.navigationController pushViewController:searchView animated:YES];
     UINavigationController*nav_search=[[UINavigationController alloc]initWithRootViewController:searchView];
     [self presentViewController:nav_search animated:YES completion:^{

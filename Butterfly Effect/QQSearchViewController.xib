@@ -16,14 +16,94 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="q7n-7P-YRt">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="q7n-7P-YRt">
                     <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="yQk-PR-MKd"/>
                         <outlet property="delegate" destination="-1" id="Ljr-NW-mWf"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRD-1b-5mx">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.60392156862745094" green="0.76078431372549016" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="LINE 6">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="40" y="161" width="77" height="26"/>
+                    </variation>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WbG-H8-Vr6">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.75686274509803919" green="0.65490196078431373" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="MIDIPLUS">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="141" y="161" width="91" height="30"/>
+                    </variation>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxu-KI-2g3">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.77254901960784317" green="0.63529411764705879" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="AUTURIA">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="195" y="263" width="89" height="30"/>
+                    </variation>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IU8-Z6-fgr">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.60392156860000001" green="0.76078431369999999" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="AUDIENT">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="141" y="211" width="82" height="30"/>
+                    </variation>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQ7-6r-TNE">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.59215686274509804" green="0.81960784313725488" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="333">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="22" y="211" width="77" height="30"/>
+                    </variation>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y92-pY-Lne">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.48627450980392156" green="0.69411764705882351" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="LIVID">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="261" y="211" width="77" height="30"/>
+                    </variation>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rf4-e7-Ejv">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.76470588235294112" green="0.69803921568627447" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="HARTKE">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="71" y="263" width="77" height="30"/>
+                    </variation>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASB-Fg-73p">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.75294117647058822" green="0.62745098039215685" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="SAMSON">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="268" y="161" width="88" height="30"/>
+                    </variation>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -32,6 +112,30 @@
                 <constraint firstAttribute="trailing" secondItem="q7n-7P-YRt" secondAttribute="trailing" id="Sf1-6q-wfL"/>
                 <constraint firstAttribute="bottom" secondItem="q7n-7P-YRt" secondAttribute="bottom" id="UbZ-EF-895"/>
             </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="FRD-1b-5mx"/>
+                    <exclude reference="WbG-H8-Vr6"/>
+                    <exclude reference="bxu-KI-2g3"/>
+                    <exclude reference="IU8-Z6-fgr"/>
+                    <exclude reference="SQ7-6r-TNE"/>
+                    <exclude reference="y92-pY-Lne"/>
+                    <exclude reference="rf4-e7-Ejv"/>
+                    <exclude reference="ASB-Fg-73p"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="FRD-1b-5mx"/>
+                    <include reference="WbG-H8-Vr6"/>
+                    <include reference="bxu-KI-2g3"/>
+                    <include reference="IU8-Z6-fgr"/>
+                    <include reference="SQ7-6r-TNE"/>
+                    <include reference="y92-pY-Lne"/>
+                    <include reference="rf4-e7-Ejv"/>
+                    <include reference="ASB-Fg-73p"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>
