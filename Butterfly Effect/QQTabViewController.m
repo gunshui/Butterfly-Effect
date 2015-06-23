@@ -119,14 +119,8 @@
     labelMe.font=[UIFont fontWithName:FONTNAME3 size:10];
     labelMe.textColor=[UIColor blackColor];
     [btnMe addSubview:labelMe];
-
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hiddenAction) name:@"hidden" object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAction) name:@"show" object:nil];
-//    self.selectedIndex=1;
-
-
 }
+
 -(void)btnAction:(UIButton*)sender{
   
     self.selectedIndex=sender.tag-1000;
@@ -187,7 +181,7 @@
     
 }
 -(void)hidden:(NSNotification*)notif{
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.2 animations:^{
         imageViewTabBar.frame=KRect(0, SCREEN_H, SCREEN_W, TABBAR_H);
 
     }];
@@ -195,7 +189,7 @@
     
 }
 -(void)show:(NSNotification *)notif{
-    [UIView animateWithDuration:1.0 animations:^{
+    [UIView animateWithDuration:0.2 animations:^{
       
     imageViewTabBar.frame=KRect(0, SCREEN_H-TABBAR_H, SCREEN_W, TABBAR_H);
     }];

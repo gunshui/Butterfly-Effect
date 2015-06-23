@@ -110,15 +110,6 @@
 #pragma mark-导航栏
 
 -(void)createNavigation{
-//    self.title=@"品牌荟";
-//    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:nil size:19]};
-//    
-//    UIGraphicsBeginImageContextWithOptions(CGSizeMake(36, 36), NO, 0.0);
-//    UIImage *blank = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    
-//    [self.navigationController.navigationBar setBackgroundImage:blank forBarMetrics:UIBarMetricsDefault];
-//    self.navigationController.navigationBar.shadowImage = blank;
     
     self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:FONTNAME3 size:19]};
     self.navigationController.navigationBar.barTintColor=[UIColor blackColor];
@@ -156,6 +147,7 @@
     _collectionViewBrandClass.dataSource=self;
     _collectionViewBrandClass.backgroundColor=[UIColor clearColor];
     [_collectionViewBrandClass registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CELL"];
+    _collectionViewBrandClass.showsVerticalScrollIndicator=NO;
     self.automaticallyAdjustsScrollViewInsets=NO;
     _collectionViewBrandClass.contentInset=UIEdgeInsetsMake(0, 0, 50, 0);
 }
@@ -214,9 +206,6 @@
     brandDetails.strTitle=[arrName objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:brandDetails animated:YES];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"Hidden_Tabbar" object:nil userInfo:nil];
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
