@@ -11,7 +11,6 @@
 		8E15633A1B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E1563381B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.xib */; };
 		8E15633E1B295F7000ABDCF1 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E15633C1B295F7000ABDCF1 /* 2.png */; };
 		8E9F2B041B2FFE8A00938211 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9F2B031B2FFE8A00938211 /* setting.png */; };
-		8EA819991B38F1D900753A76 /* YYShowDetailsTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA819981B38F1D900753A76 /* YYShowDetailsTableViewHeader.xib */; };
 		8EA8199D1B39092300753A76 /* YYShowDetailsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA8199B1B39092300753A76 /* YYShowDetailsCollectionViewCell.m */; };
 		8EA8199E1B39092300753A76 /* YYShowDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA8199C1B39092300753A76 /* YYShowDetailsCollectionViewCell.xib */; };
 		8EA89BC01B26B164000CF67D /* MBTwitterScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA89BBC1B26B164000CF67D /* MBTwitterScroll.m */; };
@@ -165,7 +164,6 @@
 		8E1563381B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYBrandClassCollectionViewCell.xib; sourceTree = "<group>"; };
 		8E15633C1B295F7000ABDCF1 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		8E9F2B031B2FFE8A00938211 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
-		8EA819981B38F1D900753A76 /* YYShowDetailsTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYShowDetailsTableViewHeader.xib; sourceTree = "<group>"; };
 		8EA8199A1B39092300753A76 /* YYShowDetailsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYShowDetailsCollectionViewCell.h; sourceTree = "<group>"; };
 		8EA8199B1B39092300753A76 /* YYShowDetailsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYShowDetailsCollectionViewCell.m; sourceTree = "<group>"; };
 		8EA8199C1B39092300753A76 /* YYShowDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYShowDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -407,7 +405,6 @@
 				D6E148AA1B341841006E6955 /* YYShowDetailsTableViewCell.h */,
 				D6E148AB1B341841006E6955 /* YYShowDetailsTableViewCell.m */,
 				D6E148A91B341841006E6955 /* YYShowDetailsTableViewCell.xib */,
-				8EA819981B38F1D900753A76 /* YYShowDetailsTableViewHeader.xib */,
 			);
 			name = "秀场";
 			sourceTree = "<group>";
@@ -421,13 +418,13 @@
 				8E1563361B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.h */,
 				8E1563371B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.m */,
 				8E1563381B2931DF00ABDCF1 /* YYBrandClassCollectionViewCell.xib */,
-				D6E148951B34173E006E6955 /* YYBrandContentViewController.xib */,
-				D6E148981B34173E006E6955 /* YYBrandContentViewController.h */,
+				D6E1489B1B34173E006E6955 /* BrandDetailHeaderTableView.xib */,
+				D6E1489A1B34173E006E6955 /* YYBrandDetailsViewController.h */,
 				D6E148961B34173E006E6955 /* YYBrandDetailsViewController.m */,
 				D6E148971B34173E006E6955 /* YYBrandDetailsViewController.xib */,
+				D6E148981B34173E006E6955 /* YYBrandContentViewController.h */,
 				D6E148991B34173E006E6955 /* YYBrandContentViewController.m */,
-				D6E1489A1B34173E006E6955 /* YYBrandDetailsViewController.h */,
-				D6E1489B1B34173E006E6955 /* BrandDetailHeaderTableView.xib */,
+				D6E148951B34173E006E6955 /* YYBrandContentViewController.xib */,
 			);
 			name = "品牌荟";
 			sourceTree = "<group>";
@@ -981,7 +978,6 @@
 				D6E148631B33DD39006E6955 /* QQRegisterViewController.xib in Resources */,
 				D6E148A01B34173E006E6955 /* BrandDetailHeaderTableView.xib in Resources */,
 				D67D1B7A1B2EB161007C1644 /* 评论数.png in Resources */,
-				8EA819991B38F1D900753A76 /* YYShowDetailsTableViewHeader.xib in Resources */,
 				D67D1B7F1B2EB161007C1644 /* 收藏数.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

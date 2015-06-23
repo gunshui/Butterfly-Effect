@@ -12,4 +12,13 @@
 @property (weak, nonatomic) IBOutlet UIView *line;
 @property (weak, nonatomic) IBOutlet UIImageView *imaeViewBK;
 
+@property (weak, nonatomic) IBOutlet UILabel *labelTitle;
+@property (weak, nonatomic) IBOutlet UILabel *labelTime;
+@property (weak, nonatomic) IBOutlet UILabel *labelDescribe;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewPic;
+@property (weak, nonatomic) IBOutlet UILabel *labelPlayNums;
+@property (weak, nonatomic) IBOutlet UILabel *labelCollectionNums;
+@property (weak, nonatomic) IBOutlet UILabel *labelLikeNums;
+@property (weak, nonatomic) IBOutlet UILabel *labelCommentNums;
+
 @end
