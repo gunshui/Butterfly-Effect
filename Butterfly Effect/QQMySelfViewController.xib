@@ -10,6 +10,7 @@
                 <outlet property="btnLogin" destination="i49-mj-1RT" id="gAE-eY-FWi"/>
                 <outlet property="btnRegister" destination="8tQ-47-cUH" id="2HH-SX-TCK"/>
                 <outlet property="height_Distance" destination="PaI-kU-Luw" id="Ji1-ui-l7G"/>
+                <outlet property="left_Distance" destination="kjB-54-ztZ" id="VzR-M1-6yK"/>
                 <outlet property="tableViewMe" destination="4Qd-k4-n62" id="zeA-MB-aEh"/>
                 <outlet property="textFieldName" destination="TY7-RE-DUg" id="uwd-xu-80d"/>
                 <outlet property="textFieldPassword" destination="yuL-Kv-sZX" id="VQg-Cb-SoS"/>
@@ -168,25 +169,47 @@
                         </mask>
                     </variation>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yuL-Kv-sZX">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yuL-Kv-sZX">
                     <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="8Vj-dN-4cx"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="8Vj-dN-4cx"/>
                         </mask>
                     </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
+                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="71" y="331" width="302" height="30"/>
                         <mask key="constraints">
                             <include reference="8Vj-dN-4cx"/>
                         </mask>
                     </variation>
                     <connections>
                         <outlet property="delegate" destination="-1" id="Y1V-hY-BDl"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="用户名" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TY7-RE-DUg">
+                    <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="KQd-gn-ZdD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="KQd-gn-ZdD"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="KQd-gn-ZdD"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="k7u-4n-MY5"/>
                     </connections>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlf-tR-Gjm">
@@ -209,39 +232,17 @@
                         </mask>
                     </variation>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4Qd-k4-n62">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4Qd-k4-n62">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                        <rect key="frame" x="0.0" y="446" width="400" height="354"/>
+                        <rect key="frame" x="0.0" y="556" width="400" height="244"/>
                     </variation>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Mt8-ie-vR7"/>
                         <outlet property="delegate" destination="-1" id="Jml-UW-a02"/>
                     </connections>
                 </tableView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TY7-RE-DUg">
-                    <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="KQd-gn-ZdD"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="KQd-gn-ZdD"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                        <rect key="frame" x="71" y="279" width="302" height="30"/>
-                        <mask key="constraints">
-                            <include reference="KQd-gn-ZdD"/>
-                        </mask>
-                    </variation>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="k7u-4n-MY5"/>
-                    </connections>
-                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -292,39 +293,39 @@
                     <exclude reference="NZ2-mc-EnI"/>
                     <exclude reference="cGE-49-uI0"/>
                     <exclude reference="yuL-Kv-sZX"/>
+                    <exclude reference="TY7-RE-DUg"/>
                     <exclude reference="hlf-tR-Gjm"/>
                     <exclude reference="4Qd-k4-n62"/>
-                    <exclude reference="TY7-RE-DUg"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="HCe-on-gqd"/>
-                    <exclude reference="PaI-kU-Luw"/>
-                    <exclude reference="Rbf-4u-HKq"/>
-                    <exclude reference="0Fo-ui-TcT"/>
-                    <exclude reference="Th1-cx-6fB"/>
-                    <exclude reference="OhZ-LR-QI5"/>
-                    <exclude reference="y1s-kw-x8r"/>
-                    <exclude reference="ylP-qc-jih"/>
                     <exclude reference="ED1-SJ-Vo8"/>
                     <exclude reference="Mo9-gd-5Bg"/>
                     <exclude reference="tEA-sF-q52"/>
-                    <exclude reference="EcE-Bj-0YJ"/>
-                    <exclude reference="dPy-lf-wjO"/>
-                    <exclude reference="6iz-KD-I2d"/>
-                    <exclude reference="QaG-jq-VDH"/>
-                    <exclude reference="q21-JP-1Ol"/>
+                    <exclude reference="OhZ-LR-QI5"/>
+                    <exclude reference="y1s-kw-x8r"/>
+                    <exclude reference="ylP-qc-jih"/>
                     <exclude reference="GxX-69-mHp"/>
                     <exclude reference="hGp-wH-rj1"/>
                     <exclude reference="oAX-fT-1Wi"/>
-                    <exclude reference="BzS-sE-sAF"/>
-                    <exclude reference="ohz-Eo-mtr"/>
-                    <exclude reference="tHd-yB-XPI"/>
+                    <exclude reference="6iz-KD-I2d"/>
+                    <exclude reference="QaG-jq-VDH"/>
+                    <exclude reference="q21-JP-1Ol"/>
                     <exclude reference="1gb-gp-bF6"/>
                     <exclude reference="UKm-dW-QJI"/>
                     <exclude reference="ija-kc-YWi"/>
                     <exclude reference="lcy-4g-swR"/>
                     <exclude reference="3ye-Dh-2zH"/>
                     <exclude reference="Kgb-ya-Anx"/>
+                    <exclude reference="BzS-sE-sAF"/>
+                    <exclude reference="ohz-Eo-mtr"/>
+                    <exclude reference="tHd-yB-XPI"/>
+                    <exclude reference="HCe-on-gqd"/>
+                    <exclude reference="PaI-kU-Luw"/>
+                    <exclude reference="Rbf-4u-HKq"/>
+                    <exclude reference="0Fo-ui-TcT"/>
+                    <exclude reference="Th1-cx-6fB"/>
+                    <exclude reference="EcE-Bj-0YJ"/>
+                    <exclude reference="dPy-lf-wjO"/>
                     <exclude reference="CEb-AH-FXc"/>
                     <exclude reference="ErX-Qd-ygp"/>
                     <exclude reference="kjB-54-ztZ"/>
@@ -341,39 +342,39 @@
                     <include reference="NZ2-mc-EnI"/>
                     <include reference="cGE-49-uI0"/>
                     <include reference="yuL-Kv-sZX"/>
+                    <include reference="TY7-RE-DUg"/>
                     <include reference="hlf-tR-Gjm"/>
                     <include reference="4Qd-k4-n62"/>
-                    <include reference="TY7-RE-DUg"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="HCe-on-gqd"/>
-                    <include reference="PaI-kU-Luw"/>
-                    <include reference="Rbf-4u-HKq"/>
-                    <include reference="0Fo-ui-TcT"/>
-                    <include reference="Th1-cx-6fB"/>
-                    <include reference="OhZ-LR-QI5"/>
-                    <include reference="y1s-kw-x8r"/>
-                    <include reference="ylP-qc-jih"/>
                     <include reference="ED1-SJ-Vo8"/>
                     <include reference="Mo9-gd-5Bg"/>
                     <include reference="tEA-sF-q52"/>
-                    <include reference="EcE-Bj-0YJ"/>
-                    <include reference="dPy-lf-wjO"/>
-                    <include reference="6iz-KD-I2d"/>
-                    <include reference="QaG-jq-VDH"/>
-                    <include reference="q21-JP-1Ol"/>
+                    <include reference="OhZ-LR-QI5"/>
+                    <include reference="y1s-kw-x8r"/>
+                    <include reference="ylP-qc-jih"/>
                     <include reference="GxX-69-mHp"/>
                     <include reference="hGp-wH-rj1"/>
                     <include reference="oAX-fT-1Wi"/>
-                    <include reference="BzS-sE-sAF"/>
-                    <include reference="ohz-Eo-mtr"/>
-                    <include reference="tHd-yB-XPI"/>
+                    <include reference="6iz-KD-I2d"/>
+                    <include reference="QaG-jq-VDH"/>
+                    <include reference="q21-JP-1Ol"/>
                     <include reference="1gb-gp-bF6"/>
                     <include reference="UKm-dW-QJI"/>
                     <include reference="ija-kc-YWi"/>
                     <include reference="lcy-4g-swR"/>
                     <include reference="3ye-Dh-2zH"/>
                     <include reference="Kgb-ya-Anx"/>
+                    <include reference="BzS-sE-sAF"/>
+                    <include reference="ohz-Eo-mtr"/>
+                    <include reference="tHd-yB-XPI"/>
+                    <include reference="HCe-on-gqd"/>
+                    <include reference="PaI-kU-Luw"/>
+                    <include reference="Rbf-4u-HKq"/>
+                    <include reference="0Fo-ui-TcT"/>
+                    <include reference="Th1-cx-6fB"/>
+                    <include reference="EcE-Bj-0YJ"/>
+                    <include reference="dPy-lf-wjO"/>
                     <include reference="CEb-AH-FXc"/>
                     <include reference="ErX-Qd-ygp"/>
                     <include reference="kjB-54-ztZ"/>

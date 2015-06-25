@@ -23,6 +23,7 @@
 - (IBAction)btnLoginAction:(id)sender;
 - (IBAction)btnRegisterAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableViewMe;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *left_Distance;
 
 @end
 
@@ -42,6 +43,8 @@
 //    UIView*viewHeader=[[[NSBundle mainBundle]loadNibNamed:@"HeaderTableView" owner:nil options:nil] lastObject];
 //    tableViewMe.tableHeaderView=viewHeader;
 //    tableViewMe.sectionHeaderHeight=50;
+    
+//    self.left_Distance.constant=SCREEN_W-120;
   }
 -(void)createNavigation{
     self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:FONTNAME3 size:19]};
@@ -99,9 +102,81 @@
         
         
     }];
+    
+    if ([textFieldName.text isEqualToString:@""]) {
+        NSLog(@"用户名或者密码为空");
+        [ProgressHUD showError: @"用户名为空"];
+        
+    }else if ([textFieldPassword.text isEqualToString:@""]){
+        [ProgressHUD showError:@"密码为空"];
+        
+    }else{
+        NSLog(@"都不空啦，，");
+        
+        [ProgressHUD show:@"loading..."];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSString*body=[NSString stringWithFormat:@"action=v1&username=%@&password=%@",textFieldName.text,textFieldPassword.text];
+            GetData*getData=[GetData getdataWithUrl:@"/user/login.php" Body:body];
+//            NSLog(@"getData==%@",getData.dict);
+            NSString*strStatus=[getData.dict objectForKey:@"status"];
+         
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [ProgressHUD dismiss];
+                
+                if ([strStatus isEqualToString:@"error1"]) {
+                    UIAlertView*alertViewPrampt=[[UIAlertView alloc]initWithTitle:nil message:@"用户不存在" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                    [alertViewPrampt show];
+                }
+                else if ([strStatus isEqualToString:@"error2"]){
+                    UIAlertView*alertViewPrampt=[[UIAlertView alloc]initWithTitle:nil message:@"密码错误" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                    [alertViewPrampt show];
+                }
+                else if ([strStatus isEqualToString:@"error3"]){
+                    UIAlertView*alertViewPrampt=[[UIAlertView alloc]initWithTitle:nil message:@"登录失败" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                    [alertViewPrampt show];
+                }
+                else{
+                    
+                    
+                    NSString*strMsg=[[getData.dict objectForKey:@"msg"] objectForKey:@"uid"];
+                    NSString*strUrl=[NSString stringWithFormat:@"%@",[[getData.dict objectForKey:@"msg"] objectForKey:@"face"]];
+                    
+                    if ([strStatus isEqualToString:@"success"])
+                    {
+                        
+                        [ProgressHUD dismiss];
+                        //用户id
+                        [[NSUserDefaults standardUserDefaults] setObject:strMsg forKey:@"ID"];
+                        [[NSUserDefaults standardUserDefaults] setObject:strStatus forKey:@"status"];
+                        [[NSUserDefaults standardUserDefaults] setObject:strUrl forKey:@"face"];
+                        [[NSUserDefaults standardUserDefaults] setObject:textFieldName.text forKey:@"userName"];
+                        [[NSUserDefaults standardUserDefaults] setObject:textFieldPassword.text forKey:@"userPassword"];
+                        [[NSUserDefaults standardUserDefaults] synchronize];
+                        
+                       //登录成功
+                        [self loadSuccess];
+                    }
+                }
+            });
+        });
+        
+        
+    }
+    
+    
 
 }
-
+-(void)loadSuccess{
+  
+//    tableViewMe.hidden=NO;
+    [UIView animateWithDuration:3 animations:^{
+        tableViewMe.hidden=NO;
+        tableViewMe.alpha=0;
+        tableViewMe.alpha=1;
+        
+    }];
+}
 - (IBAction)btnRegisterAction:(id)sender {
     [UIView animateWithDuration:0.5 animations:^{
         [textFieldPassword

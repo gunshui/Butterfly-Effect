@@ -9,9 +9,8 @@
 #import "QQHomeViewController.h"
 #import "QQHomeTableViewCell.h"
 #import "QQHome_DetailController.h"
-//#import "YYSearchViewController.h"
 #import "QQSearchViewController.h"
-#import "YYSearchViewController.h"
+
 
 @interface QQHomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableViewHome;
