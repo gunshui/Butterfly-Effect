@@ -107,7 +107,7 @@
 -(void)createNavigation{
     
     
-    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:FONTNAME3 size:19]};
+    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:FONTNAME size:19]};
     self.navigationController.navigationBar.barTintColor=[UIColor blackColor];
     //设置导航栏文本的颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
@@ -133,12 +133,25 @@
     }
     
     cell.labelTitle.text=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"title"];//标题
+    cell.labelTitle.font=[UIFont fontWithName:FONTNAME size:12];
+    
     cell.labelTime.text=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"pubdate"];//发表时间
+    cell.labelTime.font=[UIFont fontWithName:FONTNAME size:10];
+    
     cell.labelPlayNums.text=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"click"];//播放数
+    cell.labelPlayNums.font=[UIFont fontWithName:FONTNAME size:9];
+    
     cell.labelCollectionNums.text=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"goodpost"];//收藏数
+    cell.labelCollectionNums.font=[UIFont fontWithName:FONTNAME size:9];
+    
     cell.labelLikeNums.text=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"like"];//喜欢数
+    cell.labelLikeNums.font=[UIFont fontWithName:FONTNAME size:9];
+    
     cell.labelCommentNums.text=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"commentNum"];//评论数
+    cell.labelCommentNums.font=[UIFont fontWithName:FONTNAME size:9];
+    
     cell.labelDescribe.text=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"description"];//视频描述
+    cell.labelDescribe.font=[UIFont fontWithName:FONTNAME size:10];
     
     //缩略图
     NSString*strUrl=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"litpic"];

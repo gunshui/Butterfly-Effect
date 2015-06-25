@@ -16,7 +16,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelCollectionNums;
 @property (weak, nonatomic) IBOutlet UILabel *labelYoulikeNums;
 @property (weak, nonatomic) IBOutlet UILabel *labelCommentNums;
-@property (weak, nonatomic) IBOutlet UITextView *textViewDescribe;
+@property (weak, nonatomic) IBOutlet UILabel *labelDescribe;
+@property (weak, nonatomic) IBOutlet UILabel *labels;
+
 
 
 

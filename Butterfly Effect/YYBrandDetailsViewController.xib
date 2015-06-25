@@ -50,6 +50,7 @@
                     <include reference="geD-aL-Zct"/>
                 </mask>
             </variation>
+            <point key="canvasLocation" x="188" y="358"/>
         </view>
     </objects>
 </document>
