@@ -16,4 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnShare;
 @property (weak, nonatomic) IBOutlet UIButton *btnComments;
 
+@property(nonatomic,retain)NSString*strID;
+@property(nonatomic,retain)NSString*strClassID;
 @end

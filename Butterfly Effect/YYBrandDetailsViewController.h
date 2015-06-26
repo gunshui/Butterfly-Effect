@@ -11,5 +11,5 @@
 @interface YYBrandDetailsViewController : UIViewController
 
 @property(nonatomic,retain)NSString*strTitle;
-
+@property(nonatomic,retain)NSString*prodID;
 @end

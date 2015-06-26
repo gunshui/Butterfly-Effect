@@ -24,7 +24,9 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="7wx-ia-97P" secondAttribute="bottom" id="FqN-WL-vOi"/>
-                <constraint firstItem="7wx-ia-97P" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Jmj-Cr-tKW"/>
+                <constraint firstItem="7wx-ia-97P" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Jmj-Cr-tKW">
+                    <variation key="heightClass=regular-widthClass=compact" constant="101"/>
+                </constraint>
                 <constraint firstAttribute="trailing" secondItem="7wx-ia-97P" secondAttribute="trailing" id="d0C-jT-hb7"/>
                 <constraint firstItem="7wx-ia-97P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="geD-aL-Zct"/>
             </constraints>
@@ -50,6 +52,7 @@
                     <include reference="geD-aL-Zct"/>
                 </mask>
             </variation>
+            <point key="canvasLocation" x="188" y="358"/>
         </view>
     </objects>
 </document>

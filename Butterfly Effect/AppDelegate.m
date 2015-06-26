@@ -11,8 +11,10 @@
 #import "QQHomeViewController.h"
 #import "QQBrandClassViewController.h"
 #import "QQShowViewController.h"
-//#import "QQMeViewController.h"
 #import "QQMySelfViewController.h"
+#import "UMSocial.h"
+#import "UMSocialWechatHandler.h"
+#import "UMSocialQQHandler.h"
 
 @interface AppDelegate ()
 
@@ -25,6 +27,18 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+//    [[NSUserDefaults standardUserDefaults] setObject:@"185" forKey:@"ID"];
+    
+    //友盟AppKey
+    [UMSocialData setAppKey:@"558a12d267e58e4fee0005b8"];
+    
+    //微信
+    [UMSocialWechatHandler setWXAppId:@"wx851994e571f34def" appSecret:@"00a7ca2c1026b12ce05c6d0ecf8f04d0" url:@"www.imus.cn"];
+    
+    //QQ
+    [UMSocialQQHandler setQQWithAppId:@"1104734182" appKey:@"ZhKoVobvk17fc0sK" url:@"www.imus.cn"];
+    
     //
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
@@ -48,7 +62,7 @@
     
     QQTabViewController*tab=[[QQTabViewController alloc]init];
     tab.viewControllers=[NSArray arrayWithObjects:nav_home,nav_brand,nav_show,nav_me, nil];
-    [[NSNotificationCenter defaultCenter]addObserver:tab selector:@selector(hidden:) name:@"Hidden_Tabbar" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:tab selector:@selector(hidden:) name:@"Hidden_Tabbar" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:tab selector:@selector(show:) name:@"Show_Tabbar" object:nil];
     
     

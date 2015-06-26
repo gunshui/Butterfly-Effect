@@ -14,7 +14,9 @@
 {
     NSMutableArray*arrName;
     NSMutableArray*arrImage;
-    NSMutableArray*arrPic;
+    NSMutableArray*arrPics;
+    NSDictionary*dictScrollView;
+    UILabel*labelTitle;
 }
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scroll_height;
@@ -30,8 +32,6 @@
     [super viewDidLoad];
     NSLog(@"QQBrandClassViewController");
     // Do any additional setup after loading the view from its nib.
-    
-   
     
     //导航栏
     [self createNavigation];
@@ -52,33 +52,65 @@
 #pragma mark-海报ScrollView
 
 -(void)createScrollView{
-    _scrollViewBrandClass.delegate=self;
-    _scrollViewBrandClass.showsHorizontalScrollIndicator=NO;
-    _scrollViewBrandClass.showsVerticalScrollIndicator=NO;
-    _scrollViewBrandClass.pagingEnabled=YES;
-    _scrollViewBrandClass.contentSize=CGSizeMake(SCREEN_W*4, 0);
     
-    _pageControlBrandClass.numberOfPages=2;
-    _pageControlBrandClass.currentPage=0;
-    _pageControlBrandClass.pageIndicatorTintColor=[UIColor whiteColor];
-    _pageControlBrandClass.currentPageIndicatorTintColor=[UIColor lightGrayColor];
-    [_pageControlBrandClass addTarget:self action:@selector(pageAction:) forControlEvents:UIControlEventTouchUpInside];
-    _pageControlBrandClass.backgroundColor=[UIColor clearColor];
+    DDIndicator*indicators=[[DDIndicator alloc]initWithFrame:CGRectMake(SCREEN_W/2-20, 100, 40, 40)];
+    [self.view addSubview:indicators];
+    [indicators startAnimating];
     
-    for (int i=0; i<4; i++) {
-        UIButton*btn=[[UIButton alloc]initWithFrame:CGRectMake(SCREEN_W*i, 0, SCREEN_W, self.scroll_height.constant)];
-        btn.tag=i+2000;
-        [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_scrollViewBrandClass addSubview:btn];
-        if (i==0) {
-            [btn setImage:[UIImage imageNamed:[arrPic objectAtIndex:1]] forState:0];
-        }else if (i==3) {
-            [btn setImage:[UIImage imageNamed:[arrPic objectAtIndex:0]] forState:0];
-        }else{
-            [btn setImage:[UIImage imageNamed:[arrPic objectAtIndex:i-1]] forState:0];
-        }
-    }
-    _scrollViewBrandClass.contentOffset=CGPointMake(SCREEN_W, 0);
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSString*body=[NSString stringWithFormat:@"action=v1"];
+        GetData*getData=[GetData getdataWithUrl:@"/document/show_slide.php" Body:body];
+        dictScrollView=getData.dict;
+//        NSLog(@"dictScrollView====%@",dictScrollView);
+        NSString*text=[NSString stringWithFormat:@"%@",[[[dictScrollView objectForKey:@"msg"] objectAtIndex:0] objectForKey:@"title"]];
+        CGSize mySize=[text boundingRectWithSize:CGSizeMake(SCREEN_W, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont fontWithName:FONTNAME size:11]} context:nil].size;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [indicators stopAnimating];
+            
+            _scrollViewBrandClass.delegate=self;
+            _scrollViewBrandClass.showsHorizontalScrollIndicator=NO;
+            _scrollViewBrandClass.showsVerticalScrollIndicator=NO;
+            _scrollViewBrandClass.pagingEnabled=YES;
+            _scrollViewBrandClass.contentSize=CGSizeMake(SCREEN_W*([[dictScrollView objectForKey:@"msg"] count]+2), 0);
+            
+            labelTitle=[[UILabel alloc]initWithFrame:CGRectMake(0, 64, SCREEN_W, mySize.height+20)];
+            labelTitle.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+            labelTitle.font=[UIFont fontWithName:FONTNAME size:11];
+            labelTitle.textColor=[UIColor whiteColor];
+            labelTitle.numberOfLines=0;
+            labelTitle.text=[[[dictScrollView objectForKey:@"msg"] objectAtIndex:0] objectForKey:@"title"];
+            [self.view addSubview:labelTitle];
+            
+            _pageControlBrandClass.numberOfPages=[[dictScrollView objectForKey:@"msg"] count];
+            _pageControlBrandClass.currentPage=0;
+            _pageControlBrandClass.pageIndicatorTintColor=[UIColor whiteColor];
+            _pageControlBrandClass.currentPageIndicatorTintColor=[UIColor lightGrayColor];
+            [_pageControlBrandClass addTarget:self action:@selector(pageAction:) forControlEvents:UIControlEventTouchUpInside];
+            _pageControlBrandClass.backgroundColor=[UIColor clearColor];
+            
+            int count=(int)[[dictScrollView objectForKey:@"msg"] count];
+            for (int i=0; i<([[dictScrollView objectForKey:@"msg"] count]+2); i++) {
+                UIButton*btn=[[UIButton alloc]initWithFrame:CGRectMake(SCREEN_W*i, 0, SCREEN_W, self.scroll_height.constant)];
+                btn.tag=i+2000;
+                [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+                [_scrollViewBrandClass addSubview:btn];
+                if (i==0) {
+                    [arrPics addObject:[[[dictScrollView objectForKey:@"msg"] objectAtIndex:count-1]objectForKey:@"slide_litpic"]];
+                }else if (i==[[dictScrollView objectForKey:@"msg"] count]+2-1){
+                    [arrPics addObject:[[[dictScrollView objectForKey:@"msg"] objectAtIndex:0]objectForKey:@"slide_litpic"]];
+                }else{
+                    [arrPics addObject:[[[dictScrollView objectForKey:@"msg"] objectAtIndex:(i-1)]objectForKey:@"slide_litpic"]];
+                }
+                
+                UIImageView*imageClass=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H/3)];
+                [imageClass setImageWithURL:[NSURL URLWithString:[arrPics objectAtIndex:i]] placeholderImage:nil];
+                [btn addSubview:imageClass];
+            }
+            _scrollViewBrandClass.contentOffset=CGPointMake(SCREEN_W, 0);
+        });
+    });
 }
 
 -(void)btnAction:(UIButton*)sender{
@@ -87,19 +119,30 @@
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     _pageControlBrandClass.currentPage=_scrollViewBrandClass.contentOffset.x/SCREEN_W-1;
-    if ((_scrollViewBrandClass.contentOffset.x/SCREEN_W)>2) {
+    if ((_scrollViewBrandClass.contentOffset.x/SCREEN_W)>[[dictScrollView objectForKey:@"msg"] count]) {
         _pageControlBrandClass.currentPage=0;
-        
     }else if ((_scrollViewBrandClass.contentOffset.x/SCREEN_W)<=0) {
-        _pageControlBrandClass.currentPage=1;
+        _pageControlBrandClass.currentPage=[[dictScrollView objectForKey:@"msg"] count];
+    }
+    if (_scrollViewBrandClass.contentOffset.x<=0) {
+        _scrollViewBrandClass.contentOffset=CGPointMake(SCREEN_W*[[dictScrollView objectForKey:@"msg"] count], 0);
+    }
+    if (_scrollViewBrandClass.contentOffset.x>SCREEN_W*[[dictScrollView objectForKey:@"msg"] count]) {
+        _scrollViewBrandClass.contentOffset=CGPointMake(SCREEN_W, 0);
     }
     
-    if (_scrollViewBrandClass.contentOffset.x<=0) {
-        _scrollViewBrandClass.contentOffset=CGPointMake(SCREEN_W*2, 0);
-        
-    }
-    if (_scrollViewBrandClass.contentOffset.x>SCREEN_W*2) {
-        _scrollViewBrandClass.contentOffset=CGPointMake(SCREEN_W, 0);
+    if (scrollView.contentOffset.x==SCREEN_W){
+        labelTitle.text=[[[dictScrollView objectForKey:@"msg"] objectAtIndex:0] objectForKey:@"title"];
+    }else if (scrollView.contentOffset.x==2*SCREEN_W){
+        labelTitle.text=[[[dictScrollView objectForKey:@"msg"] objectAtIndex:1] objectForKey:@"title"];
+    }else if (scrollView.contentOffset.x==3*SCREEN_W){
+        labelTitle.text=[[[dictScrollView objectForKey:@"msg"] objectAtIndex:2] objectForKey:@"title"];
+    }else if (scrollView.contentOffset.x==4*SCREEN_W){
+        labelTitle.text=[[[dictScrollView objectForKey:@"msg"] objectAtIndex:3] objectForKey:@"title"];
+    }else if (scrollView.contentOffset.x==5*SCREEN_W){
+        labelTitle.text=[[[dictScrollView objectForKey:@"msg"] objectAtIndex:4] objectForKey:@"title"];
+    }else if (scrollView.contentOffset.x>=6*SCREEN_W){
+        labelTitle.text=[[[dictScrollView objectForKey:@"msg"] objectAtIndex:0] objectForKey:@"title"];
     }
 }
 
@@ -133,9 +176,10 @@
     //图片数组
     arrImage=[NSMutableArray arrayWithObjects:@"line6_a",@"midiplus_a",@"samson_a",@"arturia_a",@"333_a",@"audient_a",@"livid_a",@"hartke_a", nil];
     //品牌名数组
-    arrName=[NSMutableArray arrayWithObjects:@"LINE6",@"MIDIPLUS",@"SAMSON",@"HARTKE",@"333",@"AUDIENT",@"LIVID",@"ARTURIA", nil];
+    arrName=[NSMutableArray arrayWithObjects:@"LINE6",@"MIDIPLUS",@"SAMSON",@"ARTURIA",@"333",@"AUDIENT",@"LIVID",@"HARTKE", nil];
     
-    arrPic=[NSMutableArray arrayWithObjects:@"品牌广告",@"2", nil];
+//    arrPic=[NSMutableArray arrayWithObjects:@"品牌广告",@"2", nil];
+    arrPics=[[NSMutableArray alloc]init];
 }
 
 #pragma mark-CollectionView
@@ -206,6 +250,23 @@
     brandDetails.strTitle=[arrName objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:brandDetails animated:YES];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"Hidden_Tabbar" object:nil userInfo:nil];
+    if (indexPath.row==0) {
+        brandDetails.prodID=@"65";
+    }else if (indexPath.row==1){
+        brandDetails.prodID=@"67";
+    }else if (indexPath.row==2){
+        brandDetails.prodID=@"69";
+    }else if (indexPath.row==3){
+        brandDetails.prodID=@"70";
+    }else if (indexPath.row==4){
+        brandDetails.prodID=@"111";
+    }else if (indexPath.row==5){
+        brandDetails.prodID=@"68";
+    }else if (indexPath.row==6){
+        brandDetails.prodID=@"66";
+    }else if (indexPath.row==7){
+        brandDetails.prodID=@"110";
+    }
 }
 
 - (void)didReceiveMemoryWarning {
