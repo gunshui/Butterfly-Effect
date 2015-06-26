@@ -41,6 +41,11 @@
 #pragma mark-请求数据
 
 -(void)createRequest{
+    
+    DDIndicator*indicators=[[DDIndicator alloc]initWithFrame:CGRectMake(SCREEN_W/2-20, 100, 40, 40)];
+    [self.view addSubview:indicators];
+    [indicators startAnimating];
+    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSString*body=[NSString stringWithFormat:@"action=v1&page=1&maxsize=%d&typeid=44&sort=time&isTop=yes",maxSize];
         GetData*getData=[GetData getdataWithUrl:@"/document/list.php" Body:body];
@@ -48,6 +53,9 @@
 //        NSLog(@"%@",dict);
         totalNums=[[dict objectForKey:@"totalNums"] intValue];
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [indicators stopAnimating];
+            
             [tableViewShow reloadData];
         });
     });

@@ -62,7 +62,7 @@
 {
     if (!_sendBtn) {
         _sendBtn = [[UIButton alloc] init];
-        [_sendBtn setTitle:@"评论" forState:UIControlStateNormal];
+        [_sendBtn setTitle:@"发送" forState:UIControlStateNormal];
         _sendBtn.titleLabel.font=[UIFont fontWithName:FONTNAME size:14];
 //        [_sendBtn setBackgroundColor:[UIColor whiteColor]];
         [_sendBtn setFrame:CGRectMake(CGRectGetMaxX(_textField.frame)+3, CGRectGetMinY(_textField.frame), 35, 30)];

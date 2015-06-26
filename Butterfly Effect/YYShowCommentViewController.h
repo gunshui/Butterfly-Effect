@@ -10,4 +10,5 @@
 
 @interface YYShowCommentViewController : UIViewController
 @property(nonatomic,retain)NSString*strID;
+@property(nonatomic,retain)NSString*strClassID;
 @end

@@ -32,6 +32,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSLog(@"YYShowDetailsViewController");
+    
     // Do any additional setup after loading the view from its nib.
     
     maxSize=10;
@@ -93,7 +96,7 @@
         NSString*body=[NSString stringWithFormat:@"action=v1&id=%@",self.strID];
         GetData*getData=[GetData getdataWithUrl:@"/document/info.php" Body:body];
         dict=getData.dict;
-//        NSLog(@"====%@",dict);
+        NSLog(@"====%@",dict);
         dispatch_async(dispatch_get_main_queue(), ^{
             [_tableViewDetails reloadData];
         });
@@ -137,7 +140,6 @@
                 }
             });
         });
-        
     }
 }
 
@@ -180,6 +182,7 @@
     YYShowCommentViewController*showComment=[[YYShowCommentViewController alloc]init];
     [self.navigationController pushViewController:showComment animated:NO];
     showComment.strID=self.strID;
+    showComment.strClassID=@"3";
 }
 
 #pragma mark-HeaderTableView
@@ -286,10 +289,6 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (tableView==_tableViewDetails) {
-//        return 346;
-//    }
-//    return 80;
     NSString*text=[NSString stringWithFormat:@"%@",[[dict objectForKey:@"msg"] objectForKey:@"description"]];
     CGSize mySize=[text boundingRectWithSize:CGSizeMake(SCREEN_W-50, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont fontWithName:FONTNAME size:10]} context:nil].size;
     
@@ -364,17 +363,15 @@
     [btnLeft addTarget:self action:@selector(btnLeftAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem*barLeft=[[UIBarButtonItem alloc]initWithCustomView:btnLeft];
     self.navigationItem.leftBarButtonItem=barLeft;
-    //搜索
-    UIButton*btnRight=[[UIButton alloc]initWithFrame:KRect(0, 0, 25, 25)];
-    [btnRight setImage:KImage(@"搜索") forState:0];
-    //    [btnRight addTarget:self action:@selector(btnRightAction) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem*barRight=[[UIBarButtonItem alloc]initWithCustomView:btnRight];
-    self.navigationItem.rightBarButtonItem=barRight;
 }
 
 -(void)btnLeftAction{
-    [self.navigationController popViewControllerAnimated:YES];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Show_Tabbar" object:nil];
+    if ([self.isTop isEqualToString:@"品牌荟"]) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Show_Tabbar" object:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

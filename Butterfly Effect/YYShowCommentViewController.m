@@ -20,9 +20,10 @@
     NSString*sendStr;
     int maxSize;
     int totalNums;
+    UITableView*_tableViewComment;
 }
-@property (weak, nonatomic) IBOutlet UITableView *tableViewComment;
-@property (weak, nonatomic) IBOutlet UIImageView *imageViewBackgrond;
+//@property (weak, nonatomic) IBOutlet UITableView *tableViewComment;
+//@property (weak, nonatomic) IBOutlet UIImageView *imageViewBackgrond;
 
 @end
 
@@ -30,6 +31,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSLog(@"YYShowCommentViewController");
+    
     // Do any additional setup after loading the view from its nib.
     
     maxSize=10;
@@ -65,8 +69,7 @@
 #pragma mark-评论框
 
 -(void)createTalkBox{
-    _imageViewBackgrond.userInteractionEnabled=YES;
-    inputBar=[[YFInputBar alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, 50)];
+    inputBar=[[YFInputBar alloc]initWithFrame:CGRectMake(0, SCREEN_H-50, SCREEN_W, 50)];
     inputBar.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
     inputBar.delegate=self;
     inputBar.clearInputWhenSend = YES;
@@ -75,7 +78,7 @@
     inputBar.textField.delegate=self;
     inputBar.textField.returnKeyType=UIReturnKeyDone;
     [inputBar.sendBtn addTarget:self action:@selector(senderAction) forControlEvents:UIControlEventTouchUpInside];
-    [_imageViewBackgrond addSubview:inputBar];
+    [self.view addSubview:inputBar];
 }
 
 -(void)senderAction{
@@ -109,17 +112,47 @@
     sendStr=str;
 }
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"ID"]==nil) {
+        UIAlertView*alertViewAnswer=[[UIAlertView alloc]initWithTitle:nil message:@"还没登录，快去登录再来回答吧" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alertViewAnswer show];
+    }
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [inputBar.textField resignFirstResponder];
+    sendStr=inputBar.textField.text;
+    [self senderAction];
+    inputBar.textField.text=@"";
+    return YES;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [((UIView*)obj) resignFirstResponder];
+    }];
+}
+
 #pragma mark-请求评论数据
 
 -(void)createRequestComment{
+    
+    DDIndicator*indicators=[[DDIndicator alloc]initWithFrame:CGRectMake(SCREEN_W/2-20, 100, 40, 40)];
+    [self.view addSubview:indicators];
+    [indicators startAnimating];
+    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSString*body=[NSString stringWithFormat:@"action=v1&aid=%@&page=1&maxsize=%d&class=3",self.strID,maxSize];
+        NSString*body=[NSString stringWithFormat:@"action=v1&aid=%@&page=1&maxsize=%d&class=%@",self.strID,maxSize,self.strClassID];
         GetData*getData=[GetData getdataWithUrl:@"/comment/list.php" Body:body];
         dictComment=getData.dict;
         NSLog(@"dictComment====%@",dictComment);
         strStatus=[dictComment objectForKey:@"status"];
         totalNums=[[dictComment objectForKey:@"totalNums"] intValue];
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [indicators stopAnimating];
+            
             [_tableViewComment reloadData];
             if ([strStatus isEqualToString:@"empty"]) {
                 labelPrompt.hidden=NO;
@@ -133,11 +166,13 @@
 #pragma mark-TableView
 
 -(void)createTableView{
+    _tableViewComment=[[UITableView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_W, SCREEN_H-64) style:UITableViewStyleGrouped];
     _tableViewComment.delegate=self;
     _tableViewComment.dataSource=self;
     self.automaticallyAdjustsScrollViewInsets=NO;
     _tableViewComment.showsVerticalScrollIndicator=NO;
     _tableViewComment.contentInset=UIEdgeInsetsMake(0, 0, 50, 0);
+    [self.view addSubview:_tableViewComment];
     
     //橡皮糖刷新
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:_tableViewComment];
