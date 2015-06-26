@@ -13,6 +13,13 @@
 
 
 @interface QQHomeViewController ()<UITableViewDataSource,UITableViewDelegate>
+
+{
+    NSDictionary*dictHome;
+    int maxSize;
+    int totalNums;
+    
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableViewHome;
 
 @end
@@ -21,11 +28,30 @@
 @synthesize tableViewHome;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    maxSize=10;
     // Do any additional setup after loading the view from its nib.
      self.automaticallyAdjustsScrollViewInsets=NO;
     [self createNavigation];
     [self createTableView];
+    [self createRequest];
+    
 
+}
+-(void)createRequest{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSString*body=[NSString stringWithFormat:@"action=v1&page=1&maxsize=%d&typeid=&sort=time&isTop=",maxSize];
+        GetData*getData=[GetData getdataWithUrl:@"/document/list.php" Body:body];
+//        NSLog(@"getData===%@",getData.dict);
+        dictHome=getData.dict;
+        totalNums=[[getData.dict objectForKey:@"totalNums"]intValue];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [tableViewHome reloadData];
+            
+        });
+        
+    });
+   
+    
 }
 -(void)createTableView{
     tableViewHome.contentInset=UIEdgeInsetsMake(0, 0, 58, 0);
@@ -43,7 +69,19 @@
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         
-        [tableViewHome footerEndRefreshing];
+        maxSize=maxSize+10;
+        if (maxSize<=totalNums) {
+            [self createRequest];
+            [tableViewHome reloadData];
+            [tableViewHome footerEndRefreshing];
+            
+        }else{
+            NSLog(@"没有数据了");
+            
+            [ProgressHUD showError: @"没有数据了"];
+
+        }
+      
         
         
     });
@@ -54,8 +92,9 @@
     double delayInSeconds = 1.5;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        
+        [self createRequest];
         [refreshControl endRefreshing];
+         [ProgressHUD showSuccess:@"更新成功"];
         
       
     });
@@ -79,6 +118,8 @@
     UIBarButtonItem*barRight=[[UIBarButtonItem alloc]initWithCustomView:btnRight];
     self.navigationItem.rightBarButtonItem=barRight;
     
+    
+    
 }
 -(void)btnRightAction{
     QQSearchViewController*searchView=[[QQSearchViewController alloc]init];
@@ -92,7 +133,7 @@
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return [[dictHome objectForKey:@"msg"] count];
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString*identifier=@"home";
@@ -100,11 +141,30 @@
     if (cell==nil) {
         cell=[[[NSBundle mainBundle] loadNibNamed:@"QQHomeTableViewCell" owner:nil options:nil] lastObject];
     }
+    //动画效果
     cell.backgroundColor=[UIColor blackColor];
     [UIView animateWithDuration:0.5 animations:^{
         cell.myBackground.alpha=0;
         cell.myBackground.alpha=1;
     }];
+    //背景大图
+    [cell.myBackground setImageWithURL:[NSURL URLWithString:[[[dictHome objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"litpic"]] placeholderImage:nil];
+    //品牌图片
+    NSString*pic=[NSString stringWithFormat:@"%@2222",[[[[dictHome objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"productInfo"] objectForKey:@"typename"]];
+    cell.imageBrand.image=KImage(pic);
+    //title
+    cell.labelTitle.text=[[[dictHome objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"title"];
+    //评论数
+    cell.labelComment.text=[[[dictHome objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"commentNum"];
+    //喜欢数
+    cell.labelHeart.text=[[[dictHome objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"like"];
+    //收藏数
+    cell.labelCollection.text=[[[dictHome objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"fav"];
+    
+    
+    
+    
+    
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -131,7 +131,7 @@
 
 -(void)creataArr{
     //图片数组
-    arrImage=[NSMutableArray arrayWithObjects:@"line6",@"midiplus",@"samson",@"arturia",@"333",@"audient",@"livid",@"hartke", nil];
+    arrImage=[NSMutableArray arrayWithObjects:@"line6_a",@"midiplus_a",@"samson_a",@"arturia_a",@"333_a",@"audient_a",@"livid_a",@"hartke_a", nil];
     //品牌名数组
     arrName=[NSMutableArray arrayWithObjects:@"LINE6",@"MIDIPLUS",@"SAMSON",@"HARTKE",@"333",@"AUDIENT",@"LIVID",@"ARTURIA", nil];
     

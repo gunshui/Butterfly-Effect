@@ -12,5 +12,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *lableTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lableSee;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewPic;
+
+@property (weak, nonatomic) IBOutlet UILabel *labelTitle;
+@property (weak, nonatomic) IBOutlet UILabel *labelSee;
+
+@property (weak, nonatomic) IBOutlet UILabel *labelHeart;
+
+@property (weak, nonatomic) IBOutlet UILabel *labelCollection;
+
+@property (weak, nonatomic) IBOutlet UILabel *labelComment;
+
 
 @end

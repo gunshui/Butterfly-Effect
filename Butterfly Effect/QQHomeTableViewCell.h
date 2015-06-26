@@ -10,5 +10,10 @@
 
 @interface QQHomeTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *myBackground;
+@property (weak, nonatomic) IBOutlet UIImageView *imageBrand;
+@property (weak, nonatomic) IBOutlet UILabel *labelTitle;
+@property (weak, nonatomic) IBOutlet UILabel *labelComment;
+@property (weak, nonatomic) IBOutlet UILabel *labelHeart;
+@property (weak, nonatomic) IBOutlet UILabel *labelCollection;
 
 @end
