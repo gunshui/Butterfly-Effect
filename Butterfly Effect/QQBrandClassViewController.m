@@ -9,6 +9,7 @@
 #import "QQBrandClassViewController.h"
 #import "YYBrandClassCollectionViewCell.h"
 #import "YYBrandDetailsViewController.h"
+#import "QQSearchViewController.h"
 
 @interface QQBrandClassViewController ()<UICollectionViewDelegateFlowLayout,UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate>
 {
@@ -16,7 +17,7 @@
     NSMutableArray*arrImage;
     NSMutableArray*arrPics;
     NSDictionary*dictScrollView;
-    UILabel*labelTitle;
+    UIActivityIndicatorView*indicators;
 }
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scroll_height;
@@ -47,23 +48,25 @@
     
     //注册xib文件
     [self.collectionViewBrandClass registerNib:[UINib nibWithNibName:@"YYBrandClassCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"CELL"];
+    
+    [self createActivity];
+}
+
+-(void)createActivity{
+    indicators=[[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(SCREEN_W/2-20, 150, 40, 40)];
+    indicators.activityIndicatorViewStyle=UIActivityIndicatorViewStyleGray;
+    [self.view addSubview:indicators];
+    [indicators startAnimating];
 }
 
 #pragma mark-海报ScrollView
 
 -(void)createScrollView{
-    
-    DDIndicator*indicators=[[DDIndicator alloc]initWithFrame:CGRectMake(SCREEN_W/2-20, 100, 40, 40)];
-    [self.view addSubview:indicators];
-    [indicators startAnimating];
-    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSString*body=[NSString stringWithFormat:@"action=v1"];
+        NSString*body=[NSString stringWithFormat:@"action=v1&typeid=8"];
         GetData*getData=[GetData getdataWithUrl:@"/document/show_slide.php" Body:body];
         dictScrollView=getData.dict;
 //        NSLog(@"dictScrollView====%@",dictScrollView);
-        NSString*text=[NSString stringWithFormat:@"%@",[[[dictScrollView objectForKey:@"msg"] objectAtIndex:0] objectForKey:@"title"]];
-        CGSize mySize=[text boundingRectWithSize:CGSizeMake(SCREEN_W, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont fontWithName:FONTNAME size:11]} context:nil].size;
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -74,14 +77,6 @@
             _scrollViewBrandClass.showsVerticalScrollIndicator=NO;
             _scrollViewBrandClass.pagingEnabled=YES;
             _scrollViewBrandClass.contentSize=CGSizeMake(SCREEN_W*([[dictScrollView objectForKey:@"msg"] count]+2), 0);
-            
-            labelTitle=[[UILabel alloc]initWithFrame:CGRectMake(0, 64, SCREEN_W, mySize.height+20)];
-            labelTitle.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-            labelTitle.font=[UIFont fontWithName:FONTNAME size:11];
-            labelTitle.textColor=[UIColor whiteColor];
-            labelTitle.numberOfLines=0;
-            labelTitle.text=[[[dictScrollView objectForKey:@"msg"] objectAtIndex:0] objectForKey:@"title"];
-            [self.view addSubview:labelTitle];
             
             _pageControlBrandClass.numberOfPages=[[dictScrollView objectForKey:@"msg"] count];
             _pageControlBrandClass.currentPage=0;
@@ -106,6 +101,8 @@
                 
                 UIImageView*imageClass=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H/3)];
                 [imageClass setImageWithURL:[NSURL URLWithString:[arrPics objectAtIndex:i]] placeholderImage:nil];
+                imageClass.clipsToBounds=YES;
+                imageClass.contentMode=UIViewContentModeScaleAspectFill;
                 [btn addSubview:imageClass];
             }
             _scrollViewBrandClass.contentOffset=CGPointMake(SCREEN_W, 0);
@@ -130,20 +127,6 @@
     if (_scrollViewBrandClass.contentOffset.x>SCREEN_W*[[dictScrollView objectForKey:@"msg"] count]) {
         _scrollViewBrandClass.contentOffset=CGPointMake(SCREEN_W, 0);
     }
-    
-    if (scrollView.contentOffset.x==SCREEN_W){
-        labelTitle.text=[[[dictScrollView objectForKey:@"msg"] objectAtIndex:0] objectForKey:@"title"];
-    }else if (scrollView.contentOffset.x==2*SCREEN_W){
-        labelTitle.text=[[[dictScrollView objectForKey:@"msg"] objectAtIndex:1] objectForKey:@"title"];
-    }else if (scrollView.contentOffset.x==3*SCREEN_W){
-        labelTitle.text=[[[dictScrollView objectForKey:@"msg"] objectAtIndex:2] objectForKey:@"title"];
-    }else if (scrollView.contentOffset.x==4*SCREEN_W){
-        labelTitle.text=[[[dictScrollView objectForKey:@"msg"] objectAtIndex:3] objectForKey:@"title"];
-    }else if (scrollView.contentOffset.x==5*SCREEN_W){
-        labelTitle.text=[[[dictScrollView objectForKey:@"msg"] objectAtIndex:4] objectForKey:@"title"];
-    }else if (scrollView.contentOffset.x>=6*SCREEN_W){
-        labelTitle.text=[[[dictScrollView objectForKey:@"msg"] objectAtIndex:0] objectForKey:@"title"];
-    }
 }
 
 -(void)pageAction:(id)sender{
@@ -158,27 +141,30 @@
     self.navigationController.navigationBar.barTintColor=[UIColor blackColor];
     //设置导航栏文本的颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    //分类
-    UIButton*btnLeft=[[UIButton alloc]initWithFrame:KRect(0, 0, 30, 30)];
-    [btnLeft setImage:KImage(@"分类") forState:0];
-    UIBarButtonItem*barLeft=[[UIBarButtonItem alloc]initWithCustomView:btnLeft];
-    self.navigationItem.leftBarButtonItem=barLeft;
     //搜索
-    UIButton*btnRight=[[UIButton alloc]initWithFrame:KRect(0, 0, 25, 25)];
+    UIButton*btnRight=[[UIButton alloc]initWithFrame:KRect(0, 0, 20, 20)];
     [btnRight setImage:KImage(@"搜索") forState:0];
+    [btnRight addTarget:self action:@selector(btnRightAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem*barRight=[[UIBarButtonItem alloc]initWithCustomView:btnRight];
     self.navigationItem.rightBarButtonItem=barRight;
+}
+
+-(void)btnRightAction{
+    QQSearchViewController*searchView=[[QQSearchViewController alloc]init];
+    UINavigationController*nav_search=[[UINavigationController alloc]initWithRootViewController:searchView];
+    [self presentViewController:nav_search animated:YES completion:^{
+        
+    }];
 }
 
 #pragma mark-色块数组
 
 -(void)creataArr{
     //图片数组
-    arrImage=[NSMutableArray arrayWithObjects:@"line6_a",@"midiplus_a",@"samson_a",@"arturia_a",@"333_a",@"audient_a",@"livid_a",@"hartke_a", nil];
+    arrImage=[NSMutableArray arrayWithObjects:@"line6aaa",@"midiplusaaa",@"samsonaaa",@"arturiaaaa",@"333aaa",@"audientaaa",@"lividaaa",@"hartkeaaa", nil];
     //品牌名数组
     arrName=[NSMutableArray arrayWithObjects:@"LINE6",@"MIDIPLUS",@"SAMSON",@"ARTURIA",@"333",@"AUDIENT",@"LIVID",@"HARTKE", nil];
     
-//    arrPic=[NSMutableArray arrayWithObjects:@"品牌广告",@"2", nil];
     arrPics=[[NSMutableArray alloc]init];
 }
 

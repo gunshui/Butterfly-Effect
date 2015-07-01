@@ -9,8 +9,9 @@
 #import "YYShowCommentViewController.h"
 #import "YYShowCommentTableViewCell.h"
 #import "YFInputBar.h"
+#import "QQMySelfViewController.h"
 
-@interface YYShowCommentViewController ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,YFInputBarDelegate>
+@interface YYShowCommentViewController ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,YFInputBarDelegate,UIAlertViewDelegate>
 {
     NSDictionary*dictComment;
     NSString*strStatus;
@@ -21,6 +22,7 @@
     int maxSize;
     int totalNums;
     UITableView*_tableViewComment;
+    UIActivityIndicatorView*indicators;
 }
 //@property (weak, nonatomic) IBOutlet UITableView *tableViewComment;
 //@property (weak, nonatomic) IBOutlet UIImageView *imageViewBackgrond;
@@ -54,6 +56,12 @@
     [self createTalkBox];
 }
 
+-(void)createActivity{
+    indicators=[[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(SCREEN_W/2-20, 150, 40, 40)];
+    indicators.activityIndicatorViewStyle=UIActivityIndicatorViewStyleGray;
+    [self.view addSubview:indicators];
+}
+
 #pragma mark-没有评论时候的提示
 
 -(void)createPrompt{
@@ -84,14 +92,14 @@
 -(void)senderAction{
     NSLog(@"评论");
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"ID"]==nil) {
-        UIAlertView*alertViewAnswer=[[UIAlertView alloc]initWithTitle:nil message:@"还没登录，快去登录再来回答吧" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        UIAlertView*alertViewAnswer=[[UIAlertView alloc]initWithTitle:nil message:@"还没登录，快去登录再来回答吧" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"去登录", nil];
         [alertViewAnswer show];
     }else{
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            NSString*bodyStr=[NSString stringWithFormat:@"action=v1&aid=%@&fid=0&tfid=0&fromuid=%@&touid=0&class=3&comt=%@",self.strID,[[NSUserDefaults standardUserDefaults] objectForKey:@"ID"],sendStr];
+            NSString*bodyStr=[NSString stringWithFormat:@"action=v1&aid=%@&fid=0&tfid=0&fromuid=%@&touid=0&class=%@&comt=%@",self.strID,[[NSUserDefaults standardUserDefaults] objectForKey:@"ID"],self.strClassID,sendStr];
             GetData*getData=[GetData getdataWithUrl:@"/comment/save.php" Body:bodyStr];
             dictSender=getData.dict;
-            NSLog(@"dictSender====%@",dictSender);
+//            NSLog(@"dictSender====%@",dictSender);
             dispatch_async(dispatch_get_main_queue(), ^{
                 if ([[dictSender objectForKey:@"status"] isEqualToString:@"success"]) {
                     UIAlertView*alerts=[[UIAlertView alloc]initWithTitle:nil message:@"评论成功" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
@@ -114,8 +122,18 @@
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"ID"]==nil) {
-        UIAlertView*alertViewAnswer=[[UIAlertView alloc]initWithTitle:nil message:@"还没登录，快去登录再来回答吧" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        UIAlertView*alertViewAnswer=[[UIAlertView alloc]initWithTitle:nil message:@"还没登录，快去登录再来回答吧" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"去登录", nil];
         [alertViewAnswer show];
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==1) {
+        NSLog(@"去登录");
+        QQMySelfViewController*mySelf=[[QQMySelfViewController alloc]init];
+        UINavigationController*nav_mySelf=[[UINavigationController alloc]initWithRootViewController:mySelf];
+        [self presentViewController:nav_mySelf animated:YES completion:nil];
+        mySelf.isHidden=YES;
     }
 }
 
@@ -138,8 +156,6 @@
 
 -(void)createRequestComment{
     
-    DDIndicator*indicators=[[DDIndicator alloc]initWithFrame:CGRectMake(SCREEN_W/2-20, 100, 40, 40)];
-    [self.view addSubview:indicators];
     [indicators startAnimating];
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -147,6 +163,7 @@
         GetData*getData=[GetData getdataWithUrl:@"/comment/list.php" Body:body];
         dictComment=getData.dict;
         NSLog(@"dictComment====%@",dictComment);
+        NSLog(@"dict--------=%@",self.strClassID);
         strStatus=[dictComment objectForKey:@"status"];
         totalNums=[[dictComment objectForKey:@"totalNums"] intValue];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -281,7 +298,7 @@
     //设置导航栏文本的颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     //返回
-    UIButton*btnLeft=[[UIButton alloc]initWithFrame:KRect(0, 0, 25, 25)];
+    UIButton*btnLeft=[[UIButton alloc]initWithFrame:KRect(0, 0, 20, 20)];
     [btnLeft setImage:KImage(@"返回按钮") forState:0];
     [btnLeft addTarget:self action:@selector(btnLeftAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem*barLeft=[[UIBarButtonItem alloc]initWithCustomView:btnLeft];

@@ -10,40 +10,84 @@
 #import "YYBrandContentTableViewCell.h"
 #import "YYShowCommentViewController.h"
 #import "UMSocial.h"
+#import "QQMySelfViewController.h"
 
-@interface YYBrandContentViewController ()<UITableViewDataSource,UITableViewDelegate,UMSocialUIDelegate>
+@interface YYBrandContentViewController ()<UMSocialUIDelegate,UIWebViewDelegate,UIAlertViewDelegate>
 {
     NSDictionary*dict;
-    DDIndicator*indicators;
 }
-@property (weak, nonatomic) IBOutlet UITableView *tableViewBrandContent;
+@property (weak, nonatomic) IBOutlet UIWebView *webViewBrandContent;
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicators;
 @end
 
 @implementation YYBrandContentViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSLog(@"YYBrandContentViewController");
+    
     // Do any additional setup after loading the view from its nib.
     
     //导航栏
     [self createNavigation];
     
-    //TableView
-    [self createTableView];
+    //WebView
+    [self createWebView];
     
     //请求数据
     [self createRequest];
     
     //Tabbar
     [self createTabBar];
+    
+    [self createActivity];
+}
+
+-(void)recordAction{
+    if ( [[NSUserDefaults standardUserDefaults] objectForKey:@"recordArr"]!=nil) {
+        NSArray*arr=[[NSUserDefaults standardUserDefaults]objectForKey:@"recordArr"];
+        NSMutableArray*mstArr=[[NSMutableArray alloc]init];
+        BOOL isSame=NO;
+        
+        for (int i=0; i<arr.count; i++) {
+            if (i<10) {
+                [mstArr addObject:[arr objectAtIndex:i]];
+                if ([[arr objectAtIndex:i]isEqualToString:self.strID]) {
+                    isSame=YES;
+                }
+            }
+        }
+        if (isSame==NO) {
+            [mstArr insertObject:self.strID atIndex:0];
+        }
+        [[NSUserDefaults standardUserDefaults]setObject:mstArr forKey:@"recordArr"];
+    }else{
+        NSArray*arr=[NSArray arrayWithObjects:self.strID, nil];
+        [[NSUserDefaults standardUserDefaults] setObject:arr forKey:@"recordArr"];
+    }
+}
+
+-(void)createWebView{
+    NSString*webStr=[[dict objectForKey:@"msg"] objectForKey:@"bodyLink"];
+    NSURLRequest*request=[NSURLRequest requestWithURL:[NSURL URLWithString:webStr] cachePolicy:NSURLRequestReloadRevalidatingCacheData timeoutInterval:30];
+    [_webViewBrandContent loadRequest:request];
+    _webViewBrandContent.scalesPageToFit=YES;
+    _webViewBrandContent.scrollView.showsVerticalScrollIndicator=NO;
+    _webViewBrandContent.scrollView.showsHorizontalScrollIndicator=NO;
+    _webViewBrandContent.delegate=self;
+}
+
+-(void)createActivity{
+    _indicators.activityIndicatorViewStyle=UIActivityIndicatorViewStyleGray;
 }
 
 #pragma mark-请求数据
 
 -(void)createRequest{
     
-    [indicators startAnimating];
+    [_indicators startAnimating];
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSString*body=[NSString stringWithFormat:@"action=v1&id=%@&uid=",self.strID];
@@ -51,62 +95,16 @@
         dict=getData.dict;
         NSLog(@"====%@",dict);
         dispatch_async(dispatch_get_main_queue(), ^{
-            
-            [indicators stopAnimating];
-            
-            
-            [_tableViewBrandContent reloadData];
-            indicators.hidden=YES;
+            [self createWebView];
+            //播放的记录
+            [self recordAction];
         });
     });
 }
 
-#pragma mark-TableView
-
--(void)createTableView{
-    _tableViewBrandContent.delegate=self;
-    _tableViewBrandContent.dataSource=self;
-    self.automaticallyAdjustsScrollViewInsets=NO;
-    _tableViewBrandContent.showsVerticalScrollIndicator=NO;
-    _tableViewBrandContent.scrollEnabled=NO;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 0.0001;
-}
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
-}
-
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString*ident=@"CELL";
-    YYBrandContentTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:ident];
-    if (cell==nil) {
-        cell=[[[NSBundle mainBundle] loadNibNamed:@"YYBrandContentTableViewCell" owner:nil options:nil] lastObject];
-    }
-    
-    NSString*webStr=[[dict objectForKey:@"msg"] objectForKey:@"bodyLink"];
-    NSURLRequest*request=[NSURLRequest requestWithURL:[NSURL URLWithString:webStr] cachePolicy:NSURLRequestReloadRevalidatingCacheData timeoutInterval:30];
-    [cell.webViewBrandContent loadRequest:request];
-    cell.webViewBrandContent.scalesPageToFit=YES;
-    cell.webViewBrandContent.scrollView.showsVerticalScrollIndicator=NO;
-    cell.webViewBrandContent.scrollView.showsHorizontalScrollIndicator=NO;
-    
-    indicators=[[DDIndicator alloc]initWithFrame:CGRectMake(SCREEN_W/2-20, 150, 40, 40)];
-    [cell.webViewBrandContent addSubview:indicators];
-    
-    
-    cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    return cell;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return SCREEN_H-104;
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    [_indicators stopAnimating];
+    _indicators.hidden=YES;
 }
 
 #pragma mark-TabBar
@@ -128,7 +126,7 @@
 //收藏
 -(void)btnCollectionAction{
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"ID"]==nil) {
-        UIAlertView*alertViewAnswer=[[UIAlertView alloc]initWithTitle:nil message:@"还没登录，\n快去登录再来收藏我吧" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        UIAlertView*alertViewAnswer=[[UIAlertView alloc]initWithTitle:nil message:@"还没登录，\n快去登录再来收藏我吧" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"去登录", nil];
         [alertViewAnswer show];
     }else{
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -152,7 +150,7 @@
 //喜欢
 -(void)btnLikeAction{
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"ID"]==nil) {
-        UIAlertView*alertViewAnswer=[[UIAlertView alloc]initWithTitle:nil message:@"还没登录，\n快去登录再来喜欢我吧" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        UIAlertView*alertViewAnswer=[[UIAlertView alloc]initWithTitle:nil message:@"还没登录，\n快去登录再来喜欢我吧" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"去登录", nil];
         [alertViewAnswer show];
     }else{
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -185,30 +183,39 @@
 
 //评论
 -(void)btnCommentsAction{
-    //评测
-    if ([self.strClassID isEqualToString:@"0"]) {
-        YYShowCommentViewController*showComment=[[YYShowCommentViewController alloc]init];
-        [self.navigationController pushViewController:showComment animated:NO];
-        showComment.strID=self.strID;
-        showComment.strClassID=@"0";
-    }else if ([self.strClassID isEqualToString:@"1"]){
-        YYShowCommentViewController*showComment=[[YYShowCommentViewController alloc]init];
-        [self.navigationController pushViewController:showComment animated:NO];
-        showComment.strID=self.strID;
-        showComment.strClassID=@"1";
-    }
-    
+    YYShowCommentViewController*showComment=[[YYShowCommentViewController alloc]init];
+    [self.navigationController pushViewController:showComment animated:NO];
+    showComment.strID=self.strID;
+    showComment.strClassID=[[dict objectForKey:@"msg"] objectForKey:@"classComment"];
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==1) {
+        NSLog(@"去登录");
+        QQMySelfViewController*mySelf=[[QQMySelfViewController alloc]init];
+        UINavigationController*nav_mySelf=[[UINavigationController alloc]initWithRootViewController:mySelf];
+        [self presentViewController:nav_mySelf animated:YES completion:nil];
+        mySelf.isHidden=YES;
+    }
+}
+
 #pragma mark-导航栏
 
 -(void)createNavigation{
-    self.title=self.strTitles;
+    if ([self.strClassID isEqualToString:@"0"]) {
+        self.title=@"评测";
+    }else if ([self.strClassID isEqualToString:@"1"]){
+        self.title=@"讲堂";
+    }else{
+        self.title=self.strTitles;
+    }
+    
     self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:FONTNAME3 size:19]};
     
     //设置导航栏文本的颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     //返回
-    UIButton*btnLeft=[[UIButton alloc]initWithFrame:KRect(0, 0, 25, 25)];
+    UIButton*btnLeft=[[UIButton alloc]initWithFrame:KRect(0, 0, 20, 20)];
     [btnLeft setImage:KImage(@"返回按钮") forState:0];
     [btnLeft addTarget:self action:@selector(btnLeftAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem*barLeft=[[UIBarButtonItem alloc]initWithCustomView:btnLeft];
@@ -216,7 +223,12 @@
 }
 
 -(void)btnLeftAction{
-    [self.navigationController popViewControllerAnimated:YES];
+    if ([self.strClassID isEqualToString:@"0"]||[self.strClassID isEqualToString:@"1"]) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Show_Tabbar" object:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

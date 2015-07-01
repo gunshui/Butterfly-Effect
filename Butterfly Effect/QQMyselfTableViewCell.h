@@ -23,5 +23,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *labelComment;
 
+@property (weak, nonatomic) IBOutlet UILabel *labelBrand;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *width_distance;
 
 @end

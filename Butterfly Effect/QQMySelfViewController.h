@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface QQMySelfViewController : UIViewController
-
+@property(nonatomic,assign)BOOL isHidden;
 @end

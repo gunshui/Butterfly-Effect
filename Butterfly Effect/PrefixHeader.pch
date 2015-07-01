@@ -28,5 +28,6 @@
 #import "MJRefresh.h"
 #import "GetData.h"
 #import "ProgressHUD.h"
-#import "UIImageView+WebCache.h"
+#define GREEN [UIColor colorWithRed:130.0/255.0 green:188.0/255.0 blue:28.0/255.0 alpha:1]
+
 #endif

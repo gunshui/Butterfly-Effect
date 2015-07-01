@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YYBrandDetailsViewController">
             <connections>
+                <outlet property="indicators" destination="4Yv-pg-FWX" id="mUB-fJ-UKS"/>
                 <outlet property="tableViewBrandDetails" destination="7wx-ia-97P" id="Qok-kV-3t2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,6 +21,9 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4Yv-pg-FWX">
+                    <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -29,27 +33,35 @@
                 </constraint>
                 <constraint firstAttribute="trailing" secondItem="7wx-ia-97P" secondAttribute="trailing" id="d0C-jT-hb7"/>
                 <constraint firstItem="7wx-ia-97P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="geD-aL-Zct"/>
+                <constraint firstItem="7wx-ia-97P" firstAttribute="centerX" secondItem="4Yv-pg-FWX" secondAttribute="centerX" id="o9j-GX-yCw"/>
+                <constraint firstItem="7wx-ia-97P" firstAttribute="centerY" secondItem="4Yv-pg-FWX" secondAttribute="centerY" id="zVD-Z8-qp0"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="7wx-ia-97P"/>
+                    <exclude reference="4Yv-pg-FWX"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="FqN-WL-vOi"/>
                     <exclude reference="Jmj-Cr-tKW"/>
                     <exclude reference="d0C-jT-hb7"/>
                     <exclude reference="geD-aL-Zct"/>
+                    <exclude reference="o9j-GX-yCw"/>
+                    <exclude reference="zVD-Z8-qp0"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
                     <include reference="7wx-ia-97P"/>
+                    <include reference="4Yv-pg-FWX"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="FqN-WL-vOi"/>
                     <include reference="Jmj-Cr-tKW"/>
                     <include reference="d0C-jT-hb7"/>
                     <include reference="geD-aL-Zct"/>
+                    <include reference="o9j-GX-yCw"/>
+                    <include reference="zVD-Z8-qp0"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="188" y="358"/>

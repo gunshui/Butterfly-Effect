@@ -10,7 +10,8 @@
 #import "QQHomeTableViewCell.h"
 #import "QQHome_DetailController.h"
 #import "QQSearchViewController.h"
-
+#import "YYBrandContentViewController.h"
+#import "YYShowDetailsViewController.h"
 
 @interface QQHomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -34,25 +35,22 @@
     [self createNavigation];
     [self createTableView];
     [self createRequest];
-    
-
 }
+
 -(void)createRequest{
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSString*body=[NSString stringWithFormat:@"action=v1&page=1&maxsize=%d&typeid=&sort=time&isTop=",maxSize];
+        NSString*body=[NSString stringWithFormat:@"action=v1&page=1&maxsize=%d&typeid=&sort=time&isTop=&isIndex=yes",maxSize];
         GetData*getData=[GetData getdataWithUrl:@"/document/list.php" Body:body];
 //        NSLog(@"getData===%@",getData.dict);
         dictHome=getData.dict;
+//        NSLog(@"====%@",dictHome);
         totalNums=[[getData.dict objectForKey:@"totalNums"]intValue];
         dispatch_async(dispatch_get_main_queue(), ^{
             [tableViewHome reloadData];
-            
         });
-        
     });
-   
-    
 }
+
 -(void)createTableView{
     tableViewHome.contentInset=UIEdgeInsetsMake(0, 0, 58, 0);
     tableViewHome.separatorStyle=UITableViewCellSeparatorStyleNone;
@@ -61,9 +59,8 @@
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
     [self followRollingScrollView:tableViewHome];
     [tableViewHome addFooterWithTarget:self action:@selector(footAction)];
-    
-
 }
+
 -(void)footAction{
     double delayInSeconds = 1.5;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -81,12 +78,9 @@
             [ProgressHUD showError: @"没有数据了"];
 
         }
-      
-        
-        
     });
- 
 }
+
 - (void)dropViewDidBeginRefreshing:(ODRefreshControl *)refreshControl
 {
     double delayInSeconds = 1.5;
@@ -95,46 +89,38 @@
         [self createRequest];
         [refreshControl endRefreshing];
          [ProgressHUD showSuccess:@"更新成功"];
-        
-      
     });
 }
--(void)createNavigation{
-   
 
+-(void)createNavigation{
     self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:FONTNAME3 size:19]};
     self.navigationController.navigationBar.barTintColor=[UIColor blackColor];
     //设置导航栏文本的颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    //分类
-    UIButton*btnLeft=[[UIButton alloc]initWithFrame:KRect(0, 0, 30, 30)];
-    [btnLeft setImage:KImage(@"分类") forState:0];
-    UIBarButtonItem*barLeft=[[UIBarButtonItem alloc]initWithCustomView:btnLeft];
-    self.navigationItem.leftBarButtonItem=barLeft;
     //搜索
-    UIButton*btnRight=[[UIButton alloc]initWithFrame:KRect(0, 0, 25, 25)];
+    UIButton*btnRight=[[UIButton alloc]initWithFrame:KRect(0, 0, 20, 20)];
     [btnRight setImage:KImage(@"搜索") forState:0];
     [btnRight addTarget:self action:@selector(btnRightAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem*barRight=[[UIBarButtonItem alloc]initWithCustomView:btnRight];
     self.navigationItem.rightBarButtonItem=barRight;
-    
-    
-    
 }
+
 -(void)btnRightAction{
     QQSearchViewController*searchView=[[QQSearchViewController alloc]init];
-//    [self.navigationController pushViewController:searchView animated:YES];
     UINavigationController*nav_search=[[UINavigationController alloc]initWithRootViewController:searchView];
     [self presentViewController:nav_search animated:YES completion:^{
         
     }];
 }
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [[dictHome objectForKey:@"msg"] count];
 }
+
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString*identifier=@"home";
     QQHomeTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:identifier];
@@ -157,43 +143,50 @@
     //评论数
     cell.labelComment.text=[[[dictHome objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"commentNum"];
     //喜欢数
-    cell.labelHeart.text=[[[dictHome objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"like"];
+    cell.labelHeart.text=[[[dictHome objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"fav"];
     //收藏数
-    cell.labelCollection.text=[[[dictHome objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"fav"];
+    cell.labelCollection.text=[[[dictHome objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"like"];
     
-    
-    
-    
-    
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 210;
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 0.001;
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 0.001;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    QQHome_DetailController*home_Detail=[[QQHome_DetailController alloc]init];
-    [self.navigationController pushViewController:home_Detail animated:YES];
-    
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"Hidden_Tabbar" object:nil userInfo:nil];
-    
-    
-    
+    [self changeActon];
+    if ([[[[dictHome objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"class"] isEqualToString:@"5"]) {
+        YYShowDetailsViewController*showDetails=[[YYShowDetailsViewController alloc]init];
+        [self.navigationController pushViewController:showDetails animated:YES];
+        showDetails.strID=[[[dictHome objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"id"];
+        showDetails.typeID=[[[dictHome objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"typeid"];
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"Hidden_Tabbar" object:nil userInfo:nil];
+    }else{
+        YYBrandContentViewController*brandContent=[[YYBrandContentViewController alloc]init];
+        [self.navigationController pushViewController:brandContent animated:YES];
+        brandContent.strID=[[[dictHome objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"id"];
+        brandContent.strTitles=[[[[dictHome objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"productInfo"] objectForKey:@"typename"];
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"Hidden_Tabbar" object:nil userInfo:nil];
+    }
 }
+
 //屏幕一旦旋转，马上执行的代理
 -(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
 //    NSLog(@"change---------");
     
     [self changeActon];
-    
-    
-    
-    
 }
 
 

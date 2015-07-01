@@ -25,6 +25,7 @@
     UILabel*labelRedline;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableViewBrandDetails;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicators;
 
 @end
 
@@ -54,6 +55,12 @@
     
     //提示
     [self createPrompt];
+    
+    [self createActivity];
+}
+
+-(void)createActivity{
+    _indicators.activityIndicatorViewStyle=UIActivityIndicatorViewStyleGray;
 }
 
 #pragma mark-没有数据时候的提示
@@ -73,21 +80,20 @@
 
 -(void)createRequest{
     
-    DDIndicator*indicators=[[DDIndicator alloc]initWithFrame:CGRectMake(SCREEN_W/2-20, 150, 40, 40)];
-    [self.view addSubview:indicators];
-    [indicators startAnimating];
+    [_indicators startAnimating];
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSString*body=[NSString stringWithFormat:@"action=v1&page=1&maxsize=%d&prodid=%@&sort=time&classid=%d",maxSize,self.prodID,classID];
         NSLog(@"%d--%@",classID,self.prodID);
         GetData*getData=[GetData getdataWithUrl:@"/document/list_product.php" Body:body];
         dict=getData.dict;
-        NSLog(@"====%@",dict);
+//        NSLog(@"====%@",dict);
         totalNums=[[dict objectForKey:@"totalNums"] intValue];
         strStatus=[dict objectForKey:@"status"];
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            [indicators stopAnimating];
+            [_indicators stopAnimating];
+            _indicators.hidden=YES;
             
             [_tableViewBrandDetails reloadData];
             if ([strStatus isEqualToString:@"empty"]) {
@@ -248,7 +254,7 @@
     cell.labelPlayNums.text=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"click"];//播放数
     cell.labelPlayNums.font=[UIFont fontWithName:FONTNAME size:9];
     
-    cell.labelCollectionNums.text=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"goodpost"];//收藏数
+    cell.labelCollectionNums.text=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"fav"];//收藏数
     cell.labelCollectionNums.font=[UIFont fontWithName:FONTNAME size:9];
     
     cell.labelLikeNums.text=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"like"];//喜欢数
@@ -266,6 +272,13 @@
     cell.imageViewPic.contentMode=UIViewContentModeScaleAspectFill;
     cell.imageViewPic.clipsToBounds=YES;
     
+    //动画效果
+    cell.imageViewPic.backgroundColor=[UIColor blackColor];
+    [UIView animateWithDuration:0.5 animations:^{
+        cell.imageViewPic.alpha=0;
+        cell.imageViewPic.alpha=1;
+    }];
+    
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -276,14 +289,14 @@
     if (classID==4) {
         NSLog(@"评测");
         YYBrandContentViewController*brandContent=[[YYBrandContentViewController alloc]init];
-        brandContent.strTitles=self.title;
+//        brandContent.strTitles=self.title;
         [self.navigationController pushViewController:brandContent animated:YES];
         brandContent.strID=[[[dict objectForKey:@"msg"]objectAtIndex:indexPath.row] objectForKey:@"id"];
         brandContent.strClassID=@"0";
     }else if (classID==2){
         NSLog(@"讲堂");
         YYBrandContentViewController*brandContent=[[YYBrandContentViewController alloc]init];
-        brandContent.strTitles=self.title;
+//        brandContent.strTitles=self.title;
         [self.navigationController pushViewController:brandContent animated:YES];
         brandContent.strID=[[[dict objectForKey:@"msg"]objectAtIndex:indexPath.row]objectForKey:@"id"];
         brandContent.strClassID=@"1";
@@ -306,17 +319,11 @@
     //设置导航栏文本的颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     //返回
-    UIButton*btnLeft=[[UIButton alloc]initWithFrame:KRect(0, 0, 25, 25)];
+    UIButton*btnLeft=[[UIButton alloc]initWithFrame:KRect(0, 0, 20, 20)];
     [btnLeft setImage:KImage(@"返回按钮") forState:0];
     [btnLeft addTarget:self action:@selector(btnLeftAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem*barLeft=[[UIBarButtonItem alloc]initWithCustomView:btnLeft];
     self.navigationItem.leftBarButtonItem=barLeft;
-    //搜索
-    UIButton*btnRight=[[UIButton alloc]initWithFrame:KRect(0, 0, 25, 25)];
-    [btnRight setImage:KImage(@"搜索") forState:0];
-//    [btnRight addTarget:self action:@selector(btnRightAction) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem*barRight=[[UIBarButtonItem alloc]initWithCustomView:btnRight];
-    self.navigationItem.rightBarButtonItem=barRight;
 }
 
 -(void)btnLeftAction{

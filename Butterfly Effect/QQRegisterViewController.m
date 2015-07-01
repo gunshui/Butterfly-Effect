@@ -121,8 +121,9 @@
         {
             [ProgressHUD show:@"loading..."];
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                NSString*body=[NSString stringWithFormat:@"action=v1&username=%@&password=%@&email=%@",aTextField1.text,aTextField2.text,aTextField4.text];
+                NSString*body=[NSString stringWithFormat:@"action=v2&username=%@&password=%@&email=%@",aTextField1.text,aTextField2.text,aTextField4.text];
                 GetData*getData=[GetData getdataWithUrl:@"/user/reg.php" Body:body];
+                NSLog(@"我要注册----%@",getData.dict);
                 dispatch_async(dispatch_get_main_queue(), ^{
                     NSString*strStatus=[getData.dict objectForKey:@"status"];
                     NSString*strMsg=[getData.dict objectForKey:@"msg"];
@@ -162,18 +163,33 @@
                     }else{
                         if ([strStatus isEqualToString:@"success"])
                         {
+                     
+                            NSString*strUrl=[NSString stringWithFormat:@"%@",[[getData.dict objectForKey:@"msg"] objectForKey:@"face"]];
+                            NSString*strCredits=[[getData.dict objectForKey:@"msg"]objectForKey:@"credits"];
+                            NSString*strLevel=[[getData.dict objectForKey:@"msg"] objectForKey:@"usergroup"];
+//                            NSLog(@"iiii-----dict6",strCredits,strLevel);
                             
+                               NSString*bigFace=[[getData.dict objectForKey:@"msg"] objectForKey:@"face_big"];
                             
                             [ProgressHUD dismiss];
                             //用户id
                             [[NSUserDefaults standardUserDefaults] setObject:strMsg forKey:@"ID"];
                             [[NSUserDefaults standardUserDefaults] setObject:strStatus forKey:@"status"];
+                            [[NSUserDefaults standardUserDefaults] setObject:strUrl forKey:@"face"];
+                              [[NSUserDefaults standardUserDefaults]setObject:bigFace forKey:@"bigFace"];
                             [[NSUserDefaults standardUserDefaults] setObject:aTextField1.text forKey:@"userName"];
                             [[NSUserDefaults standardUserDefaults] setObject:aTextField2.text forKey:@"userPassword"];
                             [[NSUserDefaults standardUserDefaults] synchronize];
+                            [[NSUserDefaults standardUserDefaults] setObject:strLevel forKey:@"level"];
+                            [[NSUserDefaults standardUserDefaults] setObject:strCredits forKey:@"credits"];
+                            [[NSUserDefaults standardUserDefaults]synchronize];
                             
-                         
+                            
                             [self.navigationController popViewControllerAnimated:YES];
+                            [[NSNotificationCenter defaultCenter]postNotificationName:@"State" object:nil];
+                            
+
+                            
                             
                         
                         }

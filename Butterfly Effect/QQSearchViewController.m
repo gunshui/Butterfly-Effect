@@ -7,6 +7,10 @@
 //
 
 #import "QQSearchViewController.h"
+#import "YYShowDetailsViewController.h"
+#import "YYBrandContentViewController.h"
+#import "QQSearchTableViewCell.h"
+#import "QQSearchDetailController.h"
 
 @interface QQSearchViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UISearchResultsUpdating>
 
@@ -15,8 +19,10 @@
     UISearchDisplayController*searchDisplay;
     NSDictionary*dictSearch;
     int numSearch;
+    NSDictionary*dict;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableviewSearch;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicators;
 
 @end
 
@@ -26,6 +32,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    tableviewSearch.separatorStyle=UITableViewCellSeparatorStyleNone;
+    tableviewSearch.backgroundColor=[UIColor whiteColor];
     //导航栏
     [self createNavigation];
     
@@ -33,13 +41,39 @@
     [self createSearch];
     
     self.automaticallyAdjustsScrollViewInsets=NO;
+    [self createRequest];
     
+    //加载中
+    [self createActivity];
     
-   
 }
+
+-(void)createActivity{
+    _indicators.activityIndicatorViewStyle=UIActivityIndicatorViewStyleGray;
+}
+
+-(void)createRequest{
+    
+    [_indicators startAnimating];
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        GetData*getData=[GetData getdataWithUrl:@"/search/list.php" Body:@"action=v1&page=1&maxsize=10&sort="];
+        NSLog(@"searchs-----%@",getData.dict);
+        dict=getData.dict;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [tableviewSearch reloadData];
+            [_indicators stopAnimating];
+            _indicators.hidden=YES;
+        });
+        
+    });
+    
+}
+
 -(void)createSearch{
     aSearchBar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, 30)];
-    aSearchBar.placeholder=@"请输入歌曲名";
+    aSearchBar.placeholder=@"请输入关键字";
     //拿到textField
     UITextField*textField=[[[[aSearchBar subviews]objectAtIndex:0] subviews] lastObject];
     NSMutableAttributedString*attStr=[[NSMutableAttributedString alloc]initWithString:@"请输入关键字" attributes:@{NSFontAttributeName:[UIFont fontWithName:@"FZLanTingHei-EL-GBK" size:14]}];
@@ -49,43 +83,26 @@
     
     aSearchBar.delegate=self;
     searchDisplay=[[UISearchDisplayController alloc]initWithSearchBar:aSearchBar contentsController:self];
-    //    searchDisplay.searchResultsTableView.separatorStyle=UITableViewce
     searchDisplay.searchResultsDataSource=self;
     searchDisplay.searchResultsDelegate=self;
     searchDisplay.searchResultsTableView.contentInset=UIEdgeInsetsMake(0, 0, 0, 0);
 
-    
     UILabel*hotLable=[[UILabel alloc]initWithFrame:CGRectMake(10, 50, 80, 30)];
-    hotLable.textColor=[UIColor colorWithRed:88.0/255.0 green:85.0/255.0 blue:182.0/255.0 alpha:1];
+//    hotLable.textColor=[UIColor colorWithRed:88.0/255.0 green:85.0/255.0 blue:182.0/255.0 alpha:1];
+    hotLable.textColor=[UIColor grayColor];
     hotLable.text=@"热门搜索:";
     hotLable.font=[UIFont fontWithName:@"FZLanTingHei-EL-GBK" size:15];
     [tableviewSearch addSubview:hotLable];
 
-//    UISearchController*searchController=[[UISearchController alloc]initWithSearchResultsController:self];
-//    //设置显示搜索结果的控制器
-//    searchController.searchResultsUpdater=self;
-////    设置开始搜索时背景显示与否
-//    searchController.dimsBackgroundDuringPresentation=NO;
-//    searchController.hidesNavigationBarDuringPresentation = NO;
-//    
-//    searchController.searchBar.frame = CGRectMake(searchController.searchBar.frame.origin.x, searchController.searchBar.frame.origin.y, searchController.searchBar.frame.size.width, 44.0);
-//    //设置searchBar位置自适应
-//    [searchController.searchBar sizeToFit];
-////
-//    tableviewSearch.tableFooterView =searchController.searchBar;
-//
-    
-    
-    
-
 }
+
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
     
 }
+
 -(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
     [aSearchBar setHidden:NO];
-    //    NSLog(@"begin");
     searchBar.showsCancelButton=YES;
     for (id aa in [aSearchBar subviews])
     {
@@ -94,17 +111,16 @@
             if ([bb isKindOfClass:[UIButton class]])
             {
                 UIButton*cancer=(UIButton*)bb;
-                //cancer.frame=aCGRect;
                 [cancer setTitle:@"取消" forState:UIControlStateNormal];
             }
         }
     }
-    
 }
+
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSString*strBody=[NSString stringWithFormat:@"action=v1&page=1&maxsize=20&mid=&sort=&isanswer=&aid=0&keyword=%@",searchBar.text];
-        GetData*getData=[GetData getdataWithUrl:@"/ask/list.php" Body:strBody];
+        NSString*strBody=[NSString stringWithFormat:@"action=v2&maxsize=10&page=1&keyword=%@&classid=",searchBar.text];
+        GetData*getData=[GetData getdataWithUrl:@"/document/list_search.php" Body:strBody];
         NSLog(@"search====%@",getData.dict);
         dictSearch=getData.dict;
         if ([[dictSearch objectForKey:@"status"]isEqualToString:@"ok"]) {
@@ -153,7 +169,9 @@
     {
         return numSearch;
     }
-  
+    if ([[dict objectForKey:@"status"] isEqualToString:@"ok"]) {
+        return [[dict objectForKey:@"msg"] count];
+    }
     return 0;
 }
 
@@ -161,14 +179,14 @@
     if (tableView==searchDisplay.searchResultsTableView) {
         return 0.001;
     }
-    return 0.01;
+    return 45;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (tableView==searchDisplay.searchResultsTableView) {
         return 50;
     }
-    return 30;
+    return 42;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -183,13 +201,41 @@
         searchCell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         return searchCell;
     }
-    return nil;
+    
+    
+    NSString*identifier=@"search";
+    QQSearchTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell==nil) {
+        cell=[[[NSBundle mainBundle]loadNibNamed:@"QQSearchTableViewCell" owner:self options:nil] lastObject];
+        
+    }
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    cell.labelTitle.text=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"keyword"];
+    return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(tableView==searchDisplay.searchResultsTableView)
     {
+        if ([[[[dictSearch objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"class"] isEqualToString:@"5"]) {
+            YYShowDetailsViewController*showDetails=[[YYShowDetailsViewController alloc]init];
+            [self.navigationController pushViewController:showDetails animated:YES];
+            showDetails.strID=[[[dictSearch objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"id"];
+            showDetails.typeID=[[[dictSearch objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"typeid"];
+            
+        }else{
+            YYBrandContentViewController*brandContent=[[YYBrandContentViewController alloc]init];
+            [self.navigationController pushViewController:brandContent animated:YES];
+            brandContent.strID=[[[dictSearch objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"id"];
+            brandContent.strTitles=[[[[dictSearch objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"productInfo"] objectForKey:@"typename"];
+        }
+    }
+    
+    if (tableView==tableviewSearch) {
+        QQSearchDetailController*detail=[[QQSearchDetailController alloc]init];
+        detail.keyword=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"keyword"];
         
-       
+        [self.navigationController pushViewController:detail animated:YES];
+        
     }
 }
 

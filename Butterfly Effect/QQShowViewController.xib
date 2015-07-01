@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QQShowViewController">
             <connections>
+                <outlet property="indicators" destination="qgS-A4-YhY" id="PFw-ky-SNd"/>
                 <outlet property="tableViewShow" destination="Vr8-Kj-cSQ" id="klV-ri-xB9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,34 +25,45 @@
                         <outlet property="delegate" destination="-1" id="sEx-hf-jeW"/>
                     </connections>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="qgS-A4-YhY">
+                    <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Vr8-Kj-cSQ" secondAttribute="bottom" id="Dpr-FL-9Bh"/>
                 <constraint firstItem="Vr8-Kj-cSQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="QkZ-pP-fab"/>
+                <constraint firstItem="qgS-A4-YhY" firstAttribute="centerY" secondItem="Vr8-Kj-cSQ" secondAttribute="centerY" id="YEW-3U-2f2"/>
                 <constraint firstItem="Vr8-Kj-cSQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iON-cJ-yhW"/>
                 <constraint firstAttribute="trailing" secondItem="Vr8-Kj-cSQ" secondAttribute="trailing" id="rJ7-Pf-2CV"/>
+                <constraint firstItem="qgS-A4-YhY" firstAttribute="centerX" secondItem="Vr8-Kj-cSQ" secondAttribute="centerX" id="xhj-RD-mSV"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="Vr8-Kj-cSQ"/>
+                    <exclude reference="qgS-A4-YhY"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="Dpr-FL-9Bh"/>
                     <exclude reference="QkZ-pP-fab"/>
                     <exclude reference="iON-cJ-yhW"/>
                     <exclude reference="rJ7-Pf-2CV"/>
+                    <exclude reference="YEW-3U-2f2"/>
+                    <exclude reference="xhj-RD-mSV"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
                     <include reference="Vr8-Kj-cSQ"/>
+                    <include reference="qgS-A4-YhY"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="Dpr-FL-9Bh"/>
                     <include reference="QkZ-pP-fab"/>
                     <include reference="iON-cJ-yhW"/>
                     <include reference="rJ7-Pf-2CV"/>
+                    <include reference="YEW-3U-2f2"/>
+                    <include reference="xhj-RD-mSV"/>
                 </mask>
             </variation>
         </view>

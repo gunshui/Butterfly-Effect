@@ -9,6 +9,7 @@
 #import "QQShowViewController.h"
 #import "YYShowDetailsViewController.h"
 #import "QQShowTableViewCell.h"
+#import "QQSearchViewController.h"
 
 @interface QQShowViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -17,6 +18,7 @@
     int totalNums;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableViewShow;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicators;
 
 @end
 
@@ -38,23 +40,26 @@
     [self createRequest];
 }
 
+-(void)createActivity{
+    _indicators.activityIndicatorViewStyle=UIActivityIndicatorViewStyleGray;
+}
+
 #pragma mark-请求数据
 
 -(void)createRequest{
     
-    DDIndicator*indicators=[[DDIndicator alloc]initWithFrame:CGRectMake(SCREEN_W/2-20, 100, 40, 40)];
-    [self.view addSubview:indicators];
-    [indicators startAnimating];
+    [_indicators startAnimating];
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSString*body=[NSString stringWithFormat:@"action=v1&page=1&maxsize=%d&typeid=44&sort=time&isTop=yes",maxSize];
         GetData*getData=[GetData getdataWithUrl:@"/document/list.php" Body:body];
         dict=getData.dict;
-//        NSLog(@"%@",dict);
+        NSLog(@"%@",dict);
         totalNums=[[dict objectForKey:@"totalNums"] intValue];
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            [indicators stopAnimating];
+            [_indicators stopAnimating];
+            _indicators.hidden=YES;
             
             [tableViewShow reloadData];
         });
@@ -113,19 +118,26 @@
 }
 
 -(void)createNavigation{
-    
-    
     self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName :[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:FONTNAME size:19]};
     self.navigationController.navigationBar.barTintColor=[UIColor blackColor];
     //设置导航栏文本的颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     //搜索
-    UIButton*btnRight=[[UIButton alloc]initWithFrame:KRect(0, 0, 25, 25)];
+    UIButton*btnRight=[[UIButton alloc]initWithFrame:KRect(0, 0, 20, 20)];
     [btnRight setImage:KImage(@"搜索") forState:0];
+    [btnRight addTarget:self action:@selector(btnRightAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem*barRight=[[UIBarButtonItem alloc]initWithCustomView:btnRight];
     self.navigationItem.rightBarButtonItem=barRight;
-    
 }
+
+-(void)btnRightAction{
+    QQSearchViewController*searchView=[[QQSearchViewController alloc]init];
+    UINavigationController*nav_search=[[UINavigationController alloc]initWithRootViewController:searchView];
+    [self presentViewController:nav_search animated:YES completion:^{
+        
+    }];
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
@@ -149,7 +161,7 @@
     cell.labelPlayNums.text=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"click"];//播放数
     cell.labelPlayNums.font=[UIFont fontWithName:FONTNAME size:9];
     
-    cell.labelCollectionNums.text=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"goodpost"];//收藏数
+    cell.labelCollectionNums.text=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"fav"];//收藏数
     cell.labelCollectionNums.font=[UIFont fontWithName:FONTNAME size:9];
     
     cell.labelLikeNums.text=[[[dict objectForKey:@"msg"] objectAtIndex:indexPath.row] objectForKey:@"like"];//喜欢数
@@ -166,6 +178,13 @@
     [cell.imageViewPic setImageWithURL:[NSURL URLWithString:strUrl] placeholderImage:nil];
     cell.imageViewPic.contentMode=UIViewContentModeScaleAspectFill;
     cell.imageViewPic.clipsToBounds=YES;
+    
+    //动画效果
+    cell.imageViewPic.backgroundColor=[UIColor blackColor];
+    [UIView animateWithDuration:0.5 animations:^{
+        cell.imageViewPic.alpha=0;
+        cell.imageViewPic.alpha=1;
+    }];
     
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
